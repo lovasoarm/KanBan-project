@@ -1,5 +1,6 @@
 using Inventory.Core.Contracts;
 using Inventory.Core.Enums;
+using CsvHelper.Configuration;
 
 namespace Inventory.Core.Entities;
 
@@ -41,4 +42,22 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
     }
 
     public bool NeedsRestock() => IsLowStock || IsOutOfStock;
+}
+
+public class ProductCsvMap : ClassMap<Product>
+{
+    public ProductCsvMap()
+    {
+        Map(m => m.Id).Name("ID");
+        Map(m => m.Name).Name("Product Name");
+        Map(m => m.SKU).Name("SKU");
+        Map(m => m.Description).Name("Description");
+        Map(m => m.Price).Name("Price");
+        Map(m => m.Quantity).Name("Quantity");
+        Map(m => m.MinQuantity).Name("Min Quantity");
+        Map(m => m.Category).Name("Category");
+        Map(m => m.Location).Name("Location");
+        Map(m => m.CreatedAt).Name("Created At");
+        Map(m => m.UpdatedAt).Name("Updated At");
+    }
 }

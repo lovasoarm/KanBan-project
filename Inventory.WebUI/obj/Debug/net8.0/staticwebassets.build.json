@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "EwAzdKYCnv7e4dOI/ct4LtkGX8pvFnuRRnxOZie8p6w=",
+  "Source": "Inventory.WebUI",
+  "BasePath": "_content/Inventory.WebUI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

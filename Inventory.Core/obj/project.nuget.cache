@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uxvhEXCoT+k=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.Core\\Inventory.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Essai\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

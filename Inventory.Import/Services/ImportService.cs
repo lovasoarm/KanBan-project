@@ -1,12 +1,14 @@
 using System.Diagnostics;
 using Inventory.Core.Contracts;
 using Inventory.Core.Entities;
+using Inventory.Core.Services;
+using Inventory.Core.Repositories;
 
 namespace Inventory.Import.Services;
 
 public class ImportService : IImportService
 {
-    private readonly ICsvImportService _csvService;
+    private readonly ICsvImportService<Product> _csvService;
     private readonly IProductService _productService;
     
     private static readonly HashSet<string> _supportedExtensions = new(StringComparer.OrdinalIgnoreCase)
@@ -16,7 +18,7 @@ public class ImportService : IImportService
 
     public IReadOnlyCollection<string> SupportedExtensions => _supportedExtensions;
 
-    public ImportService(ICsvImportService csvService, IProductService productService)
+    public ImportService(ICsvImportService<Product> csvService, IProductService productService)
     {
         _csvService = csvService ?? throw new ArgumentNullException(nameof(csvService));
         _productService = productService ?? throw new ArgumentNullException(nameof(productService));
@@ -63,14 +65,15 @@ public class ImportService : IImportService
 
         try
         {
-            var products = await _csvService.ImportProductsAsync(stream);
-            var totalCount = 0;
+            using var reader = new StreamReader(stream);
+            var csvContent = await reader.ReadToEndAsync();
+            var collection = await _csvService.ImportFromCsvContentAsync<int>(csvContent);
+            var products = collection;
+            var totalCount = products.Count();
             var successCount = 0;
 
             foreach (var product in products)
             {
-                totalCount++;
-                
                 if (cancellationToken.IsCancellationRequested)
                 {
                     result.AddWarning($"Import cancelled after processing {successCount} items");

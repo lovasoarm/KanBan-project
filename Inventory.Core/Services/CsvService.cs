@@ -87,7 +87,15 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
         };
     }
 
-    private void RegisterClassMap(ICsvReaderWriter csv)
+    private void RegisterClassMap(CsvReader csv)
+    {
+        if (_csvMap != null)
+        {
+            csv.Context.RegisterClassMap(_csvMap);
+        }
+    }
+
+    private void RegisterClassMap(CsvWriter csv)
     {
         if (_csvMap != null)
         {

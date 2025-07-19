@@ -6,8 +6,8 @@ using Inventory.Core.Services;
 namespace Inventory.Core.Factories;
 
 public interface IServiceFactory<T, TKey>
-    where T : class
-    where TKey : notnull
+    where T : class, new()
+    where TKey : notnull, IComparable<TKey>
 {
     IGenericRepository<T, TKey> CreateRepository(Func<T, TKey> keySelector);
     CsvService<T, TKey> CreateCsvService(Func<T, TKey> keySelector);
@@ -50,6 +50,6 @@ public static class ProductServiceFactory
 
     public static CsvService<Product, int> CreateProductCsvService()
     {
-        return new CsvService<Product, int>(p => p.Id, new ProductCsvMap());
+        return new CsvService<Product, int>(p => p.Id, new Entities.ProductCsvMap());
     }
 }

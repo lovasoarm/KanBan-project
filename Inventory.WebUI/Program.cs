@@ -11,9 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Register application services
-builder.Services.AddScoped<ICsvImportService, CsvService>();
+builder.Services.AddScoped<ICsvImportService<Inventory.Core.Entities.Product>, CsvService<Inventory.Core.Entities.Product, int>>();
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IGenericRepository<Inventory.Core.Entities.Product, int>>(provider => 
+    new GenericRepository<Inventory.Core.Entities.Product, int>(p => p.Id));
 builder.Services.AddScoped<IImportService, ImportService>();
 
 // Add CORS

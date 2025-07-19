@@ -28,13 +28,16 @@ public static class UsageExample
         await repository.AddAsync(product);
     }
 
-    private static async Task DemonstrateIndexersAsync(IGenericCollection<Product, int> products)
+    private static Task DemonstrateIndexersAsync(IGenericCollection<Product, int> products)
     {
         var productById = products[1];
         
         var productByIndex = products[0];
         
-        products[2] = new Product { Id = 2, Name = "Updated Product" };
+        // Note: Indexer is read-only, use Update method instead
+        // products.Update(new Product { Id = 2, Name = "Updated Product" });
+        
+        return Task.CompletedTask;
     }
 
     private static async Task DemonstrateCsvOperationsAsync()

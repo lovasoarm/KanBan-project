@@ -1,4 +1,5 @@
 using Inventory.Core.Collections;
+using Inventory.Core.Services;
 
 namespace Inventory.Core.Contracts;
 

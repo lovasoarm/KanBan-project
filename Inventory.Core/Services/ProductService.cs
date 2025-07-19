@@ -11,9 +11,14 @@ public interface IProductService
 {
     Task<IGenericCollection<Product, int>> ImportProductsAsync(string csvFilePath);
     Task<Product?> GetProductByIdAsync(int id);
+    Task<Product?> GetByIdAsync(int id);
+    Task<IEnumerable<Product>> GetAllAsync();
     Task<IGenericCollection<Product, int>> GetProductsByCategoryAsync(string category);
     Task<IGenericCollection<Product, int>> GetLowStockProductsAsync();
     Task<Product> UpdateStockAsync(int productId, int newQuantity);
+    Task<Product> CreateAsync(Product product);
+    Task<Product> UpdateAsync(Product product);
+    Task<bool> DeleteAsync(int id);
     Task ExportProductsAsync(IGenericCollection<Product, int> products, string filePath);
 }
 
@@ -25,7 +30,7 @@ public class ProductService : IProductService
     public ProductService(IGenericRepository<Product, int> repository)
     {
         _repository = repository;
-        _csvService = new CsvService<Product, int>(p => p.Id, new ProductCsvMap());
+        _csvService = new CsvService<Product, int>(p => p.Id, new Entities.ProductCsvMap());
     }
 
     public async Task<IGenericCollection<Product, int>> ImportProductsAsync(string csvFilePath)
@@ -84,25 +89,49 @@ public class ProductService : IProductService
         return updatedProduct;
     }
 
+    public async Task<Product> CreateAsync(Product product)
+    {
+        if (product == null)
+            throw new ArgumentNullException(nameof(product));
+            
+        var createdProduct = await _repository.AddAsync(product);
+        await _repository.SaveChangesAsync();
+        
+        return createdProduct;
+    }
+
+    public Task<Product?> GetByIdAsync(int id)
+    {
+        return _repository.GetByIdAsync(id);
+    }
+
+    public async Task<IEnumerable<Product>> GetAllAsync()
+    {
+        var allProducts = await _repository.GetAllAsync();
+        return allProducts.AsEnumerable();
+    }
+
+    public async Task<Product> UpdateAsync(Product product)
+    {
+        if (product == null)
+            throw new ArgumentNullException(nameof(product));
+            
+        var updatedProduct = await _repository.UpdateAsync(product);
+        await _repository.SaveChangesAsync();
+        
+        return updatedProduct;
+    }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var result = await _repository.DeleteAsync(id);
+        await _repository.SaveChangesAsync();
+        
+        return result;
+    }
+
     public Task ExportProductsAsync(IGenericCollection<Product, int> products, string filePath)
     {
         return _csvService.ExportToCsvAsync(products, filePath);
-    }
-}
-
-public class ProductCsvMap : ClassMap<Product>
-{
-    public ProductCsvMap()
-    {
-        Map(m => m.Id).Name("ID");
-        Map(m => m.Name).Name("Name");
-        Map(m => m.SKU).Name("SKU");
-        Map(m => m.Description).Name("Description");
-        Map(m => m.Price).Name("Price");
-        Map(m => m.Quantity).Name("Quantity");
-        Map(m => m.MinQuantity).Name("MinQuantity");
-        Map(m => m.Category).Name("Category");
-        Map(m => m.Location).Name("Location");
-        Map(m => m.CreatedAt).Name("CreatedAt");
     }
 }

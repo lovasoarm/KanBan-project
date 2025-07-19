@@ -78,3 +78,12 @@ public class InMemoryRepository<T, TKey> : IGenericRepository<T, TKey>
         return _data.Select(selector);
     }
 }
+
+public class GenericRepository<T, TKey> : InMemoryRepository<T, TKey>
+    where T : class
+    where TKey : notnull, IComparable<TKey>
+{
+    public GenericRepository(Func<T, TKey> keySelector) : base(keySelector)
+    {
+    }
+}
