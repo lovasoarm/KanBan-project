@@ -6,20 +6,26 @@ Un système de gestion d'inventaire moderne utilisant une architecture basée su
 
 ### Structure du Projet
 
-```KanBan-project/
-├── Inventory.Core/              # Couche métier
+```
+KanBan-project/
+├── Inventory.Core/              # Couche métier et services de base
 │   ├── Collections/            # Collections génériques avec indexeurs
 │   ├── Contracts/              # Interfaces et contrats
-│   ├── Entities/               # Entités métier
-│   ├── Enums/                  # Énumérations
-│   ├── Repositories/           # Pattern Repository
-│   ├── Services/               # Services métier
+│   ├── Entities/               # Entités métier (Product)
+│   ├── Enums/                  # Énumérations du domaine
+│   ├── Repositories/           # Pattern Repository générique
+│   ├── Services/               # Services métier (CsvService, ProductService)
 │   ├── Factories/              # Pattern Factory
 │   └── Examples/               # Exemples d'utilisation
-├── Inventory.Import/           # Couche d'import CSV
+├── Inventory.Import/           # Application console d'import CSV
+│   ├── Services/               # Services d'import avec génériques
+│   └── Program.cs              # Point d'entrée console
 ├── Inventory.WebUI/            # API Web ASP.NET Core
-├── frontend/                   # Application React
-└── Inventory.sln              # Solution .NET
+│   ├── Controllers/            # Contrôleurs REST API
+│   ├── Models/                 # Modèles de réponse API
+│   └── Program.cs              # Configuration API
+├── frontend/                   # Application React (à développer)
+└── KanBan-project.sln          # Solution .NET
 ```
 
 ## Fonctionnalités Principales
@@ -95,6 +101,35 @@ npm start
 ```
 
 ## Utilisation
+
+### Application d'Import (Console)
+
+```bash
+# Importer un fichier CSV
+dotnet run --project Inventory.Import products.csv
+
+# Exemple de sortie
+=== Inventory Import Tool ===
+
+=== Import Results ===
+Total Processed: 150
+Success: 147
+Errors: 3
+Duration: 245.67ms
+
+Errors:
+  - Failed to save product 'Invalid Product': Name is required
+```
+
+### API Web (WebUI)
+
+```bash
+# Démarrer l'API
+dotnet run --project Inventory.WebUI
+
+# Swagger UI disponible à :
+# https://localhost:5001/swagger
+```
 
 ### Création d'un Service Produit
 
@@ -236,14 +271,60 @@ public void GenericCollection_IndexerAccess_ReturnsCorrectItem()
 
 ### Endpoints Principaux
 
-```GET /api/products              # Tous les produits
+```
+GET    /api/products              # Tous les produits avec pagination
 GET    /api/products/{id}         # Produit par ID
 POST   /api/products              # Créer un produit
-PUT    /api/products/{id}         # Mettre à jour
-DELETE /api/products/{id}         # Supprimer
-GET    /api/products/low-stock    # Stocks faibles
-POST   /api/products/import       # Import CSV
-GET    /api/products/export       # Export CSV
+PUT    /api/products/{id}         # Mettre à jour un produit
+DELETE /api/products/{id}         # Supprimer un produit
+POST   /api/products/import       # Import CSV avec upload de fichier
+```
+
+### Exemples de Réponses API
+
+#### GET /api/products?page=1&size=5
+```json
+{
+  "success": true,
+  "message": "Operation completed successfully",
+  "data": [
+    {
+      "id": 1,
+      "name": "Laptop Dell",
+      "description": "Ordinateur portable professionnel",
+      "category": "Electronics",
+      "price": 999.99,
+      "quantity": 25
+    }
+  ],
+  "timestamp": "2025-01-19T18:43:00Z",
+  "metadata": {
+    "TotalCount": 150,
+    "Page": 1,
+    "PageSize": 5
+  }
+}
+```
+
+#### POST /api/products/import
+```json
+{
+  "success": true,
+  "message": "Import completed",
+  "data": {
+    "totalProcessed": 100,
+    "successCount": 97,
+    "errorCount": 3,
+    "duration": "00:00:01.245",
+    "errors": [
+      "Failed to save product 'Invalid Item': Name is required"
+    ]
+  },
+  "metadata": {
+    "FileName": "products.csv",
+    "FileSize": 15420
+  }
+}
 ```
 
 ## Déploiement
