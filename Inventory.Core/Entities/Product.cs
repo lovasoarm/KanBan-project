@@ -31,6 +31,24 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
     public DateTime? UpdatedAt { get; set; }
     public DateTime? LastRestockedAt { get; set; }
     public bool IsActive { get; set; } = true;
+    
+    // Global2025
+    public string CountryOfOrigin { get; set; } = string.Empty;
+    public string ManufacturerCode { get; set; } = string.Empty;
+    public string HSCode { get; set; } = string.Empty;
+    public decimal TaxRate { get; set; }
+    public string CurrencyCode { get; set; } = "USD";
+    public decimal LocalPrice { get; set; }
+    public string LocalCurrencyCode { get; set; } = string.Empty;
+    public decimal ExchangeRate { get; set; } = 1.0m;
+    public string Certification { get; set; } = string.Empty;
+    public bool IsEcoFriendly { get; set; }
+    public bool IsHazardous { get; set; }
+    public string StorageRequirements { get; set; } = string.Empty;
+    public DateTime? ExpiryDate { get; set; }
+    public int LeadTimeDays { get; set; }
+    public decimal CO2Footprint { get; set; }
+    public string SustainabilityScore { get; set; } = string.Empty;
 
     // Calculées
     public bool IsOutOfStock => Quantity == 0;
@@ -109,5 +127,23 @@ public class ProductCsvMap : ClassMap<Product>
         Map(m => m.Weight).Name("Weight");
         Map(m => m.WeightUnit).Name("WeightUnit");
         Map(m => m.IsActive).Name("IsActive");
+        
+        // Global2025Fields
+        Map(m => m.CountryOfOrigin).Name("CountryOfOrigin");
+        Map(m => m.ManufacturerCode).Name("ManufacturerCode");
+        Map(m => m.HSCode).Name("HSCode");
+        Map(m => m.TaxRate).Name("TaxRate");
+        Map(m => m.CurrencyCode).Name("CurrencyCode");
+        Map(m => m.LocalPrice).Name("LocalPrice");
+        Map(m => m.LocalCurrencyCode).Name("LocalCurrencyCode");
+        Map(m => m.ExchangeRate).Name("ExchangeRate");
+        Map(m => m.Certification).Name("Certification");
+        Map(m => m.IsEcoFriendly).Name("IsEcoFriendly");
+        Map(m => m.IsHazardous).Name("IsHazardous");
+        Map(m => m.StorageRequirements).Name("StorageRequirements");
+        Map(m => m.ExpiryDate).Name("ExpiryDate");
+        Map(m => m.LeadTimeDays).Name("LeadTimeDays");
+        Map(m => m.CO2Footprint).Name("CO2Footprint");
+        Map(m => m.SustainabilityScore).Name("SustainabilityScore");
     }
 }
