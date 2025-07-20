@@ -23,6 +23,7 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
         _configuration = CreateConfiguration();
     }
 
+#pragma warning disable CS0693 // Type parameter has the same name as the type parameter from outer type
     public async Task<IGenericCollection<T, TKey>> ImportFromCsvAsync<TKey>(string filePath) where TKey : notnull
     {
         ValidateFilePath(filePath);
@@ -63,6 +64,7 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
     }
 
     public ValidationSummary ValidateData<TKey>(IGenericCollection<T, TKey> data) where TKey : notnull
+#pragma warning restore CS0693
     {
         var summary = new ValidationSummary();
         
