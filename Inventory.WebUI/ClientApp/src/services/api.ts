@@ -1,27 +1,81 @@
-import axios from 'axios';
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 
-const apiClient = axios.create({
-  baseURL: '/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+interface ApiError {
+  message: string;
+  status: number;
+  details?: string;
+}
 
-// Service
+class ApiService {
+  private readonly client: AxiosInstance;
+
+  constructor() {
+    this.client = axios.create({
+      baseURL: '/api',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      timeout: 10000,
+    });
+
+    this.setupInterceptors();
+  }
+
+  private setupInterceptors(): void {
+    this.client.interceptors.response.use(
+      (response: AxiosResponse) => response,
+      (error: AxiosError) => {
+        const apiError: ApiError = {
+          message: error.message || 'An unknown error occurred',
+          status: error.response?.status || 500,
+          details: error.response?.data as string,
+        };
+        return Promise.reject(apiError);
+      }
+    );
+  }
+
+  private async makeRequest<T>(request: () => Promise<AxiosResponse<T>>): Promise<T> {
+    try {
+      const response = await request();
+      return response.data;
+    } catch (error) {
+      console.error('API request failed:', error);
+      throw error;
+    }
+  }
+
+  async getDashboardData() {
+    return this.makeRequest(() => this.client.get('/dashboard'));
+  }
+
+  async getProducts(filters?: Record<string, unknown>) {
+    return this.makeRequest(() => this.client.get('/products', { params: filters }));
+  }
+
+  async getAnalytics() {
+    return this.makeRequest(() => this.client.get('/analytics'));
+  }
+
+  async createProduct(productData: unknown) {
+    return this.makeRequest(() => this.client.post('/products', productData));
+  }
+
+  async updateProduct(id: string, productData: unknown) {
+    return this.makeRequest(() => this.client.put(`/products/${id}`, productData));
+  }
+
+  async deleteProduct(id: string) {
+    return this.makeRequest(() => this.client.delete(`/products/${id}`));
+  }
+}
+
+export const apiService = new ApiService();
+
+// Legacy export for backward compatibility
 export const dashboardService = {
-  getDashboardData: async () => {
-    const response = await apiClient.get('/dashboard');
-    return response.data;
-  },
-
-  getProducts: async (filters?: any) => {
-    const response = await apiClient.get('/products', { params: filters });
-    return response.data;
-  },
-
-  getAnalytics: async () => {
-    const response = await apiClient.get('/analytics');
-    return response.data;
-  },
+  getDashboardData: () => apiService.getDashboardData(),
+  getProducts: (filters?: Record<string, unknown>) => apiService.getProducts(filters),
+  getAnalytics: () => apiService.getAnalytics(),
 };
 

@@ -1,22 +1,35 @@
 # KanBan Project
 
-Système de gestion d'inventaire avec dashboard analytique et API REST.
+Système de gestion d'inventaire moderne avec dashboard React interactif et API REST.
 
 ## Structure
 
-- **Inventory.Core** - Couche métier avec collections avancées
-- **Inventory.Import** - Import CSV
-- **Inventory.WebUI** - API REST avec dashboard
-- **Data** - Données d'exemple
+- **Inventory.Core** - Couche métier avec collections avancées et services
+- **Inventory.Import** - Service d'import CSV avec validation
+- **Inventory.WebUI** - API REST ASP.NET Core avec dashboard React
+  - **ClientApp** - Application React avec Vite, TypeScript et Bootstrap
+  - **Controllers** - API REST controllers
+  - **Models** - Modèles de données API
+- **Data** - Données d'exemple et fichiers de configuration
 
 ## Démarrage rapide
 
+### Backend API
 ```bash
 dotnet build
 dotnet run --project Inventory.WebUI
 ```
 
-API disponible sur https://localhost:7000/swagger
+### Frontend Dashboard
+```bash
+cd Inventory.WebUI/ClientApp
+npm install
+npm run dev
+```
+
+Accès:
+- API: https://localhost:7001/swagger
+- Dashboard: http://localhost:3000
 
 ## Endpoints API
 
@@ -37,12 +50,26 @@ API disponible sur https://localhost:7000/swagger
 
 ## Fonctionnalités
 
+### Backend
 - Collections génériques avec indexeurs multiples
-- Dashboard avec métriques temps réel
+- API REST avec architecture clean code
 - Import CSV compatible Global Inventory Dataset 2025
-- Architecture clean code avec injection de dépendances
+- Injection de dépendances et services
 - Calculs automatiques de marges et statuts
 - Système d'alertes pour stock faible
+
+### Frontend Dashboard
+- Interface React moderne avec TypeScript
+- Dashboard interactif avec graphiques Chart.js
+- Pages principales:
+  - Dashboard: métriques et graphiques temps réel
+  - Products: gestion complète des produits avec filtres
+  - Analytics: analyses avancées avec visualisations
+  - Settings: configuration système et logs
+- Composants réutilisables (StatsCard, Navigation)
+- Hooks personnalisés pour la gestion d'état
+- Styles CSS responsifs avec animations
+- Architecture clean code avec séparation des responsabilités
 
 ## Données d'exemple
 

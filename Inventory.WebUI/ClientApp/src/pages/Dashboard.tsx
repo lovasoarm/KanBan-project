@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Card, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Row, Col, Card, Alert, Button } from 'react-bootstrap';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,7 +14,14 @@ import {
 } from 'chart.js';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import StatsCard from '../components/StatsCard';
-import { dashboardService } from '../services/api';
+import { useDashboard } from '../hooks/useDashboard';
+import {
+  createCategoryChartData,
+  createStatusChartData, 
+  createTrendChartData,
+  createChartOptions,
+  formatCurrency
+} from '../utils/chartUtils';
 
 ChartJS.register(
   CategoryScale,
@@ -28,38 +35,8 @@ ChartJS.register(
   LineElement
 );
 
-interface DashboardData {
-  totalProducts: number;
-  lowStockItems: number;
-  outOfStockItems: number;
-  totalValue: number;
-  categoryData: any[];
-  statusData: any[];
-  monthlyTrends: any[];
-}
-
 const Dashboard: React.FC = () => {
-  const [data, setData] = useState<DashboardData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
-
-  const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-      const result = await dashboardService.getDashboardData();
-      setData(result);
-      setError(null);
-    } catch (err) {
-      setError('Failed to load dashboard data');
-      console.error('Dashboard error:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { data, loading, error, refetch } = useDashboard();
 
   if (loading) {
     return (
@@ -81,60 +58,10 @@ const Dashboard: React.FC = () => {
 
   if (!data) return null;
 
-  // CategoryChart
-  const categoryChartData = {
-    labels: data.categoryData.map(item => item.category),
-    datasets: [{
-      label: 'Products by Category',
-      data: data.categoryData.map(item => item.count),
-      backgroundColor: [
-        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0',
-        '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
-      ],
-      borderWidth: 2,
-      borderColor: '#fff'
-    }]
-  };
-
-  // StatusChart  
-  const statusChartData = {
-    labels: data.statusData.map(item => item.status),
-    datasets: [{
-      label: 'Stock Status',
-      data: data.statusData.map(item => item.count),
-      backgroundColor: [
-        '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6f42c1'
-      ],
-      borderWidth: 2,
-      borderColor: '#fff'
-    }]
-  };
-
-  // TrendChart
-  const trendChartData = {
-    labels: data.monthlyTrends.map(item => item.month),
-    datasets: [{
-      label: 'Stock Value Trend',
-      data: data.monthlyTrends.map(item => item.value),
-      borderColor: '#36A2EB',
-      backgroundColor: 'rgba(54, 162, 235, 0.1)',
-      tension: 0.4,
-      fill: true
-    }]
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom' as const,
-      },
-      title: {
-        display: false,
-      },
-    },
-  };
+  const categoryChartData = createCategoryChartData(data.categoryData);
+  const statusChartData = createStatusChartData(data.statusData);
+  const trendChartData = createTrendChartData(data.monthlyTrends);
+  const chartOptions = createChartOptions();
 
   return (
     <div className="dashboard-container">
@@ -143,10 +70,10 @@ const Dashboard: React.FC = () => {
           <i className="fas fa-tachometer-alt me-2"></i>
           Dashboard
         </h1>
-        <button className="btn btn-outline-primary" onClick={fetchDashboardData}>
+        <Button variant="outline-primary" onClick={refetch}>
           <i className="fas fa-sync-alt me-1"></i>
           Refresh
-        </button>
+        </Button>
       </div>
 
       {/* StatsCards */}
@@ -181,7 +108,7 @@ const Dashboard: React.FC = () => {
         <Col lg={3} md={6} className="mb-3">
           <StatsCard
             title="Total Value"
-            value={`$${data.totalValue.toLocaleString()}`}
+            value={formatCurrency(data.totalValue)}
             icon="fas fa-dollar-sign"
             color="success"
             trend="+8.7%"
