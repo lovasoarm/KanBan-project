@@ -14,13 +14,13 @@ public class AdvancedInventoryCollection<T> : ICollection<T>, IEnumerable<T>
     public bool IsReadOnly => false;
 
     // PrimaryIndexers
-    public T? this[int id] => ExecuteRead(() => _indexer[id]);
+    public T? this[int id] => ExecuteRead<T?>(() => _indexer[id]);
     
-    public IEnumerable<T> this[string key] => ExecuteRead(() => _indexer[key]);
+    public IEnumerable<T> this[string key] => ExecuteRead<IEnumerable<T>>(() => _indexer[key]);
     
-    public IEnumerable<T> this[ProductStatus status] => ExecuteRead(() => _indexer[status]);
+    public IEnumerable<T> this[ProductStatus status] => ExecuteRead<IEnumerable<T>>(() => _indexer[status]);
     
-    public IEnumerable<T> this[decimal min, decimal max] => ExecuteRead(() => _indexer[min, max]);
+    public IEnumerable<T> this[decimal min, decimal max] => ExecuteRead<IEnumerable<T>>(() => _indexer[min, max]);
 
     // FluentQuery
     public InventoryQuery<T> Query() => new(this);

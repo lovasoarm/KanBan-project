@@ -101,49 +101,80 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
     public bool NeedsAttention() => NeedsRestock() || IsOverstocked || !IsActive;
 }
 
+// Mapping pour Global Product Inventory Dataset 2025
 public class ProductCsvMap : ClassMap<Product>
 {
     public ProductCsvMap()
     {
-        Map(m => m.Id).Name("ID");
-        Map(m => m.Name).Name("Name");
-        Map(m => m.SKU).Name("SKU");
-        Map(m => m.Description).Name("Description");
-        Map(m => m.Brand).Name("Brand");
-        Map(m => m.Model).Name("Model");
+        // Mapping basé sur le fichier CSV réel
+        Map(m => m.SKU).Name("Product ID");
+        Map(m => m.Name).Name("Product Name");
+        Map(m => m.Category).Name("Product Category");
+        Map(m => m.Description).Name("Product Description");
         Map(m => m.Price).Name("Price");
-        Map(m => m.Cost).Name("Cost");
-        Map(m => m.Quantity).Name("Quantity");
-        Map(m => m.MinQuantity).Name("MinQuantity");
-        Map(m => m.MaxQuantity).Name("MaxQuantity");
-        Map(m => m.Category).Name("Category");
-        Map(m => m.SubCategory).Name("SubCategory");
-        Map(m => m.Supplier).Name("Supplier");
-        Map(m => m.SupplierCode).Name("SupplierCode");
-        Map(m => m.Location).Name("Location");
-        Map(m => m.Warehouse).Name("Warehouse");
-        Map(m => m.Barcode).Name("Barcode");
-        Map(m => m.Unit).Name("Unit");
-        Map(m => m.Weight).Name("Weight");
-        Map(m => m.WeightUnit).Name("WeightUnit");
-        Map(m => m.IsActive).Name("IsActive");
+        Map(m => m.Quantity).Name("Stock Quantity");
+        Map(m => m.LeadTimeDays).Name("Warranty Period");
+        Map(m => m.StorageRequirements).Name("Product Dimensions");
+        Map(m => m.CreatedAt).Name("Manufacturing Date");
+        Map(m => m.ExpiryDate).Name("Expiration Date");
+        Map(m => m.Barcode).Name("SKU");
+        Map(m => m.SubCategory).Name("Product Tags");
+        Map(m => m.Model).Name("Color/Size Variations");
         
-        // Global2025Fields
-        Map(m => m.CountryOfOrigin).Name("CountryOfOrigin");
-        Map(m => m.ManufacturerCode).Name("ManufacturerCode");
-        Map(m => m.HSCode).Name("HSCode");
-        Map(m => m.TaxRate).Name("TaxRate");
-        Map(m => m.CurrencyCode).Name("CurrencyCode");
-        Map(m => m.LocalPrice).Name("LocalPrice");
-        Map(m => m.LocalCurrencyCode).Name("LocalCurrencyCode");
-        Map(m => m.ExchangeRate).Name("ExchangeRate");
-        Map(m => m.Certification).Name("Certification");
-        Map(m => m.IsEcoFriendly).Name("IsEcoFriendly");
-        Map(m => m.IsHazardous).Name("IsHazardous");
-        Map(m => m.StorageRequirements).Name("StorageRequirements");
-        Map(m => m.ExpiryDate).Name("ExpiryDate");
-        Map(m => m.LeadTimeDays).Name("LeadTimeDays");
-        Map(m => m.CO2Footprint).Name("CO2Footprint");
-        Map(m => m.SustainabilityScore).Name("SustainabilityScore");
+        // Ratings comme proxy pour qualité
+        Map(m => m.SustainabilityScore).Name("Product Ratings");
+        
+        // Valeurs par défaut calculées
+        Map(m => m.Cost).Convert(args => 
+        {
+            if (decimal.TryParse(args.Row.GetField("Price"), out var price))
+                return price * 0.7m; // Coût estimé à 70% du prix
+            return 0m;
+        });
+        
+        Map(m => m.MinQuantity).Convert(args => 
+        {
+            if (int.TryParse(args.Row.GetField("Stock Quantity"), out var qty))
+                return Math.Max(1, qty / 5); // Stock minimum = 20% du stock actuel
+            return 1;
+        });
+        
+        Map(m => m.MaxQuantity).Convert(args => 
+        {
+            if (int.TryParse(args.Row.GetField("Stock Quantity"), out var qty))
+                return qty * 3; // Stock maximum = 3x le stock actuel
+            return 100;
+        });
+        
+        // Géolocalisation basée sur catégorie
+        Map(m => m.Location).Convert(args => 
+        {
+            var category = args.Row.GetField("Product Category");
+            return category?.ToLower() switch
+            {
+                "electronics" => "Electronics Warehouse",
+                "clothing" => "Fashion Center",
+                "home appliances" => "Home & Garden Storage",
+                _ => "General Warehouse"
+            };
+        });
+        
+        Map(m => m.Supplier).Convert(args => 
+        {
+            var category = args.Row.GetField("Product Category");
+            return category?.ToLower() switch
+            {
+                "electronics" => "TechSupply Global",
+                "clothing" => "Fashion Direct",
+                "home appliances" => "HomeComfort Ltd",
+                _ => "General Suppliers Inc"
+            };
+        });
+        
+        // Toujours actif par défaut
+        Map(m => m.IsActive).Convert(args => true);
+        Map(m => m.Unit).Convert(args => "pcs");
+        Map(m => m.CurrencyCode).Convert(args => "USD");
+        Map(m => m.TaxRate).Convert(args => 0.20m); // 20% TVA par défaut
     }
 }
