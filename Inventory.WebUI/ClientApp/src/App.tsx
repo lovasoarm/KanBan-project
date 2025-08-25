@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import Dashboard from './pages/Dashboard';
 import ProductList from './pages/ProductList';
 import Analytics from './pages/Analytics';
+import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/analytics" element={<Analytics />} />
+              <Route path="/reports" element={<Reports />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>
           </Container>

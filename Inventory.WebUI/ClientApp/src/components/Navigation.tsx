@@ -45,6 +45,15 @@ const Navigation: React.FC = () => {
             
             <Nav.Link 
               as={Link} 
+              to="/reports"
+              className={location.pathname === '/reports' ? 'active' : ''}
+            >
+              <i className="fas fa-file-alt me-1"></i>
+              Reports
+            </Nav.Link>
+            
+            <Nav.Link 
+              as={Link} 
               to="/settings"
               className={location.pathname === '/settings' ? 'active' : ''}
             >
