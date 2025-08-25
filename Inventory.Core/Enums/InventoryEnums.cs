@@ -5,6 +5,7 @@ public enum ProductStatus
     Available,
     LowStock,
     OutOfStock,
+    Overstocked,
     Discontinued,
     Damaged
 }

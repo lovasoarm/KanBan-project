@@ -1,0 +1,21 @@
+ID,Name,SKU,Description,Brand,Model,Price,Cost,Quantity,MinQuantity,MaxQuantity,Category,SubCategory,Supplier,SupplierCode,Location,Warehouse,Barcode,Unit,Weight,WeightUnit,IsActive
+1,MacBook Pro 16,MBP-16-2024,Professional laptop with M3 chip,Apple,MacBook Pro 16,2499.99,1899.99,15,5,50,Electronics,Computers,TechSupply Inc,TS001,Store Front,Main Warehouse,1234567890123,pcs,2.1,kg,true
+2,iPhone 15 Pro,IP15-PRO-256,Latest smartphone 256GB,Apple,iPhone 15 Pro,1199.99,899.99,25,10,100,Electronics,Smartphones,MobileDistrib,MD002,Store Front,Main Warehouse,2345678901234,pcs,0.221,kg,true
+3,Samsung 65 QLED TV,SAM-65-Q80C,65-inch QLED 4K Smart TV,Samsung,QN65Q80C,1799.99,1299.99,8,3,20,Electronics,TVs,ElectroWholesale,EW003,Storage Room,Electronics Warehouse,3456789012345,pcs,25.4,kg,true
+4,Nike Air Max 270,NAM-270-BLK-10,Running shoes black size 10,Nike,Air Max 270,149.99,89.99,45,20,200,Fashion,Footwear,SportGear Ltd,SG004,Store Floor,Apparel Warehouse,4567890123456,pcs,0.85,kg,true
+5,Adidas Ultraboost 22,AUB-22-WHT-9.5,Premium running shoes white 9.5,Adidas,Ultraboost 22,179.99,119.99,32,15,150,Fashion,Footwear,SportGear Ltd,SG005,Store Floor,Apparel Warehouse,5678901234567,pcs,0.91,kg,true
+6,Sony WH-1000XM5,SONY-WH-XM5,Noise-canceling wireless headphones,Sony,WH-1000XM5,399.99,259.99,18,8,60,Electronics,Audio,AudioPro,AP006,Store Front,Electronics Warehouse,6789012345678,pcs,0.254,kg,true
+7,Dyson V15 Detect,DYS-V15-ABS,Cordless vacuum cleaner,Dyson,V15 Detect Absolute,749.99,499.99,12,5,30,Home & Garden,Appliances,HomeSupply Co,HS007,Storage Room,Home Warehouse,7890123456789,pcs,3.1,kg,true
+8,KitchenAid Stand Mixer,KA-ARTISAN-RED,Artisan series stand mixer red,KitchenAid,KSM150PSER,379.99,249.99,8,3,25,Home & Garden,Kitchen,CookingPro,CP008,Storage Room,Home Warehouse,8901234567890,pcs,11.1,kg,true
+9,Levi's 511 Jeans,LEVIS-511-34-32,Slim fit jeans dark wash 34x32,Levi's,511 Slim Fit,89.99,45.99,67,30,300,Fashion,Clothing,FashionHub,FH009,Store Floor,Apparel Warehouse,9012345678901,pcs,0.68,kg,true
+10,The North Face Jacket,TNF-NUPTSE-BLK-L,Nuptse down jacket black large,The North Face,1996 Retro Nuptse,279.99,169.99,28,12,80,Fashion,Outerwear,OutdoorGear,OG010,Store Floor,Apparel Warehouse,0123456789012,pcs,0.82,kg,true
+11,Canon EOS R5,CANON-R5-BODY,Mirrorless camera body,Canon,EOS R5,3899.99,2999.99,3,2,10,Electronics,Cameras,PhotoPro,PP011,Storage Room,Electronics Warehouse,1122334455667,pcs,0.738,kg,true
+12,Weber Genesis II,WEBER-GEN2-335,Gas grill 3-burner stainless steel,Weber,Genesis II E-335,899.99,549.99,5,2,15,Home & Garden,Outdoor,GrillMaster,GM012,Storage Room,Home Warehouse,2233445566778,pcs,77.1,kg,true
+13,Vitamix A3500,VITA-A3500-BLK,Ascent series blender black,Vitamix,A3500 Ascent,549.99,349.99,14,6,40,Home & Garden,Kitchen,CookingPro,CP013,Storage Room,Home Warehouse,3344556677889,pcs,5.6,kg,true
+14,Ray-Ban Aviator,RB-AVIATOR-GOLD,Classic aviator sunglasses gold,Ray-Ban,RB3025,189.99,99.99,42,20,120,Fashion,Accessories,EyewearPlus,EP014,Store Front,Apparel Warehouse,4455667788990,pcs,0.031,kg,true
+15,Bose SoundLink Revolve,BOSE-SLR-PLUS,Portable Bluetooth speaker,Bose,SoundLink Revolve+,329.99,199.99,23,10,50,Electronics,Audio,AudioPro,AP015,Store Front,Electronics Warehouse,5566778899001,pcs,0.68,kg,true
+16,Instant Pot Duo,IP-DUO-8QT,Electric pressure cooker 8-quart,Instant Pot,Duo 8Qt,99.99,59.99,36,15,100,Home & Garden,Kitchen,CookingPro,CP016,Storage Room,Home Warehouse,6677889900112,pcs,5.8,kg,true
+17,Patagonia Better Sweater,PAT-SWEATER-NAV-M,Fleece jacket navy medium,Patagonia,Better Sweater,99.99,59.99,41,20,150,Fashion,Outerwear,OutdoorGear,OG017,Store Floor,Apparel Warehouse,7788990011223,pcs,0.54,kg,true
+18,Apple Watch Series 9,AW-S9-45-GPS,Smartwatch 45mm GPS,Apple,Watch Series 9,429.99,299.99,19,8,60,Electronics,Wearables,TechSupply Inc,TS018,Store Front,Electronics Warehouse,8899001122334,pcs,0.055,kg,true
+19,Yeti Rambler Tumbler,YETI-RAM-30-SS,Insulated tumbler 30oz stainless,Yeti,Rambler 30oz,39.99,19.99,85,40,300,Home & Garden,Drinkware,OutdoorGear,OG019,Store Floor,Home Warehouse,9900112233445,pcs,0.54,kg,true
+20,Microsoft Surface Pro,MS-SP9-256-PLAT,2-in-1 tablet 256GB platinum,Microsoft,Surface Pro 9,1299.99,899.99,11,5,30,Electronics,Tablets,TechSupply Inc,TS020,Store Front,Electronics Warehouse,0011223344556,pcs,0.879,kg,true
