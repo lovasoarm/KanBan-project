@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Alert, Button } from 'react-bootstrap';
+import { Row, Col, Card, Alert, Button, Badge, Table } from 'react-bootstrap';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +13,7 @@ import {
   LineElement
 } from 'chart.js';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import StatsCard from '../components/StatsCard';
+import StatsCards from '../components/Dashboard/StatsCards';
 import { useDashboard } from '../hooks/useDashboard';
 import {
   createCategoryChartData,
@@ -22,6 +22,7 @@ import {
   createChartOptions,
   formatCurrency
 } from '../utils/chartUtils';
+import '../components/Dashboard/Dashboard.css';
 
 ChartJS.register(
   CategoryScale,
@@ -65,54 +66,61 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="dashboard-title">
-          <i className="fas fa-tachometer-alt me-2"></i>
-          Dashboard
-        </h1>
-        <Button variant="outline-primary" onClick={refetch}>
-          <i className="fas fa-sync-alt me-1"></i>
-          Refresh
-        </Button>
+      {/* Header Section */}
+      <div className="dashboard-header mb-4">
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <h1 className="dashboard-title mb-1">
+              <i className="fas fa-tachometer-alt me-2 text-primary"></i>
+              Inventory Management Dashboard
+            </h1>
+            <p className="text-muted mb-0">Welcome back! Here's what's happening with your inventory today.</p>
+          </div>
+          <div className="d-flex gap-2">
+            <Button variant="outline-secondary" size="sm">
+              <i className="fas fa-download me-1"></i>
+              Export
+            </Button>
+            <Button variant="primary" size="sm" onClick={refetch}>
+              <i className="fas fa-sync-alt me-1"></i>
+              Refresh
+            </Button>
+          </div>
+        </div>
       </div>
 
-      {/* StatsCards */}
+      {/* Statistics Cards - Section Inventory prioritaire */}
+      <div className="stats-section mb-4">
+        <StatsCards data={data} />
+      </div>
+
+      {/* Quick Actions */}
       <Row className="mb-4">
-        <Col lg={3} md={6} className="mb-3">
-          <StatsCard
-            title="Total Products"
-            value={data.totalProducts}
-            icon="fas fa-boxes"
-            color="primary"
-            trend="+5.2%"
-          />
-        </Col>
-        <Col lg={3} md={6} className="mb-3">
-          <StatsCard
-            title="Low Stock"
-            value={data.lowStockItems}
-            icon="fas fa-exclamation-triangle"
-            color="warning"
-            trend="-2.1%"
-          />
-        </Col>
-        <Col lg={3} md={6} className="mb-3">
-          <StatsCard
-            title="Out of Stock"
-            value={data.outOfStockItems}
-            icon="fas fa-times-circle"
-            color="danger"
-            trend="+1.3%"
-          />
-        </Col>
-        <Col lg={3} md={6} className="mb-3">
-          <StatsCard
-            title="Total Value"
-            value={formatCurrency(data.totalValue)}
-            icon="fas fa-dollar-sign"
-            color="success"
-            trend="+8.7%"
-          />
+        <Col lg={12}>
+          <Card className="border-0 shadow-sm">
+            <Card.Body className="py-3">
+              <div className="d-flex justify-content-between align-items-center">
+                <h5 className="mb-0">
+                  <i className="fas fa-bolt me-2 text-warning"></i>
+                  Quick Actions
+                </h5>
+                <div className="d-flex gap-2">
+                  <Button variant="outline-primary" size="sm">
+                    <i className="fas fa-plus me-1"></i>
+                    Add Product
+                  </Button>
+                  <Button variant="outline-success" size="sm">
+                    <i className="fas fa-truck me-1"></i>
+                    New Order
+                  </Button>
+                  <Button variant="outline-info" size="sm">
+                    <i className="fas fa-file-alt me-1"></i>
+                    Generate Report
+                  </Button>
+                </div>
+              </div>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Form, FormControl, InputGroup, Dropdown, Badge } from 'react-bootstrap';
+import './Header.css';
 
 interface HeaderProps {
   onRefresh: () => void;
