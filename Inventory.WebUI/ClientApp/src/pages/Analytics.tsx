@@ -93,6 +93,17 @@ const Analytics: React.FC = () => {
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0, 
+    },
+    transitions: {
+      active: {
+        animation: {
+          duration: 0 
+        }
+      }
+    },
     plugins: {
       legend: {
         position: 'top' as const,

@@ -54,7 +54,7 @@ public class AdvancedInventoryCollection<T> : ICollection<T>, IEnumerable<T>
     public bool Contains(T item) => ExecuteRead(() => _indexer[item.Id]?.Equals(item) == true);
 
     public void CopyTo(T[] array, int arrayIndex) => 
-        ExecuteRead(() => this.ToArray().CopyTo(array, arrayIndex));
+        ExecuteRead<object?>(() => { this.ToArray().CopyTo(array, arrayIndex); return null; });
 
     // Enumeration
     public IEnumerator<T> GetEnumerator() => ExecuteRead(() => _indexer.GetEnumerator());

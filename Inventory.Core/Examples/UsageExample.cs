@@ -63,7 +63,7 @@ public static class UsageExample
     }
 
     // Indexeurs
-    private static async Task DemonstrateAdvancedIndexersAsync(InventoryCollection<Product> inventory)
+    private static Task DemonstrateAdvancedIndexersAsync(InventoryCollection<Product> inventory)
     {
         // ID
         var product = inventory[1];
@@ -86,6 +86,8 @@ public static class UsageExample
         
         // Range
         var firstFive = inventory[0..5];
+        
+        return Task.CompletedTask;
     }
 
     // Dashboard
@@ -114,7 +116,7 @@ public static class UsageExample
     }
 
     // Requêtes
-    private static async Task DemonstrateCollectionQueriesAsync(InventoryCollection<Product> inventory)
+    private static Task DemonstrateCollectionQueriesAsync(InventoryCollection<Product> inventory)
     {
         // Filtres
         var lowStock = inventory.WhereLowStock();
@@ -129,16 +131,19 @@ public static class UsageExample
         Console.WriteLine($"Low Stock Count: {lowStock.Count()}");
         Console.WriteLine($"Out of Stock Count: {outOfStock.Count()}");
         Console.WriteLine($"Electronics Count: {electronics.Count()}");
+        
+        return Task.CompletedTask;
     }
 
     // Population
-    private static async Task PopulateInventoryAsync(InventoryCollection<Product> inventory)
+    private static Task PopulateInventoryAsync(InventoryCollection<Product> inventory)
     {
         var products = CreateEnhancedSampleProducts();
         foreach (var product in products)
         {
             inventory.Add(product);
         }
+        return Task.CompletedTask;
     }
 
     private static List<Product> CreateEnhancedSampleProducts()

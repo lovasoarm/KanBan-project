@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Reports as ReportsComponent } from '../../../src/components/Reports';
+import { Reports as ReportsComponent } from '../components/Reports';
 
 const Reports: React.FC = () => {
   return (

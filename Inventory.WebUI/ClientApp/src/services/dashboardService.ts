@@ -94,15 +94,12 @@ class DashboardService {
     }
   }
 
-  /**
-   * Process products to extract dashboard statistics
-   */
   private processProductsToStats(products: Product[]): DashboardStats {
     const totalValue = products.reduce((sum, p) => sum + p.totalValue, 0);
     const totalQuantity = products.reduce((sum, p) => sum + p.quantity, 0);
     const lowStockProducts = products.filter(p => p.isLowStock).length;
     
-    // Calculate month-over-month changes (mock for now)
+  
     return {
       salesOverview: { value: totalValue * 0.85, change: 12.5 },
       revenue: { value: totalValue * 0.7, change: 8.3 },
@@ -113,10 +110,16 @@ class DashboardService {
     };
   }
 
-  /**
-   * Generate chart data from products
-   */
+ 
+  private chartDataCache: ChartData | null = null;
+
+
   private generateChartData(products: Product[]): ChartData {
+    // Retourner les données en cache si elles existent
+    if (this.chartDataCache) {
+      return this.chartDataCache;
+    }
+
     const categories = [...new Set(products.map(p => p.category))];
     const last6Months = Array.from({ length: 6 }, (_, i) => {
       const date = new Date();
@@ -124,25 +127,33 @@ class DashboardService {
       return date.toLocaleString('default', { month: 'short' });
     }).reverse();
 
-    // Mock sales and purchase data based on categories
-    const salesData = last6Months.map(() => Math.floor(Math.random() * 50000) + 20000);
-    const purchaseData = last6Months.map(() => Math.floor(Math.random() * 40000) + 15000);
-    
-    const orderedData = categories.map(() => Math.floor(Math.random() * 100) + 50);
-    const deliveredData = orderedData.map(ordered => Math.floor(ordered * (0.8 + Math.random() * 0.2)));
+ 
+    const seed = products.length + categories.length;
+    const random = (index: number) => {
+      const x = Math.sin(seed * index) * 10000;
+      return x - Math.floor(x);
+    };
 
-    return {
+    const salesData = last6Months.map((_, i) => Math.floor(random(i) * 50000) + 20000);
+    const purchaseData = last6Months.map((_, i) => Math.floor(random(i + 10) * 40000) + 15000);
+    
+    const orderedData = categories.map((_, i) => Math.floor(random(i + 20) * 100) + 50);
+    const deliveredData = orderedData.map((ordered, i) => Math.floor(ordered * (0.8 + random(i + 30) * 0.2)));
+
+    this.chartDataCache = {
       salesAndPurchase: {
-        labels: last6Months,
-        salesData,
-        purchaseData
+        labels: Object.freeze(last6Months),
+        salesData: Object.freeze(salesData),
+        purchaseData: Object.freeze(purchaseData)
       },
       orderSummary: {
-        labels: categories,
-        orderedData,
-        deliveredData
+        labels: Object.freeze(categories),
+        orderedData: Object.freeze(orderedData),
+        deliveredData: Object.freeze(deliveredData)
       }
     };
+
+    return this.chartDataCache;
   }
 
   /**
@@ -231,6 +242,7 @@ class DashboardService {
    */
   clearCache(): void {
     this.cache.clear();
+    this.chartDataCache = null;
   }
 
   // Mock data methods for fallback

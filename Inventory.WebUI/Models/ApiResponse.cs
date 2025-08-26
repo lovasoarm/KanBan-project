@@ -26,13 +26,13 @@ public class ApiResponse<TData>
         Timestamp = DateTime.UtcNow;
     }
 
-    // Factory method for error responses
+
     public static ApiResponse<TData> Error(string message, TData? data = default)
     {
         return new ApiResponse<TData>(data, message) { Success = false };
     }
 
-    // Factory method for success responses
+
     public static ApiResponse<TData> Ok(TData data, string message = "Success")
     {
         return new ApiResponse<TData>(data, message);

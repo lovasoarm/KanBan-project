@@ -72,10 +72,5 @@ class ApiService {
 
 export const apiService = new ApiService();
 
-// Legacy export for backward compatibility
-export const dashboardService = {
-  getDashboardData: () => apiService.getDashboardData(),
-  getProducts: (filters?: Record<string, unknown>) => apiService.getProducts(filters),
-  getAnalytics: () => apiService.getAnalytics(),
-};
+
 

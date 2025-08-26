@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Inventory.WebUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fea48b3a0848f198157dba2b01e5490ec03f5db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db1510c4745b6252bdcc7afcb644cb28b2f54cec")]
 [assembly: System.Reflection.AssemblyProductAttribute("Inventory.WebUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Inventory.WebUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

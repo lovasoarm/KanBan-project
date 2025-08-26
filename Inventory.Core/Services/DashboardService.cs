@@ -144,13 +144,14 @@ public class DashboardService : IDashboardService
     }
 
     // Privé
-    private async Task RefreshInventory(IEnumerable<Product> products)
+    private Task RefreshInventory(IEnumerable<Product> products)
     {
         _inventory.Clear();
         foreach (var product in products)
         {
             _inventory.Add(product);
         }
+        return Task.CompletedTask;
     }
 
     private decimal CalculateAverageProfitMargin()

@@ -62,7 +62,10 @@ const Dashboard: React.FC = () => {
   const categoryChartData = createCategoryChartData(data.categoryData);
   const statusChartData = createStatusChartData(data.statusData);
   const trendChartData = createTrendChartData(data.monthlyTrends);
-  const chartOptions = createChartOptions();
+  const chartOptions = createChartOptions({
+    animation: { duration: 0 }, 
+    transitions: { active: { animation: { duration: 0 } } }
+  });
 
   return (
     <div className="dashboard-container">

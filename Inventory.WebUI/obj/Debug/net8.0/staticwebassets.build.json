@@ -1,12 +1,1670 @@
 {
   "Version": 1,
-  "Hash": "EwAzdKYCnv7e4dOI/ct4LtkGX8pvFnuRRnxOZie8p6w=",
+  "Hash": "RnmtSHJocfi+40nDUYWyk9xql2xtV/i5Qzk2MCeaBZQ=",
   "Source": "Inventory.WebUI",
   "BasePath": "_content/Inventory.WebUI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Inventory.WebUI\\wwwroot",
+      "Source": "Inventory.WebUI",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/bootstrap-0b9c90b2#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "toi3ul5asc",
+      "Integrity": "XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\charts-32cc1938.js",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/charts-32cc1938#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bzko8n6dyc",
+      "Integrity": "yRv34jSjOqjkg1Llu+OA+oP+92tOqP2eTbQmHnX90Tk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\charts-32cc1938.js"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-808443ae.ttf",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-brands-400-808443ae#[.{fingerprint}]?.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kr6peqau0t",
+      "Integrity": "gIRDrmyCBDla3YVD2oqQpguTdvsPh+2OjqN9EJWW2AU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-brands-400-808443ae.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-d7236a19.woff2",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-brands-400-d7236a19#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rfefp540hj",
+      "Integrity": "1yNqGb8jy7ICcoDo9R3JnWxFl2ou1g3nM4KwNLGKK2g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-brands-400-d7236a19.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-54cf6086.ttf",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-regular-400-54cf6086#[.{fingerprint}]?.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8hwpw88keo",
+      "Integrity": "VM9ghve7IfnQcq1JShm0aB+lFt0KFM7lLaAdNlGpE6M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-regular-400-54cf6086.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-e3456d12.woff2",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-regular-400-e3456d12#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3s7ez9m4mu",
+      "Integrity": "40VtEoO511M3p3Pf0Ue/kI/QLAG0v0hXbYYDppsTy+U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-regular-400-e3456d12.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-aa759986.woff2",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-solid-900-aa759986#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2i6n11vb93",
+      "Integrity": "qnWZhiOjkeYcaQF5Ss6DLj7N0oi1bWCPIb6gQRrMC44=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-solid-900-aa759986.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-d2f05935.ttf",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-solid-900-d2f05935#[.{fingerprint}]?.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "alr6ukxakq",
+      "Integrity": "0vBZNUCw4zum3iVaVPJy1GbjEUSAaVa+qM/b9+3/yb0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-solid-900-d2f05935.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-v4compatibility-0ce9033c#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kizxfigrer",
+      "Integrity": "DOkDPGnccU9fRe+b8X1V5MRrzfrWeZpOkrOOd4G/hr0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/fa-v4compatibility-30f6abf6#[.{fingerprint}]?.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wontxidjva",
+      "Integrity": "MPar9rqkJYJYKHk9bfrR+2N2XQ5auqevb+r7m/zs5aA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-fd48e750.js",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/index-fd48e750#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kauocyhvoq",
+      "Integrity": "pCwHe0yg/gPgE4jP1Dpz0UMGg5kk1ddIWhe13zu8vm4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-fd48e750.js"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-feb63179.css",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/index-feb63179#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m69uhviq5q",
+      "Integrity": "/rYxeZ9rkh4nQR/whMPpXozTDxastXGuvIPL8VQSsls=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-feb63179.css"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/assets/vendor-5f6cd04d#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xx00toqwhe",
+      "Integrity": "O76wrAeXnFGkG2KsLvuz4HZEv0BccrirneRFxqEx+wE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\vendor-5f6cd04d.js"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\icons\\boy.png",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/icons/boy#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rhixxmgl9o",
+      "Integrity": "IQuboDlOF3mMEVfqrip0Khu+wPqsat18+9unWJFC+ps=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\icons\\boy.png"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\logo.svg",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/images/logo#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2oyxbmmfdb",
+      "Integrity": "wlC2NcCa+NVvARLvEr3kVeHOxvL7xqTyFL3rYSNZAbw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\images\\logo.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",
+      "SourceId": "Inventory.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
+      "BasePath": "_content/Inventory.WebUI",
+      "RelativePath": "dist/index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t20utq3do0",
+      "Integrity": "5bDP3XgMdzhQD2ood415Lxwt2LTIf86m+tjR0afvakY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "dist/assets/bootstrap-0b9c90b2.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24388"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/bootstrap-0b9c90b2.toi3ul5asc.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24388"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "toi3ul5asc"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/bootstrap-0b9c90b2.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/charts-32cc1938.bzko8n6dyc.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\charts-32cc1938.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yRv34jSjOqjkg1Llu+OA+oP+92tOqP2eTbQmHnX90Tk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bzko8n6dyc"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/charts-32cc1938.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yRv34jSjOqjkg1Llu+OA+oP+92tOqP2eTbQmHnX90Tk="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/charts-32cc1938.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\charts-32cc1938.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yRv34jSjOqjkg1Llu+OA+oP+92tOqP2eTbQmHnX90Tk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yRv34jSjOqjkg1Llu+OA+oP+92tOqP2eTbQmHnX90Tk="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-brands-400-808443ae.kr6peqau0t.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-808443ae.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "210792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIRDrmyCBDla3YVD2oqQpguTdvsPh+2OjqN9EJWW2AU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kr6peqau0t"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-brands-400-808443ae.ttf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIRDrmyCBDla3YVD2oqQpguTdvsPh+2OjqN9EJWW2AU="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-brands-400-808443ae.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-808443ae.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "210792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIRDrmyCBDla3YVD2oqQpguTdvsPh+2OjqN9EJWW2AU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIRDrmyCBDla3YVD2oqQpguTdvsPh+2OjqN9EJWW2AU="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-brands-400-d7236a19.rfefp540hj.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-d7236a19.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118684"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1yNqGb8jy7ICcoDo9R3JnWxFl2ou1g3nM4KwNLGKK2g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rfefp540hj"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-brands-400-d7236a19.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1yNqGb8jy7ICcoDo9R3JnWxFl2ou1g3nM4KwNLGKK2g="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-brands-400-d7236a19.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-d7236a19.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118684"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1yNqGb8jy7ICcoDo9R3JnWxFl2ou1g3nM4KwNLGKK2g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1yNqGb8jy7ICcoDo9R3JnWxFl2ou1g3nM4KwNLGKK2g="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-regular-400-54cf6086.8hwpw88keo.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-54cf6086.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68064"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VM9ghve7IfnQcq1JShm0aB+lFt0KFM7lLaAdNlGpE6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8hwpw88keo"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-regular-400-54cf6086.ttf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VM9ghve7IfnQcq1JShm0aB+lFt0KFM7lLaAdNlGpE6M="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-regular-400-54cf6086.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-54cf6086.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68064"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VM9ghve7IfnQcq1JShm0aB+lFt0KFM7lLaAdNlGpE6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VM9ghve7IfnQcq1JShm0aB+lFt0KFM7lLaAdNlGpE6M="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-regular-400-e3456d12.3s7ez9m4mu.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-e3456d12.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"40VtEoO511M3p3Pf0Ue/kI/QLAG0v0hXbYYDppsTy+U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3s7ez9m4mu"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-regular-400-e3456d12.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-40VtEoO511M3p3Pf0Ue/kI/QLAG0v0hXbYYDppsTy+U="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-regular-400-e3456d12.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-e3456d12.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"40VtEoO511M3p3Pf0Ue/kI/QLAG0v0hXbYYDppsTy+U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-40VtEoO511M3p3Pf0Ue/kI/QLAG0v0hXbYYDppsTy+U="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-solid-900-aa759986.2i6n11vb93.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-aa759986.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qnWZhiOjkeYcaQF5Ss6DLj7N0oi1bWCPIb6gQRrMC44=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2i6n11vb93"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-solid-900-aa759986.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qnWZhiOjkeYcaQF5Ss6DLj7N0oi1bWCPIb6gQRrMC44="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-solid-900-aa759986.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-aa759986.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158220"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qnWZhiOjkeYcaQF5Ss6DLj7N0oi1bWCPIb6gQRrMC44=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qnWZhiOjkeYcaQF5Ss6DLj7N0oi1bWCPIb6gQRrMC44="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-solid-900-d2f05935.alr6ukxakq.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-d2f05935.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "426112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0vBZNUCw4zum3iVaVPJy1GbjEUSAaVa+qM/b9+3/yb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "alr6ukxakq"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-solid-900-d2f05935.ttf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0vBZNUCw4zum3iVaVPJy1GbjEUSAaVa+qM/b9+3/yb0="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-solid-900-d2f05935.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-d2f05935.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "426112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0vBZNUCw4zum3iVaVPJy1GbjEUSAaVa+qM/b9+3/yb0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0vBZNUCw4zum3iVaVPJy1GbjEUSAaVa+qM/b9+3/yb0="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-v4compatibility-0ce9033c.kizxfigrer.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DOkDPGnccU9fRe+b8X1V5MRrzfrWeZpOkrOOd4G/hr0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kizxfigrer"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-v4compatibility-0ce9033c.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DOkDPGnccU9fRe+b8X1V5MRrzfrWeZpOkrOOd4G/hr0="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-v4compatibility-0ce9033c.woff2",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DOkDPGnccU9fRe+b8X1V5MRrzfrWeZpOkrOOd4G/hr0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DOkDPGnccU9fRe+b8X1V5MRrzfrWeZpOkrOOd4G/hr0="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-v4compatibility-30f6abf6.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10836"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MPar9rqkJYJYKHk9bfrR+2N2XQ5auqevb+r7m/zs5aA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MPar9rqkJYJYKHk9bfrR+2N2XQ5auqevb+r7m/zs5aA="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/fa-v4compatibility-30f6abf6.wontxidjva.ttf",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10836"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MPar9rqkJYJYKHk9bfrR+2N2XQ5auqevb+r7m/zs5aA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wontxidjva"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/fa-v4compatibility-30f6abf6.ttf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MPar9rqkJYJYKHk9bfrR+2N2XQ5auqevb+r7m/zs5aA="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/index-fd48e750.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-fd48e750.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86803"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pCwHe0yg/gPgE4jP1Dpz0UMGg5kk1ddIWhe13zu8vm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pCwHe0yg/gPgE4jP1Dpz0UMGg5kk1ddIWhe13zu8vm4="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/index-fd48e750.kauocyhvoq.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-fd48e750.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86803"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pCwHe0yg/gPgE4jP1Dpz0UMGg5kk1ddIWhe13zu8vm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kauocyhvoq"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/index-fd48e750.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pCwHe0yg/gPgE4jP1Dpz0UMGg5kk1ddIWhe13zu8vm4="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/index-feb63179.css",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-feb63179.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "316015"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/rYxeZ9rkh4nQR/whMPpXozTDxastXGuvIPL8VQSsls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/rYxeZ9rkh4nQR/whMPpXozTDxastXGuvIPL8VQSsls="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/index-feb63179.m69uhviq5q.css",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-feb63179.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "316015"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/rYxeZ9rkh4nQR/whMPpXozTDxastXGuvIPL8VQSsls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m69uhviq5q"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/index-feb63179.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/rYxeZ9rkh4nQR/whMPpXozTDxastXGuvIPL8VQSsls="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/vendor-5f6cd04d.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "141307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O76wrAeXnFGkG2KsLvuz4HZEv0BccrirneRFxqEx+wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-O76wrAeXnFGkG2KsLvuz4HZEv0BccrirneRFxqEx+wE="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/vendor-5f6cd04d.xx00toqwhe.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "141307"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O76wrAeXnFGkG2KsLvuz4HZEv0BccrirneRFxqEx+wE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xx00toqwhe"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/assets/vendor-5f6cd04d.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O76wrAeXnFGkG2KsLvuz4HZEv0BccrirneRFxqEx+wE="
+        }
+      ]
+    },
+    {
+      "Route": "dist/icons/boy.png",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\icons\\boy.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IQuboDlOF3mMEVfqrip0Khu+wPqsat18+9unWJFC+ps=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:05:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-IQuboDlOF3mMEVfqrip0Khu+wPqsat18+9unWJFC+ps="
+        }
+      ]
+    },
+    {
+      "Route": "dist/icons/boy.rhixxmgl9o.png",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\icons\\boy.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IQuboDlOF3mMEVfqrip0Khu+wPqsat18+9unWJFC+ps=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:05:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rhixxmgl9o"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/icons/boy.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-IQuboDlOF3mMEVfqrip0Khu+wPqsat18+9unWJFC+ps="
+        }
+      ]
+    },
+    {
+      "Route": "dist/images/logo.2oyxbmmfdb.svg",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\logo.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "683"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wlC2NcCa+NVvARLvEr3kVeHOxvL7xqTyFL3rYSNZAbw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Jul 2025 13:43:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2oyxbmmfdb"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/images/logo.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wlC2NcCa+NVvARLvEr3kVeHOxvL7xqTyFL3rYSNZAbw="
+        }
+      ]
+    },
+    {
+      "Route": "dist/images/logo.svg",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\logo.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "683"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wlC2NcCa+NVvARLvEr3kVeHOxvL7xqTyFL3rYSNZAbw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 10 Jul 2025 13:43:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wlC2NcCa+NVvARLvEr3kVeHOxvL7xqTyFL3rYSNZAbw="
+        }
+      ]
+    },
+    {
+      "Route": "dist/index.html",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1485"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5bDP3XgMdzhQD2ood415Lxwt2LTIf86m+tjR0afvakY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5bDP3XgMdzhQD2ood415Lxwt2LTIf86m+tjR0afvakY="
+        }
+      ]
+    },
+    {
+      "Route": "dist/index.t20utq3do0.html",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1485"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5bDP3XgMdzhQD2ood415Lxwt2LTIf86m+tjR0afvakY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 Aug 2025 12:24:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t20utq3do0"
+        },
+        {
+          "Name": "label",
+          "Value": "dist/index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5bDP3XgMdzhQD2ood415Lxwt2LTIf86m+tjR0afvakY="
+        }
+      ]
+    }
+  ]
 }

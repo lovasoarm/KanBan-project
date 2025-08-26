@@ -173,8 +173,6 @@ public class ProductCsvMap : ClassMap<Product>
         
         // Toujours actif par défaut
         Map(m => m.IsActive).Convert(args => true);
-        Map(m => m.Unit).Convert(args => "pcs");
-        Map(m => m.CurrencyCode).Convert(args => "USD");
         Map(m => m.TaxRate).Convert(args => 0.20m); // 20% TVA par défaut
     }
 }

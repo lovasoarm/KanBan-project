@@ -48,6 +48,9 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
 
   const salesPurchaseOptions = {
     responsive: true,
+    animation: {
+      duration: 0
+    },
     plugins: {
       legend: {
         position: 'top' as const,
@@ -84,6 +87,9 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
 
   const orderSummaryOptions = {
     responsive: true,
+    animation: {
+      duration: 0
+    },
     plugins: {
       legend: {
         position: 'top' as const,
@@ -134,6 +140,9 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
 
   const categoryOptions = {
     responsive: true,
+    animation: {
+      duration: 0, // Désactiver les animations pour éviter les boucles
+    },
     plugins: {
       legend: {
         position: 'right' as const,

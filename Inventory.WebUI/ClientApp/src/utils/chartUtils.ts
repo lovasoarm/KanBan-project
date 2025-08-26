@@ -27,6 +27,9 @@ export const CHART_COLORS = {
 export const createChartOptions = (options?: Partial<ChartOptions>): ChartOptions => ({
   responsive: true,
   maintainAspectRatio: false,
+  animation: {
+    duration: 0, 
+  },
   plugins: {
     legend: {
       position: 'bottom',

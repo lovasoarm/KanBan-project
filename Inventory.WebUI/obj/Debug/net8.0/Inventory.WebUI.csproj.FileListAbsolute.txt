@@ -44,3 +44,6 @@ C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\obj\Debug\net8.0\refint\In
 C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\obj\Debug\net8.0\Inventory.WebUI.pdb
 C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\obj\Debug\net8.0\Inventory.WebUI.genruntimeconfig.cache
 C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\obj\Debug\net8.0\ref\Inventory.WebUI.dll
+C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\bin\Debug\net8.0\ClientApp\package-lock.json
+C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\bin\Debug\net8.0\ClientApp\package.json
+C:\Users\Essai\Desktop\KanBan-project\Inventory.WebUI\bin\Debug\net8.0\Inventory.WebUI.staticwebassets.runtime.json
