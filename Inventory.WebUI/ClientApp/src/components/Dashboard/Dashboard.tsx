@@ -3,6 +3,7 @@ import { Badge } from 'react-bootstrap';
 import { setupChartDefaults, barChartOptions, lineChartOptions } from '../../utils/chartConfig';
 import { useOptimizedDashboard } from '../../hooks/useOptimizedDashboard';
 import { MemoizedBarChart, MemoizedLineChart } from '../Common/MemoizedChart';
+import TopSellingTable from './TopSellingTable';
 import './Dashboard.css';
 
 // Initialiser la configuration Chart.js une seule fois
@@ -102,13 +103,13 @@ const Dashboard: React.FC = () => {
     return null;
   }, [JSON.stringify(dashboardData?.charts?.salesAndPurchase)]); 
 
-  // Données finales du graphique
+  // Données finales du graphique - uniquement weekly
   const salesChartData = useMemo(() => {
     if (realChartData) {
       return realChartData;
     }
-    return selectedPeriod === 'weekly' ? staticChartData.weeklyData : staticChartData.monthlyData;
-  }, [realChartData, selectedPeriod, staticChartData]);
+    return staticChartData.weeklyData; // Toujours weekly
+  }, [realChartData, staticChartData]);
 
   // Données statiques pour le graphique des commandes
   const staticOrderData = useMemo(() => ({
@@ -117,15 +118,15 @@ const Dashboard: React.FC = () => {
       {
         label: 'Ordered',
         data: [450, 380, 520, 460, 580, 490],
-        borderColor: '#2F80ED',
-        backgroundColor: 'rgba(47, 128, 237, 0.1)',
+        borderColor: '#FF9500', // Orange
+        backgroundColor: 'rgba(255, 149, 0, 0.1)',
         tension: 0.4,
         fill: true
       },
       {
         label: 'Delivered',
         data: [420, 360, 480, 440, 540, 470],
-        borderColor: '#34C759',
+        borderColor: '#34C759', // Bleu clair
         backgroundColor: 'rgba(52, 199, 89, 0.1)',
         tension: 0.4,
         fill: true
@@ -143,15 +144,15 @@ const Dashboard: React.FC = () => {
           {
             label: 'Ordered',
             data: [...chartData.orderedData], // Clone
-            borderColor: '#2F80ED',
-            backgroundColor: 'rgba(47, 128, 237, 0.1)',
+            borderColor: '#FF9500', // Orange
+            backgroundColor: 'rgba(255, 149, 0, 0.1)',
             tension: 0.4,
             fill: true
           },
           {
             label: 'Delivered',
             data: [...chartData.deliveredData], // Clone
-            borderColor: '#34C759',
+            borderColor: '#34C759', // Bleu clair
             backgroundColor: 'rgba(52, 199, 89, 0.1)',
             tension: 0.4,
             fill: true
@@ -180,7 +181,7 @@ const Dashboard: React.FC = () => {
         <div className="sidebar-header">
           <div className="logo">
             <img src="/images/logo.svg" alt="Logo" className="logo-img" />
-            {!sidebarCollapsed && <span className="logo-text">Inventory</span>}
+            {!sidebarCollapsed && <span className="logo-text">KanBan</span>}
           </div>
           <button 
             className="collapse-btn"
@@ -215,13 +216,13 @@ const Dashboard: React.FC = () => {
             <i className="fas fa-store"></i>
             {!sidebarCollapsed && <span>Manage Store</span>}
           </a>
-          <a href="#" className="nav-item">
+          <a href="#" className="nav-item settings-btn">
             <i className="fas fa-cog"></i>
             {!sidebarCollapsed && <span>Settings</span>}
           </a>
           <a href="#" className="nav-item logout">
             <i className="fas fa-sign-out-alt"></i>
-            {!sidebarCollapsed && <span>Log Out</span>}
+            {!sidebarCollapsed && <span>Logout</span>}
           </a>
         </nav>
       </div>
@@ -249,9 +250,9 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Dashboard Grid */}
+        {/* Dashboard Grid - 2 colonnes x 4 lignes */}
         <div className="dashboard-grid">
-          {/* Sales Overview */}
+          {/* Sales Overview - 4 éléments : Sales, Revenue, Profit, Cost */}
           <div className="card-group sales-overview">
             <h3 className="section-title">Sales Overview</h3>
             <div className="stats-cards">
@@ -260,41 +261,41 @@ const Dashboard: React.FC = () => {
                   <i className="fas fa-dollar-sign"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">₹{salesStats.salesOverview?.value?.toLocaleString() || salesStats.totalSales?.toLocaleString() || '45,231'}</div>
-                  <div className="stat-label">Total Sales</div>
+                  <div className="stat-value">₹{salesStats.sales?.value?.toLocaleString() || '45,231'}</div>
+                  <div className="stat-label">Sales</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon green">
-                  <i className="fas fa-shopping-bag"></i>
+                  <i className="fas fa-chart-line"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">{salesStats.totalOrders || '1,563'}</div>
-                  <div className="stat-label">Total Orders</div>
+                  <div className="stat-value">₹{salesStats.revenue?.value?.toLocaleString() || '38,500'}</div>
+                  <div className="stat-label">Revenue</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon orange">
-                  <i className="fas fa-chart-line"></i>
+                  <i className="fas fa-coins"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">₹{salesStats.avgOrderValue || '289'}</div>
-                  <div className="stat-label">Avg Order Value</div>
+                  <div className="stat-value">₹{salesStats.profit?.value?.toLocaleString() || '12,890'}</div>
+                  <div className="stat-label">Profit</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon purple">
-                  <i className="fas fa-percentage"></i>
+                  <i className="fas fa-receipt"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">{salesStats.conversion || '3.2'}%</div>
-                  <div className="stat-label">Conversion Rate</div>
+                  <div className="stat-value">₹{salesStats.cost?.value?.toLocaleString() || '25,641'}</div>
+                  <div className="stat-label">Cost</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Purchase Overview */}
+          {/* Purchase Overview - 4 éléments : Purchase, Cost, Cancel, Return */}
           <div className="card-group purchase-overview">
             <h3 className="section-title">Purchase Overview</h3>
             <div className="stats-cards">
@@ -303,57 +304,53 @@ const Dashboard: React.FC = () => {
                   <i className="fas fa-shopping-cart"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">₹{purchaseStats.purchase?.value?.toLocaleString() || purchaseStats.totalPurchase?.toLocaleString() || '32,450'}</div>
-                  <div className="stat-label">Total Purchase</div>
+                  <div className="stat-value">₹{purchaseStats.purchase?.value?.toLocaleString() || '32,450'}</div>
+                  <div className="stat-label">Purchase</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon green">
-                  <i className="fas fa-truck"></i>
+                  <i className="fas fa-receipt"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">{purchaseStats.totalSuppliers || '45'}</div>
-                  <div className="stat-label">Total Suppliers</div>
+                  <div className="stat-value">₹{purchaseStats.cost?.value?.toLocaleString() || '28,300'}</div>
+                  <div className="stat-label">Cost</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon orange">
-                  <i className="fas fa-clock"></i>
+                  <i className="fas fa-times-circle"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">{purchaseStats.pendingOrders || '23'}</div>
-                  <div className="stat-label">Pending Orders</div>
+                  <div className="stat-value">{purchaseStats.cancel?.value?.toLocaleString() || '23'}</div>
+                  <div className="stat-label">Cancel</div>
                 </div>
               </div>
               <div className="stat-card">
                 <div className="stat-icon purple">
-                  <i className="fas fa-hourglass-half"></i>
+                  <i className="fas fa-undo"></i>
                 </div>
                 <div className="stat-info">
-                  <div className="stat-value">{purchaseStats.avgLeadTime || '5.2'} days</div>
-                  <div className="stat-label">Avg Lead Time</div>
+                  <div className="stat-value">{purchaseStats.return?.value?.toLocaleString() || '18'}</div>
+                  <div className="stat-label">Return</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Sales & Purchase Chart */}
+          {/* Sales & Purchase Graph - Vue uniquement en weekly */}
           <div className="card chart-card sales-chart">
             <div className="card-header">
               <h4 className="card-title">Sales & Purchase</h4>
-              <div className="chart-toggle">
-                <button 
-                  className={selectedPeriod === 'weekly' ? 'active' : ''}
-                  onClick={() => changePeriod('weekly')}
-                >
-                  Weekly
-                </button>
-                <button 
-                  className={selectedPeriod === 'monthly' ? 'active' : ''}
-                  onClick={() => changePeriod('monthly')}
-                >
-                  Monthly
-                </button>
+              <div className="chart-legend">
+                <span className="legend-item">
+                  <span className="legend-color" style={{backgroundColor: '#2F80ED'}}></span>
+                  Purchase
+                </span>
+                <span className="legend-item">
+                  <span className="legend-color" style={{backgroundColor: '#34C759'}}></span>
+                  Sales
+                </span>
               </div>
             </div>
             <div className="chart-container">
@@ -364,10 +361,20 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Order Summary Chart */}
+          {/* Order Summary - Ordered (orange), Delivered (bleu clair) */}
           <div className="card chart-card order-chart">
             <div className="card-header">
               <h4 className="card-title">Order Summary</h4>
+              <div className="chart-legend">
+                <span className="legend-item">
+                  <span className="legend-color" style={{backgroundColor: '#FF9500'}}></span>
+                  Ordered
+                </span>
+                <span className="legend-item">
+                  <span className="legend-color" style={{backgroundColor: '#34C759'}}></span>
+                  Delivered
+                </span>
+              </div>
             </div>
             <div className="chart-container">
               <MemoizedLineChart 
@@ -383,76 +390,88 @@ const Dashboard: React.FC = () => {
               <h4 className="card-title">Top Selling Stock</h4>
               <a href="#" className="see-all">See All</a>
             </div>
-            <div className="table-container">
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Sold Quantity</th>
-                    <th>Remaining Quantity</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {topProducts.map((product, index) => (
-                    <tr key={index} className="table-row">
-                      <td className="product-name">{product.name}</td>
-                      <td><span className="quantity-sold">{product.sold || product.soldQuantity}</span></td>
-                      <td><span className="quantity-remaining">{product.remaining || product.remainingQuantity}</span></td>
-                      <td className="price">{product.priceFormatted || `$${product.price}`}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <TopSellingTable products={topProducts} />
+          </div>
+
+          {/* Inventory Summary - 2 éléments : Quantity in hand, To be received */}
+          <div className="card summary-card inventory-summary">
+            <div className="card-header">
+              <h4 className="card-title">
+                <i className="fas fa-boxes me-2"></i>
+                Inventory Summary
+              </h4>
+            </div>
+            <div className="summary-stats">
+              <div className="summary-item">
+                <span className="summary-value">{salesStats.quantityInHand?.value?.toLocaleString() || '2,456'}</span>
+                <span className="summary-label">Quantity in Hand</span>
+              </div>
+              <div className="summary-item">
+                <span className="summary-value">{salesStats.toBeReceived?.value?.toLocaleString() || '189'}</span>
+                <span className="summary-label">To be Received</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="right-column">
-            {/* Inventory Summary */}
-            <div className="card summary-card">
-              <div className="card-header">
-                <h4 className="card-title">Inventory Summary</h4>
+          {/* Product Summary - 2 éléments : Number of suppliers, Number of categories */}
+          <div className="card summary-card product-summary">
+            <div className="card-header">
+              <h4 className="card-title">
+                <i className="fas fa-cube me-2"></i>
+                Product Summary
+              </h4>
+            </div>
+            <div className="summary-stats">
+              <div className="summary-item">
+                <span className="summary-value">{inventoryData.numberOfSuppliers || '24'}</span>
+                <span className="summary-label">Number of Suppliers</span>
               </div>
-              <div className="summary-stats">
-                <div className="summary-item">
-                  <span className="summary-value">{inventoryData.totalProducts || '2,456'}</span>
-                  <span className="summary-label">Total Products</span>
-                </div>
-                <div className="summary-item">
-                  <span className="summary-value low">{inventoryData.lowStock || '45'}</span>
-                  <span className="summary-label">Low Stock</span>
-                </div>
-                <div className="summary-item">
-                  <span className="summary-value out">{inventoryData.outOfStock || '12'}</span>
-                  <span className="summary-label">Out of Stock</span>
-                </div>
-                <div className="summary-item">
-                  <span className="summary-value">{inventoryData.categories || '24'}</span>
-                  <span className="summary-label">Categories</span>
-                </div>
+              <div className="summary-item">
+                <span className="summary-value">{inventoryData.numberOfCategories || '12'}</span>
+                <span className="summary-label">Number of Categories</span>
               </div>
             </div>
+          </div>
 
-            {/* Low Quantity Stock */}
-            <div className="card low-stock-card">
-              <div className="card-header">
-                <h4 className="card-title">Low Quantity Stock</h4>
-              </div>
-              <div className="low-stock-list">
-                {lowStockItems.map((item, index) => (
+          {/* Low Quantity Stock avec bouton See all */}
+          <div className="card low-stock-card">
+            <div className="card-header">
+              <h4 className="card-title">Low Quantity Stock</h4>
+              <a href="#" className="see-all">See All</a>
+            </div>
+            <div className="low-stock-list">
+              {lowStockItems.length > 0 ? lowStockItems.map((item, index) => (
+                <div key={index} className="low-stock-item">
+                  <img src={item.image || `/images/products/product-${index + 1}.jpg`} alt={item.name} className="product-thumb" />
+                  <div className="item-info">
+                    <span className="item-name">{item.name}</span>
+                    <div className="item-quantity">
+                      <span>Remaining quantity: {item.remaining} packets</span>
+                      <Badge className="low-badge pulse">Low</Badge>
+                    </div>
+                  </div>
+                </div>
+              )) : (
+                // Données de fallback
+                [
+                  { name: 'Wireless Headphones', remaining: 12, image: '/images/products/1.png' },
+                  { name: 'Smart Watch', remaining: 8, image: '/images/products/2.png' },
+                  { name: 'Laptop Stand', remaining: 15, image: '/images/products/3.png' },
+                  { name: 'USB Cable', remaining: 22, image: '/images/products/4.png' },
+                  { name: 'Phone Case', remaining: 5, image: '/images/products/5.png' }
+                ].map((item, index) => (
                   <div key={index} className="low-stock-item">
                     <img src={item.image} alt={item.name} className="product-thumb" />
                     <div className="item-info">
                       <span className="item-name">{item.name}</span>
                       <div className="item-quantity">
-                        <span>Remaining Quantity: {item.remaining}</span>
-                        <Badge className="low-badge pulse">Low</Badge>
+                        <span>Remaining quantity: {item.remaining} packets</span>
+                        <Badge className="low-badge pulse" style={{ backgroundColor: 'rgba(255, 68, 68, 0.2)', color: '#FF4444' }}>Low</Badge>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                ))
+              )}
             </div>
           </div>
         </div>

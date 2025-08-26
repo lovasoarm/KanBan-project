@@ -121,9 +121,17 @@ const TablesSection: React.FC<TablesSectionProps> = ({ data }) => {
                 {data.lowQuantityStock?.map((product) => (
                   <tr key={product.id}>
                     <td>
-                      <div>
-                        <div className="fw-bold">{product.name}</div>
-                        <small className="text-muted">#{product.id}</small>
+                      <div className="d-flex align-items-center">
+                        <img 
+                          src={`/images/products/${(product.id % 5) + 1}.png`} 
+                          alt={product.name}
+                          className="me-2"
+                          style={{ width: 32, height: 32, objectFit: 'cover', borderRadius: '4px' }}
+                        />
+                        <div>
+                          <div className="fw-bold">{product.name}</div>
+                          <small className="text-muted">#{product.id}</small>
+                        </div>
                       </div>
                     </td>
                     <td>

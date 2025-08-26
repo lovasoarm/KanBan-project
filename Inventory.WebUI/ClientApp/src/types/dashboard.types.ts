@@ -1,5 +1,5 @@
 export interface DashboardStats {
-  salesOverview: StatValue;
+  sales: StatValue;
   revenue: StatValue;
   profit: StatValue;
   cost: StatValue;
@@ -43,6 +43,8 @@ export interface TopSellingProduct {
 export interface LowStockProduct {
   id: number;
   name: string;
+  image?: string;
+  remaining: number;
   currentStock: number;
   minStock: number;
   supplier: string;
@@ -52,6 +54,7 @@ export interface LowStockProduct {
 
 export interface PurchaseOverview {
   purchase: StatValue;
+  cost: StatValue;
   cancel: StatValue;
   return: StatValue;
 }

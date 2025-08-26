@@ -97,11 +97,9 @@ class DashboardService {
   private processProductsToStats(products: Product[]): DashboardStats {
     const totalValue = products.reduce((sum, p) => sum + p.totalValue, 0);
     const totalQuantity = products.reduce((sum, p) => sum + p.quantity, 0);
-    const lowStockProducts = products.filter(p => p.isLowStock).length;
     
-  
     return {
-      salesOverview: { value: totalValue * 0.85, change: 12.5 },
+      sales: { value: totalValue * 0.85, change: 12.5 },
       revenue: { value: totalValue * 0.7, change: 8.3 },
       profit: { value: totalValue * 0.2, change: -2.1 },
       cost: { value: totalValue * 0.5, change: 5.7 },
@@ -121,11 +119,12 @@ class DashboardService {
     }
 
     const categories = [...new Set(products.map(p => p.category))];
-    const last6Months = Array.from({ length: 6 }, (_, i) => {
-      const date = new Date();
-      date.setMonth(date.getMonth() - i);
-      return date.toLocaleString('default', { month: 'short' });
-    }).reverse();
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const currentMonth = new Date().getMonth();
+    const labels = Array.from({ length: 6 }, (_, i) => {
+      const monthIndex = (currentMonth - 5 + i + 12) % 12;
+      return months[monthIndex];
+    });
 
  
     const seed = products.length + categories.length;
@@ -134,15 +133,15 @@ class DashboardService {
       return x - Math.floor(x);
     };
 
-    const salesData = last6Months.map((_, i) => Math.floor(random(i) * 50000) + 20000);
-    const purchaseData = last6Months.map((_, i) => Math.floor(random(i + 10) * 40000) + 15000);
+    const salesData = labels.map((_, i) => Math.floor(random(i) * 50000) + 20000);
+    const purchaseData = labels.map((_, i) => Math.floor(random(i + 10) * 40000) + 15000);
     
     const orderedData = categories.map((_, i) => Math.floor(random(i + 20) * 100) + 50);
     const deliveredData = orderedData.map((ordered, i) => Math.floor(ordered * (0.8 + random(i + 30) * 0.2)));
 
     this.chartDataCache = {
       salesAndPurchase: {
-        labels: Object.freeze(last6Months),
+        labels: Object.freeze(labels),
         salesData: Object.freeze(salesData),
         purchaseData: Object.freeze(purchaseData)
       },
@@ -173,13 +172,15 @@ class DashboardService {
         category: product.category
       }));
 
-    // Low quantity stock
+    // Low quantity stock with images
     const lowQuantityStock = products
       .filter(product => product.isLowStock || product.isOutOfStock)
       .slice(0, 10)
       .map(product => ({
         id: product.id,
         name: product.name,
+        image: `/images/products/product-${product.id % 10 + 1}.jpg`,
+        remaining: product.quantity,
         currentStock: product.quantity,
         minStock: product.minQuantity,
         supplier: product.supplier,
@@ -212,6 +213,7 @@ class DashboardService {
       
       const purchase: PurchaseOverview = {
         purchase: { value: 89500, change: 8.2 },
+        cost: { value: 72300, change: 5.8 },
         cancel: { value: 2300, change: -12.4 },
         return: { value: 1800, change: 5.1 }
       };
@@ -314,7 +316,7 @@ class DashboardService {
   private getMockDashboardData(): DashboardData {
     return {
       stats: {
-        salesOverview: { value: 125000, change: 12.5 },
+        sales: { value: 125000, change: 12.5 },
         revenue: { value: 89500, change: 8.3 },
         profit: { value: 23000, change: -2.1 },
         cost: { value: 66500, change: 5.7 },
@@ -339,6 +341,7 @@ class DashboardService {
       },
       purchase: {
         purchase: { value: 89500, change: 8.2 },
+        cost: { value: 72300, change: 5.8 },
         cancel: { value: 2300, change: -12.4 },
         return: { value: 1800, change: 5.1 }
       },
