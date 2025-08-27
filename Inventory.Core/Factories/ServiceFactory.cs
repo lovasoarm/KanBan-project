@@ -40,7 +40,8 @@ public static class ProductServiceFactory
     {
         var factory = new ServiceFactory<Product, int>();
         var repository = factory.CreateRepository(p => p.Id);
-        return new ProductService(repository);
+        var csvService = CreateProductCsvService();
+        return new ProductService(repository, csvService);
     }
 
     public static IGenericRepository<Product, int> CreateProductRepository()

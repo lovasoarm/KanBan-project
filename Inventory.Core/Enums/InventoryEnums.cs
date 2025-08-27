@@ -44,3 +44,36 @@ public enum StockMovementType
     Damaged,
     Lost
 }
+
+public enum OrderStatus
+{
+    Pending,
+    Confirmed,
+    Processing,
+    Shipped,
+    Delivered,
+    Cancelled,
+    Returned,
+    Refunded,
+    PartiallyFulfilled
+}
+
+public enum OrderType
+{
+    Sale,
+    Purchase,
+    Return,
+    Exchange,
+    Subscription,
+    PreOrder
+}
+
+public enum PaymentStatus
+{
+    Pending,
+    Paid,
+    Failed,
+    Refunded,
+    PartiallyPaid,
+    Cancelled
+}

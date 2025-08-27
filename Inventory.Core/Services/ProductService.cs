@@ -25,17 +25,17 @@ public interface IProductService
 public class ProductService : IProductService
 {
     private readonly IGenericRepository<Product, int> _repository;
-    private readonly CsvService<Product, int> _csvService;
+    private readonly ICsvService<Product, int> _csvService;
 
-    public ProductService(IGenericRepository<Product, int> repository)
+    public ProductService(IGenericRepository<Product, int> repository, ICsvService<Product, int> csvService)
     {
         _repository = repository;
-        _csvService = new CsvService<Product, int>(p => p.Id, new Entities.ProductCsvMap());
+        _csvService = csvService;
     }
 
     public async Task<IGenericCollection<Product, int>> ImportProductsAsync(string csvFilePath)
     {
-        var importedProducts = await _csvService.ImportFromCsvAsync<int>(csvFilePath);
+        var importedProducts = await _csvService.ImportFromCsvAsync(csvFilePath);
         
         foreach (var product in importedProducts)
         {
@@ -133,5 +133,32 @@ public class ProductService : IProductService
     public Task ExportProductsAsync(IGenericCollection<Product, int> products, string filePath)
     {
         return _csvService.ExportToCsvAsync(products, filePath);
+    }
+
+    // Méthodes additionnelles pour l'API
+    public async Task<IEnumerable<Product>> GetByCategoryAsync(string category)
+    {
+        var categoryProducts = await GetProductsByCategoryAsync(category);
+        return categoryProducts.AsEnumerable();
+    }
+
+    public async Task<IEnumerable<Product>> GetLowStockAsync()
+    {
+        var lowStockProducts = await GetLowStockProductsAsync();
+        return lowStockProducts.AsEnumerable();
+    }
+
+    public async Task<IEnumerable<Product>> SearchAsync(string query)
+    {
+        var allProducts = await _repository.GetAllAsync();
+        var searchResults = allProducts.Where(p => 
+            p.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+            p.SKU.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+            p.Description.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+            p.Category.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+            p.Brand.Contains(query, StringComparison.OrdinalIgnoreCase)
+        );
+        
+        return searchResults;
     }
 }

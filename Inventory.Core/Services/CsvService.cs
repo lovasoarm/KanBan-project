@@ -8,8 +8,16 @@ using Inventory.Core.Enums;
 
 namespace Inventory.Core.Services;
 
-public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
-    where T : class, new()
+public interface ICsvService<T, TKey> where T : class, new() where TKey : notnull, IComparable<TKey>
+{
+    Task<IGenericCollection<T, TKey>> ImportFromCsvAsync(string filePath);
+    Task<IGenericCollection<T, TKey>> ImportFromCsvContentAsync(string csvContent);
+    Task ExportToCsvAsync(IGenericCollection<T, TKey> data, string filePath);
+    ValidationSummary ValidateData(IGenericCollection<T, TKey> data);
+}
+
+public class CsvService<T, TKey> : ICsvService<T, TKey>
+    where T : class, new() 
     where TKey : notnull, IComparable<TKey>
 {
     private readonly Func<T, TKey> _keySelector;
@@ -23,20 +31,16 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
         _configuration = CreateConfiguration();
     }
 
-#pragma warning disable CS0693 // Type parameter has the same name as the type parameter from outer type
-    public async Task<IGenericCollection<T, TKey>> ImportFromCsvAsync<TKey>(string filePath) where TKey : notnull
+    public async Task<IGenericCollection<T, TKey>> ImportFromCsvAsync(string filePath)
     {
         ValidateFilePath(filePath);
         var content = await File.ReadAllTextAsync(filePath);
-        return await ImportFromCsvContentAsync<TKey>(content);
+        return await ImportFromCsvContentAsync(content);
     }
 
-    public async Task<IGenericCollection<T, TKey>> ImportFromCsvContentAsync<TKey>(string csvContent) where TKey : notnull
+    public async Task<IGenericCollection<T, TKey>> ImportFromCsvContentAsync(string csvContent)
     {
-        if (typeof(TKey) != typeof(TKey))
-            throw new ArgumentException($"Key type mismatch. Expected {typeof(TKey).Name}");
-
-        var collection = new GenericCollection<T, TKey>((Func<T, TKey>)(object)_keySelector);
+        var collection = new GenericCollection<T, TKey>(_keySelector);
         
         using var reader = new StringReader(csvContent);
         using var csv = new CsvReader(reader, _configuration);
@@ -51,7 +55,7 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
         return collection;
     }
 
-    public async Task ExportToCsvAsync<TKey>(IGenericCollection<T, TKey> data, string filePath) where TKey : notnull
+    public async Task ExportToCsvAsync(IGenericCollection<T, TKey> data, string filePath)
     {
         CreateDirectoryIfNotExists(filePath);
         
@@ -63,8 +67,7 @@ public class CsvService<T, TKey> : ICsvImportService<T>, IValidationService<T>
         await writer.FlushAsync();
     }
 
-    public ValidationSummary ValidateData<TKey>(IGenericCollection<T, TKey> data) where TKey : notnull
-#pragma warning restore CS0693
+    public ValidationSummary ValidateData(IGenericCollection<T, TKey> data)
     {
         var summary = new ValidationSummary();
         

@@ -16,7 +16,7 @@ public class DashboardController : ControllerBase
         _dashboardService = dashboardService ?? throw new ArgumentNullException(nameof(dashboardService));
     }
 
-    // Métriques
+   
     [HttpGet("metrics")]
     public async Task<ActionResult<ApiResponse<DashboardMetrics>>> GetMetrics()
     {
@@ -24,7 +24,7 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<DashboardMetrics>(metrics, "Metrics retrieved successfully"));
     }
 
-    // Analytiques
+  
     [HttpGet("analytics/categories")]
     public async Task<ActionResult<ApiResponse<IEnumerable<CategoryAnalytics>>>> GetCategoryAnalytics()
     {
@@ -39,7 +39,6 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<IEnumerable<LocationAnalytics>>(analytics, "Location analytics retrieved"));
     }
 
-    // Tendances
     [HttpGet("trends/value")]
     public async Task<ActionResult<ApiResponse<Dictionary<DateTime, decimal>>>> GetValueTrend([FromQuery] int days = 30)
     {
@@ -47,7 +46,7 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<Dictionary<DateTime, decimal>>(trend, $"Value trend for {days} days retrieved"));
     }
 
-    // Alertes
+
     [HttpGet("alerts/restock")]
     public async Task<ActionResult<ApiResponse<IEnumerable<Product>>>> GetRestockAlerts()
     {

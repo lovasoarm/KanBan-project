@@ -45,16 +45,32 @@ class ApiService {
     }
   }
 
-  async getDashboardData() {
-    return this.makeRequest(() => this.client.get('/dashboard'));
+  async getDashboardMetrics() {
+    return this.makeRequest(() => this.client.get('/dashboard/metrics'));
   }
 
   async getProducts(filters?: Record<string, unknown>) {
     return this.makeRequest(() => this.client.get('/products', { params: filters }));
   }
 
-  async getAnalytics() {
-    return this.makeRequest(() => this.client.get('/analytics'));
+  async getCategoryAnalytics() {
+    return this.makeRequest(() => this.client.get('/dashboard/analytics/categories'));
+  }
+
+  async getLocationAnalytics() {
+    return this.makeRequest(() => this.client.get('/dashboard/analytics/locations'));
+  }
+
+  async getValueTrend(days: number = 30) {
+    return this.makeRequest(() => this.client.get('/dashboard/trends/value', { params: { days } }));
+  }
+
+  async getRestockAlerts() {
+    return this.makeRequest(() => this.client.get('/dashboard/alerts/restock'));
+  }
+
+  async getSummaryStats() {
+    return this.makeRequest(() => this.client.get('/dashboard/stats/summary'));
   }
 
   async createProduct(productData: unknown) {
@@ -72,5 +88,14 @@ class ApiService {
 
 export const apiService = new ApiService();
 
-
+// Export dashboardService with real API endpoints
+export const dashboardService = {
+  getDashboardMetrics: () => apiService.getDashboardMetrics(),
+  getProducts: (filters?: Record<string, unknown>) => apiService.getProducts(filters),
+  getCategoryAnalytics: () => apiService.getCategoryAnalytics(),
+  getLocationAnalytics: () => apiService.getLocationAnalytics(),
+  getValueTrend: (days?: number) => apiService.getValueTrend(days),
+  getRestockAlerts: () => apiService.getRestockAlerts(),
+  getSummaryStats: () => apiService.getSummaryStats()
+};
 

@@ -84,7 +84,8 @@ class Program
     // Register all services
     static void RegisterServices(HostBuilderContext context, IServiceCollection services)
     {
-        services.AddScoped<ICsvImportService<Core.Entities.Product>, CsvService<Core.Entities.Product, int>>();
+        services.AddScoped<ICsvService<Core.Entities.Product, int>>(provider => 
+            new CsvService<Core.Entities.Product, int>(p => p.Id, new Core.Entities.ProductCsvMap()));
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IGenericRepository<Core.Entities.Product, int>>(provider => 
             new GenericRepository<Core.Entities.Product, int>(p => p.Id));

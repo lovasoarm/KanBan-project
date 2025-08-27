@@ -13,14 +13,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Register application services
-builder.Services.AddScoped<ICsvImportService<Product>, CsvService<Product, int>>();
-builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IGenericRepository<Product, int>>(provider => 
     new GenericRepository<Product, int>(p => p.Id));
-builder.Services.AddScoped<IImportService, ImportService>();
-
+builder.Services.AddScoped<ICsvService<Product, int>>(provider => 
+    new CsvService<Product, int>(p => p.Id, new ProductCsvMap()));
+builder.Services.AddScoped<IProductService, ProductService>();
 // Register dashboard services
-builder.Services.AddSingleton<InventoryCollection<Product>>();
+builder.Services.AddSingleton<InventoryCollection<Product>>(provider => 
+    new InventoryCollection<Product>());
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 
 // Add CORS
