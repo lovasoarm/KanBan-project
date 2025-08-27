@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/Wbsc3EEWhGQ6PEXIwHQW20R26mZeQjsPMyfiO+C0Cw=",
+  "Hash": "nz3Ug/WH456v2n8VhmUm5WUy91RxhN809hPk8LLO/0s=",
   "Source": "Inventory.WebUI",
   "BasePath": "_content/Inventory.WebUI",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-8de4e26e.js",
       "SourceId": "Inventory.WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
       "BasePath": "_content/Inventory.WebUI",
-      "RelativePath": "dist/assets/bootstrap-0b9c90b2#[.{fingerprint}]?.js",
+      "RelativePath": "dist/assets/bootstrap-8de4e26e#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,11 +31,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "toi3ul5asc",
-      "Integrity": "XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=",
+      "Fingerprint": "0ik21820nb",
+      "Integrity": "uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js"
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\bootstrap-8de4e26e.js"
     },
     {
       "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\charts-32cc1938.js",
@@ -227,12 +227,12 @@
       "OriginalItemSpec": "wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf"
     },
     {
-      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-b79000f9.js",
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-1a37918a.js",
       "SourceId": "Inventory.WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
       "BasePath": "_content/Inventory.WebUI",
-      "RelativePath": "dist/assets/index-b79000f9#[.{fingerprint}]?.js",
+      "RelativePath": "dist/assets/index-1a37918a#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -241,19 +241,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "apsyiou04o",
-      "Integrity": "zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU=",
+      "Fingerprint": "hfhf7du5uh",
+      "Integrity": "Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-b79000f9.js"
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-1a37918a.js"
     },
     {
-      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-eceb4239.css",
+      "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-7aebb4f9.css",
       "SourceId": "Inventory.WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\",
       "BasePath": "_content/Inventory.WebUI",
-      "RelativePath": "dist/assets/index-eceb4239#[.{fingerprint}]?.css",
+      "RelativePath": "dist/assets/index-7aebb4f9#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -262,11 +262,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0lu1nnlt82",
-      "Integrity": "7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg=",
+      "Fingerprint": "az949svaid",
+      "Integrity": "euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-eceb4239.css"
+      "OriginalItemSpec": "wwwroot\\dist\\assets\\index-7aebb4f9.css"
     },
     {
       "Identity": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
@@ -451,8 +451,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0watwqwkdh",
-      "Integrity": "YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU=",
+      "Fingerprint": "79z17cmd8q",
+      "Integrity": "ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\index.html"
@@ -460,8 +460,8 @@
   ],
   "Endpoints": [
     {
-      "Route": "dist/assets/bootstrap-0b9c90b2.js",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
+      "Route": "dist/assets/bootstrap-8de4e26e.0ik21820nb.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-8de4e26e.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -470,7 +470,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "24388"
+          "Value": "40259"
         },
         {
           "Name": "Content-Type",
@@ -478,48 +478,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=\""
+          "Value": "\"uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs="
-        }
-      ]
-    },
-    {
-      "Route": "dist/assets/bootstrap-0b9c90b2.toi3ul5asc.js",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-0b9c90b2.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "24388"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -529,15 +492,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "toi3ul5asc"
+          "Value": "0ik21820nb"
         },
         {
           "Name": "label",
-          "Value": "dist/assets/bootstrap-0b9c90b2.js"
+          "Value": "dist/assets/bootstrap-8de4e26e.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs="
+          "Value": "sha256-uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k="
+        }
+      ]
+    },
+    {
+      "Route": "dist/assets/bootstrap-8de4e26e.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-8de4e26e.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "40259"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k="
         }
       ]
     },
@@ -564,7 +564,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -609,7 +609,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -646,7 +646,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -691,7 +691,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -728,7 +728,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -773,7 +773,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -810,7 +810,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -855,7 +855,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -892,7 +892,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -937,7 +937,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -974,7 +974,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1019,7 +1019,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1056,7 +1056,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1101,7 +1101,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1138,7 +1138,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1183,7 +1183,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1220,7 +1220,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1257,7 +1257,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1280,8 +1280,8 @@
       ]
     },
     {
-      "Route": "dist/assets/index-b79000f9.apsyiou04o.js",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-b79000f9.js",
+      "Route": "dist/assets/index-1a37918a.hfhf7du5uh.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-1a37918a.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1290,7 +1290,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52988"
+          "Value": "111026"
         },
         {
           "Name": "Content-Type",
@@ -1298,11 +1298,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU=\""
+          "Value": "\"Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1312,21 +1312,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "apsyiou04o"
+          "Value": "hfhf7du5uh"
         },
         {
           "Name": "label",
-          "Value": "dist/assets/index-b79000f9.js"
+          "Value": "dist/assets/index-1a37918a.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU="
+          "Value": "sha256-Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI="
         }
       ]
     },
     {
-      "Route": "dist/assets/index-b79000f9.js",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-b79000f9.js",
+      "Route": "dist/assets/index-1a37918a.js",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-1a37918a.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1335,7 +1335,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52988"
+          "Value": "111026"
         },
         {
           "Name": "Content-Type",
@@ -1343,11 +1343,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU=\""
+          "Value": "\"Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1357,13 +1357,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU="
+          "Value": "sha256-Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI="
         }
       ]
     },
     {
-      "Route": "dist/assets/index-eceb4239.0lu1nnlt82.css",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-eceb4239.css",
+      "Route": "dist/assets/index-7aebb4f9.az949svaid.css",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-7aebb4f9.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1372,7 +1372,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "317069"
+          "Value": "325197"
         },
         {
           "Name": "Content-Type",
@@ -1380,11 +1380,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg=\""
+          "Value": "\"euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1394,21 +1394,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0lu1nnlt82"
+          "Value": "az949svaid"
         },
         {
           "Name": "label",
-          "Value": "dist/assets/index-eceb4239.css"
+          "Value": "dist/assets/index-7aebb4f9.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg="
+          "Value": "sha256-euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0="
         }
       ]
     },
     {
-      "Route": "dist/assets/index-eceb4239.css",
-      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-eceb4239.css",
+      "Route": "dist/assets/index-7aebb4f9.css",
+      "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-7aebb4f9.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1417,7 +1417,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "317069"
+          "Value": "325197"
         },
         {
           "Name": "Content-Type",
@@ -1425,11 +1425,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg=\""
+          "Value": "\"euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1439,7 +1439,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg="
+          "Value": "sha256-euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0="
         }
       ]
     },
@@ -1466,7 +1466,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1503,7 +1503,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2100,7 +2100,7 @@
       ]
     },
     {
-      "Route": "dist/index.0watwqwkdh.html",
+      "Route": "dist/index.79z17cmd8q.html",
       "AssetFile": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2118,11 +2118,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU=\""
+          "Value": "\"ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2132,7 +2132,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0watwqwkdh"
+          "Value": "79z17cmd8q"
         },
         {
           "Name": "label",
@@ -2140,7 +2140,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU="
+          "Value": "sha256-ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo="
         }
       ]
     },
@@ -2163,11 +2163,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU=\""
+          "Value": "\"ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 27 Aug 2025 09:26:24 GMT"
+          "Value": "Wed, 27 Aug 2025 13:36:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2177,7 +2177,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU="
+          "Value": "sha256-ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo="
         }
       ]
     }

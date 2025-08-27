@@ -16,7 +16,7 @@ public interface ICsvService<T, TKey> where T : class, new() where TKey : notnul
     ValidationSummary ValidateData(IGenericCollection<T, TKey> data);
 }
 
-public class CsvService<T, TKey> : ICsvService<T, TKey>
+public class CsvService<T, TKey> : ICsvService<T, TKey>, ICsvImportService<T>
     where T : class, new() 
     where TKey : notnull, IComparable<TKey>
 {
@@ -77,6 +77,38 @@ public class CsvService<T, TKey> : ICsvService<T, TKey>
         }
         
         return summary;
+    }
+
+    // Implémentation de ICsvImportService<T>
+    async Task<IGenericCollection<T, TGenKey>> ICsvImportService<T>.ImportFromCsvAsync<TGenKey>(string filePath)
+    {
+        var content = await File.ReadAllTextAsync(filePath);
+        return await ((ICsvImportService<T>)this).ImportFromCsvContentAsync<TGenKey>(content);
+    }
+
+    async Task<IGenericCollection<T, TGenKey>> ICsvImportService<T>.ImportFromCsvContentAsync<TGenKey>(string csvContent)
+    {
+        // Si TGenKey est compatible avec TKey, utiliser la méthode existante
+        if (typeof(TGenKey) == typeof(TKey))
+        {
+            var result = await ImportFromCsvContentAsync(csvContent);
+            return (IGenericCollection<T, TGenKey>)(object)result;
+        }
+        
+        // Sinon, nous devons créer un nouveau sélecteur de clé
+        throw new NotSupportedException($"Key type {typeof(TGenKey)} is not supported by this CSV service configured for {typeof(TKey)}");
+    }
+
+    async Task ICsvImportService<T>.ExportToCsvAsync<TGenKey>(IGenericCollection<T, TGenKey> data, string filePath)
+    {
+        // Si TGenKey est compatible avec TKey, utiliser la méthode existante
+        if (typeof(TGenKey) == typeof(TKey))
+        {
+            await ExportToCsvAsync((IGenericCollection<T, TKey>)(object)data, filePath);
+            return;
+        }
+        
+        throw new NotSupportedException($"Key type {typeof(TGenKey)} is not supported by this CSV service configured for {typeof(TKey)}");
     }
 
     private CsvConfiguration CreateConfiguration()

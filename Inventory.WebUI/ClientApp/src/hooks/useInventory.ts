@@ -131,10 +131,12 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
       let totalPagesCount = 1;
       let totalItemsCount = 0;
 
-      if (productsResult?.data) {
-        const { data, totalPages: pages, totalItems: items } = productsResult.data;
-        
-        processedProducts = Array.isArray(data) ? data.map((product: any) => ({
+      if (productsResult) {
+        // The API returns an ApiResponse<T> with shape: { success, message, data, metadata }
+        const api = productsResult as any;
+        const list: any[] = Array.isArray(api?.data) ? api.data : [];
+
+        processedProducts = list.map((product: any) => ({
           id: product.id,
           name: product.name || 'Unknown Product',
           buyingPrice: product.price || product.buyingPrice || 0,
@@ -147,10 +149,12 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
           isActive: product.isActive !== false,
           createdAt: product.createdAt || new Date().toISOString(),
           updatedAt: product.updatedAt || new Date().toISOString()
-        })) : [];
+        }));
 
-        totalPagesCount = pages || Math.ceil(processedProducts.length / size);
-        totalItemsCount = items || processedProducts.length;
+        const totalCount = api?.metadata?.TotalCount ?? api?.metadata?.totalCount ?? processedProducts.length;
+        const pageSizeUsed = api?.metadata?.PageSize ?? api?.metadata?.pageSize ?? size;
+        totalPagesCount = Math.max(1, Math.ceil(totalCount / pageSizeUsed));
+        totalItemsCount = totalCount;
       }
 
       // Process metrics data

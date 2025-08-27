@@ -104,6 +104,8 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
 // Mapping pour Global Product Inventory Dataset 2025
 public class ProductCsvMap : ClassMap<Product>
 {
+    private static int _idCounter = 0;
+    
     public ProductCsvMap()
     {
         // Mapping basé sur le fichier CSV réel
@@ -120,6 +122,9 @@ public class ProductCsvMap : ClassMap<Product>
         Map(m => m.Barcode).Name("SKU");
         Map(m => m.SubCategory).Name("Product Tags");
         Map(m => m.Model).Name("Color/Size Variations");
+        
+        // Générer un ID unique pour chaque produit
+        Map(m => m.Id).Convert(args => System.Threading.Interlocked.Increment(ref _idCounter));
         
         // Ratings comme proxy pour qualité
         Map(m => m.SustainabilityScore).Name("Product Ratings");

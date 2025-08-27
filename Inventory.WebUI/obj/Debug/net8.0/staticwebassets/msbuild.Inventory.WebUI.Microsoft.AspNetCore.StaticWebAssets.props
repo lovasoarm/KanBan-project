@@ -1,22 +1,22 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\bootstrap-0b9c90b2.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\bootstrap-8de4e26e.js'))">
       <SourceType>Package</SourceType>
       <SourceId>Inventory.WebUI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Inventory.WebUI</BasePath>
-      <RelativePath>dist/assets/bootstrap-0b9c90b2.js</RelativePath>
+      <RelativePath>dist/assets/bootstrap-8de4e26e.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>toi3ul5asc</Fingerprint>
-      <Integrity>XaOoMzq/ZDxsA8o98NN7b12srR6uqqso0jqUg2WeqBs=</Integrity>
+      <Fingerprint>0ik21820nb</Fingerprint>
+      <Integrity>uEp+sahdVHW+uSWcSuuAYgNVrbJICDLUt8M+8/QLf9k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\bootstrap-0b9c90b2.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\bootstrap-8de4e26e.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\charts-32cc1938.js'))">
       <SourceType>Package</SourceType>
@@ -180,41 +180,41 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\fa-v4compatibility-30f6abf6.ttf'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-b79000f9.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-1a37918a.js'))">
       <SourceType>Package</SourceType>
       <SourceId>Inventory.WebUI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Inventory.WebUI</BasePath>
-      <RelativePath>dist/assets/index-b79000f9.js</RelativePath>
+      <RelativePath>dist/assets/index-1a37918a.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>apsyiou04o</Fingerprint>
-      <Integrity>zleNu3Tp78cnXxxXXhBkMycDEaj1OTRCrmNw9SWifxU=</Integrity>
+      <Fingerprint>hfhf7du5uh</Fingerprint>
+      <Integrity>Ax9qP5ZJbmXBQSjqbhhI6eMU4NFxqsPlpQDd6es/RWI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-b79000f9.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-1a37918a.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-eceb4239.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-7aebb4f9.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Inventory.WebUI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Inventory.WebUI</BasePath>
-      <RelativePath>dist/assets/index-eceb4239.css</RelativePath>
+      <RelativePath>dist/assets/index-7aebb4f9.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0lu1nnlt82</Fingerprint>
-      <Integrity>7OtCOYyBNe29H81pm2Eo5oCzHhx8gq+ue7UM6b9X6Dg=</Integrity>
+      <Fingerprint>az949svaid</Fingerprint>
+      <Integrity>euu0+eiqdaq7ESpVv8LsioalLur/1fYlfE1lVPZ5Rl0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-eceb4239.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\index-7aebb4f9.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\assets\vendor-5f6cd04d.js'))">
       <SourceType>Package</SourceType>
@@ -372,8 +372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0watwqwkdh</Fingerprint>
-      <Integrity>YKSNz+9sBbl22Abx4H1WH4cUUHcKMO1yY6MLwmQEEPU=</Integrity>
+      <Fingerprint>79z17cmd8q</Fingerprint>
+      <Integrity>ReA2UdPNw/GvyHty4Q2awZsyC0SU5OSyXWnKkgKPcLo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\dist\index.html'))</OriginalItemSpec>

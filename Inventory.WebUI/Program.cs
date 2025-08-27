@@ -4,6 +4,7 @@ using Inventory.Core.Repositories;
 using Inventory.Core.Collections;
 using Inventory.Core.Entities;
 using Inventory.Import.Services;
+using Inventory.WebUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +16,17 @@ builder.Services.AddSwaggerGen();
 // Register application services
 builder.Services.AddScoped<IGenericRepository<Product, int>>(provider => 
     new GenericRepository<Product, int>(p => p.Id));
-builder.Services.AddScoped<ICsvService<Product, int>>(provider => 
-    new CsvService<Product, int>(p => p.Id, new ProductCsvMap()));
+var csvService = new CsvService<Product, int>(p => p.Id, new ProductCsvMap());
+builder.Services.AddScoped<ICsvService<Product, int>>(provider => csvService);
+builder.Services.AddScoped<ICsvImportService<Product>>(provider => csvService);
 builder.Services.AddScoped<IProductService, ProductService>();
+
+// Register import services
+builder.Services.AddScoped<IImportService, ImportService>();
+
+// Register initialization service
+builder.Services.AddScoped<IDataInitializationService, DataInitializationService>();
+
 // Register dashboard services
 builder.Services.AddSingleton<InventoryCollection<Product>>(provider => 
     new InventoryCollection<Product>());
@@ -33,6 +42,13 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// Initialize sample data on startup
+using (var scope = app.Services.CreateScope())
+{
+    var dataInitializer = scope.ServiceProvider.GetRequiredService<IDataInitializationService>();
+    await dataInitializer.InitializeAsync();
+}
 
 // Configure pipeline
 if (app.Environment.IsDevelopment())
