@@ -163,9 +163,9 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
 
   return (
     <div className="products-table-container">
-      {/* Table with horizontal scroll */}
-      <div className="table-responsive">
-        <Table hover className="products-table">
+      {/* Table using dashboard style */}
+      <div className="table-container">
+        <table className="data-table">
           <thead>
             <tr>
               <th>Product</th>
@@ -180,27 +180,42 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
             {loading ? (
               // Show loading skeletons
               Array.from({ length: 5 }, (_, index) => (
-                <LoadingRow key={index} />
+                <tr key={index}>
+                  <td><div className="loading-skeleton"></div></td>
+                  <td><div className="loading-skeleton"></div></td>
+                  <td><div className="loading-skeleton"></div></td>
+                  <td><div className="loading-skeleton"></div></td>
+                  <td><div className="loading-skeleton"></div></td>
+                  <td><div className="loading-skeleton"></div></td>
+                </tr>
               ))
             ) : products.length === 0 ? (
-              <EmptyState />
+              <tr>
+                <td colSpan={6} className="text-center py-4">
+                  <div className="empty-state">
+                    <i className="fas fa-box-open fa-3x text-muted mb-3"></i>
+                    <h5 className="text-muted">No products found</h5>
+                    <p className="text-muted">Try adjusting your search or filters</p>
+                  </div>
+                </td>
+              </tr>
             ) : (
               // Show actual products
               products.map((product) => (
-                <tr key={product.id}>
+                <tr key={product.id} className="table-row">
                   <td>
                     <div className="product-info">
                       <div className="product-name">{product.name}</div>
-                      <small className="text-muted">{product.category}</small>
+                      <small className="text-muted" style={{fontSize: '12px', color: 'var(--text-secondary)'}}>{product.category}</small>
                     </div>
                   </td>
                   <td>
-                    <span className="buying-price">
+                    <span className="price">
                       {formatCurrency(product.buyingPrice)}
                     </span>
                   </td>
                   <td>
-                    <span className="quantity">
+                    <span className="quantity-remaining">
                       {product.quantity.toLocaleString()}
                     </span>
                   </td>
@@ -221,7 +236,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
               ))
             )}
           </tbody>
-        </Table>
+        </table>
       </div>
 
       {/* Pagination Footer */}

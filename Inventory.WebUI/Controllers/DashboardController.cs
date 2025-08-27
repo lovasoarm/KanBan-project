@@ -54,7 +54,6 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<IEnumerable<Product>>(alerts, "Restock alerts retrieved"));
     }
 
-    // Statistiques
     [HttpGet("stats/summary")]
     public async Task<ActionResult<ApiResponse<object>>> GetSummaryStats()
     {

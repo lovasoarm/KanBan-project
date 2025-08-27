@@ -1,94 +1,84 @@
+/* ProductsTable utilise les styles du Dashboard */
 .products-table-container {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Styles héritent du products-section dans Inventory.css */
 }
 
-.table-responsive {
-  border-radius: 12px;
+/* Override Bootstrap table styles with dashboard data-table styles */
+.products-table-container .table-container {
   overflow-x: auto;
+  max-height: none; /* Pas de limite pour l'inventaire */
 }
 
-.products-table {
-  margin-bottom: 0;
-  white-space: nowrap;
-  min-width: 800px; /* Ensure horizontal scroll on smaller screens */
+.products-table-container .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
-.products-table thead th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+.products-table-container .data-table thead th {
+  background: var(--neutral-light, #F5F7FA);
+  padding: 16px;
+  text-align: left;
   font-weight: 600;
+  color: var(--text-secondary, #6B7280);
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-size: 0.875rem;
-  border: none;
-  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--neutral-medium, #E9EEF2);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-.products-table tbody td {
-  padding: 1rem 1.25rem;
-  vertical-align: middle;
-  border-top: 1px solid #e9ecef;
-  font-size: 0.875rem;
+.products-table-container .data-table tbody tr {
+  transition: background-color 0.2s ease;
 }
 
-.products-table tbody tr {
-  transition: all 0.2s ease;
+.products-table-container .data-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
 }
 
-.products-table tbody tr:hover {
-  background-color: #f8f9fa;
-  transform: scale(1.001);
+.products-table-container .data-table tbody tr:hover {
+  background: rgba(47, 128, 237, 0.05);
 }
 
-/* Product Info Column */
-.product-info {
+.products-table-container .data-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid var(--neutral-medium, #E9EEF2);
+  color: var(--text-primary, #1F2937);
+}
+
+.products-table-container .product-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 2px;
 }
 
-.product-name {
-  font-weight: 600;
-  color: #2d3748;
-  font-size: 0.925rem;
-}
-
-.product-info small {
-  font-size: 0.75rem;
-  color: #6c757d;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Price Formatting */
-.buying-price {
-  font-weight: 600;
-  color: #28a745;
-  font-size: 0.925rem;
-}
-
-.quantity {
-  font-weight: 600;
-  color: #2d3748;
-  font-size: 0.925rem;
-}
-
-.threshold-value {
+.products-table-container .product-name {
   font-weight: 500;
-  color: #6c757d;
-  font-size: 0.875rem;
+  color: var(--text-primary, #1F2937);
+  font-size: 14px;
+  line-height: 1.3;
 }
 
-.expiry-date {
+.products-table-container .price {
+  font-weight: 600;
+  color: var(--text-primary, #1F2937);
+}
+
+.products-table-container .quantity-remaining {
+  background: rgba(47, 128, 237, 0.1);
+  color: var(--primary-color, #2F80ED);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.products-table-container .threshold-value,
+.products-table-container .expiry-date {
+  color: var(--text-secondary, #6B7280);
   font-weight: 500;
-  color: #495057;
-  font-size: 0.875rem;
 }
 
 /* Badge Improvements */

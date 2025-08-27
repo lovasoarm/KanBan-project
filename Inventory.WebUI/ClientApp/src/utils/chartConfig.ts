@@ -13,8 +13,11 @@ import {
 
 // Configuration globale pour optimiser les performances
 export const setupChartDefaults = (): void => {
-  // Désactiver toutes les animations par défaut
-  ChartJS.defaults.animation = false;
+  // Activer des animations simples
+  ChartJS.defaults.animation = {
+    duration: 800,
+    easing: 'easeInOutQuart'
+  };
   ChartJS.defaults.responsive = true;
   ChartJS.defaults.maintainAspectRatio = false;
   
@@ -57,15 +60,35 @@ export const baseChartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   animation: {
-    duration: 0
+    duration: 800,
+    easing: 'easeInOutQuart'
   },
   animations: {
-    colors: false,
-    x: false,
-    y: false
+    colors: {
+      type: 'color',
+      duration: 800,
+      from: 'transparent'
+    },
+    x: {
+      type: 'number',
+      easing: 'easeInOutQuart',
+      duration: 800,
+      from: (ctx: any) => ctx.index === 0 ? ctx.chart.scales.x.getPixelForValue(ctx.index) : null
+    },
+    y: {
+      type: 'number',
+      easing: 'easeInOutQuart', 
+      duration: 800,
+      from: (ctx: any) => ctx.chart.scales.y.getPixelForValue(0)
+    }
   },
   transitions: {
     active: {
+      animation: {
+        duration: 200
+      }
+    },
+    resize: {
       animation: {
         duration: 0
       }

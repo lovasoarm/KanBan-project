@@ -173,23 +173,6 @@ const Inventory: React.FC = () => {
 
         {/* Inventory Content */}
         <div className="inventory-content">
-          {/* Header */}
-          <div className="content-header mb-4">
-            <div>
-              <h1 className="page-title">
-                <i className="fas fa-boxes me-2"></i>
-                Inventory Management
-              </h1>
-              <p className="page-subtitle">Manage your products and inventory levels</p>
-            </div>
-            <div className="header-actions">
-              <Button variant="primary" size="sm" onClick={refetch} disabled={loading}>
-                <i className="fas fa-sync-alt me-1"></i>
-                Refresh
-              </Button>
-            </div>
-          </div>
-
           {/* Overall Inventory Section */}
           <div className="inventory-metrics mb-4">
             <h2 className="section-title mb-3">Overall Inventory</h2>
