@@ -41,12 +41,12 @@
       "PackagePath": "staticwebassets\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf"
     },
     {
-      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-fd48e750.js",
-      "PackagePath": "staticwebassets\\dist\\assets\\index-fd48e750.js"
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-b79000f9.js",
+      "PackagePath": "staticwebassets\\dist\\assets\\index-b79000f9.js"
     },
     {
-      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-feb63179.css",
-      "PackagePath": "staticwebassets\\dist\\assets\\index-feb63179.css"
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-eceb4239.css",
+      "PackagePath": "staticwebassets\\dist\\assets\\index-eceb4239.css"
     },
     {
       "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
@@ -59,6 +59,26 @@
     {
       "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\logo.svg",
       "PackagePath": "staticwebassets\\dist\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\1.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\2.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\3.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\4.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\5.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\5.png"
     },
     {
       "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",

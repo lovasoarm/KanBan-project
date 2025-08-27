@@ -192,11 +192,11 @@ const Dashboard: React.FC = () => {
         </div>
         
         <nav className="sidebar-nav">
-          <a href="#" className="nav-item active">
+          <a href="/dashboard" className="nav-item active">
             <i className="fas fa-tachometer-alt"></i>
             {!sidebarCollapsed && <span>Dashboard</span>}
           </a>
-          <a href="#" className="nav-item">
+          <a href="/inventory" className="nav-item">
             <i className="fas fa-boxes"></i>
             {!sidebarCollapsed && <span>Inventory</span>}
           </a>
