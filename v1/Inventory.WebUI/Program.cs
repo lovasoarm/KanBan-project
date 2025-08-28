@@ -14,23 +14,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Register application services
-builder.Services.AddScoped<IGenericRepository<Product, int>>(provider => 
+builder.Services.AddSingleton<IGenericRepository<Product, int>>(provider => 
     new GenericRepository<Product, int>(p => p.Id));
 var csvService = new CsvService<Product, int>(p => p.Id, new ProductCsvMap());
-builder.Services.AddScoped<ICsvService<Product, int>>(provider => csvService);
-builder.Services.AddScoped<ICsvImportService<Product>>(provider => csvService);
-builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddSingleton<ICsvService<Product, int>>(provider => csvService);
+builder.Services.AddSingleton<ICsvImportService<Product>>(provider => csvService);
+builder.Services.AddSingleton<IProductService, ProductService>();
 
 // Register import services
-builder.Services.AddScoped<IImportService, ImportService>();
+builder.Services.AddSingleton<IImportService, ImportService>();
 
 // Register initialization service
-builder.Services.AddScoped<IDataInitializationService, DataInitializationService>();
+builder.Services.AddSingleton<IDataInitializationService, DataInitializationService>();
 
 // Register dashboard services
 builder.Services.AddSingleton<InventoryCollection<Product>>(provider => 
     new InventoryCollection<Product>());
-builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddSingleton<IDashboardService, DashboardService>();
 
 // Add CORS
 builder.Services.AddCors(options =>

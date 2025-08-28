@@ -16,7 +16,6 @@ public class DashboardController : ControllerBase
         _dashboardService = dashboardService ?? throw new ArgumentNullException(nameof(dashboardService));
     }
 
-<<<<<<< HEAD
     // Route par défaut - Données complètes du dashboard
     [HttpGet]
     public async Task<ActionResult<ApiResponse<object>>> GetDashboard()
@@ -45,11 +44,6 @@ public class DashboardController : ControllerBase
 
         return Ok(new ApiResponse<object>(dashboard, "Dashboard data retrieved successfully"));
     }
-
-    // Métriques
-=======
-   
->>>>>>> c1474e62f352c67ad1b4fd101bfdceb9447b4c36
     [HttpGet("metrics")]
     public async Task<ActionResult<ApiResponse<DashboardMetrics>>> GetMetrics()
     {

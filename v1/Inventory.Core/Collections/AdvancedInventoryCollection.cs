@@ -51,13 +51,13 @@ public class AdvancedInventoryCollection<T> : ICollection<T>, IEnumerable<T>
         Count = 0;
     });
 
-    public bool Contains(T item) => ExecuteRead(() => _indexer[item.Id]?.Equals(item) == true);
+    public bool Contains(T item) => ExecuteRead<bool>(() => _indexer[item.Id]?.Equals(item) == true);
 
     public void CopyTo(T[] array, int arrayIndex) => 
-        ExecuteRead(() => this.ToArray().CopyTo(array, arrayIndex));
+        ExecuteRead<object>(() => { this.ToArray().CopyTo(array, arrayIndex); return null!; });
 
     // Enumeration
-    public IEnumerator<T> GetEnumerator() => ExecuteRead(() => _indexer.GetEnumerator());
+    public IEnumerator<T> GetEnumerator() => ExecuteRead<IEnumerator<T>>(() => _indexer.GetEnumerator());
     
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 

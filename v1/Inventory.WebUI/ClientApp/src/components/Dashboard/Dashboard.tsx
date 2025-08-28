@@ -1,12 +1,13 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { Badge } from 'react-bootstrap';
 import { setupChartDefaults, barChartOptions, lineChartOptions } from '../../utils/chartConfig';
+import { getProductImage, getStockStatus } from '../../utils/productImageUtils';
 import { useOptimizedDashboard } from '../../hooks/useOptimizedDashboard';
 import { MemoizedBarChart, MemoizedLineChart } from '../Common/MemoizedChart';
 import TopSellingTable from './TopSellingTable';
 import './Dashboard.css';
 
-// Initialiser la configuration Chart.js une seule fois
+
 setupChartDefaults();
 
 const Dashboard: React.FC = () => {
@@ -442,31 +443,49 @@ const Dashboard: React.FC = () => {
             <div className="low-stock-list">
               {lowStockItems.length > 0 ? lowStockItems.map((item, index) => (
                 <div key={index} className="low-stock-item">
-                  <img src={item.image || `/images/products/product-${index + 1}.jpg`} alt={item.name} className="product-thumb" />
+                  <img src={getProductImage(item.name)} alt={item.name} className="product-thumb" />
                   <div className="item-info">
                     <span className="item-name">{item.name}</span>
                     <div className="item-quantity">
                       <span>Remaining quantity: {item.remaining} packets</span>
-                      <Badge className="low-badge pulse">Low</Badge>
+                      <Badge 
+                        className="low-badge pulse" 
+                        style={{ 
+                          backgroundColor: item.remaining <= 5 ? 'rgba(255, 68, 68, 0.2)' : 'rgba(255, 149, 0, 0.2)', 
+                          color: item.remaining <= 5 ? '#FF4444' : '#FF9500',
+                          animation: item.remaining <= 5 ? 'pulse 2s infinite' : 'none'
+                        }}
+                      >
+                        {item.remaining <= 5 ? 'Critical' : 'Low'}
+                      </Badge>
                     </div>
                   </div>
                 </div>
               )) : (
-                // Données de fallback
+   
                 [
-                  { name: 'Wireless Headphones', remaining: 12, image: '/images/products/1.png' },
-                  { name: 'Smart Watch', remaining: 8, image: '/images/products/2.png' },
-                  { name: 'Laptop Stand', remaining: 15, image: '/images/products/3.png' },
-                  { name: 'USB Cable', remaining: 22, image: '/images/products/4.png' },
-                  { name: 'Phone Case', remaining: 5, image: '/images/products/5.png' }
+                  { name: 'Wireless Headphones', remaining: 12 },
+                  { name: 'Gaming Laptop', remaining: 3 },
+                  { name: '4K Monitor', remaining: 8 },
+                  { name: 'iPhone 15', remaining: 2 },
+                  { name: 'Bluetooth Speaker', remaining: 15 }
                 ].map((item, index) => (
                   <div key={index} className="low-stock-item">
-                    <img src={item.image} alt={item.name} className="product-thumb" />
+                    <img src={getProductImage(item.name)} alt={item.name} className="product-thumb" />
                     <div className="item-info">
                       <span className="item-name">{item.name}</span>
                       <div className="item-quantity">
                         <span>Remaining quantity: {item.remaining} packets</span>
-                        <Badge className="low-badge pulse" style={{ backgroundColor: 'rgba(255, 68, 68, 0.2)', color: '#FF4444' }}>Low</Badge>
+                        <Badge 
+                          className="low-badge pulse" 
+                          style={{ 
+                            backgroundColor: item.remaining <= 5 ? 'rgba(255, 68, 68, 0.2)' : 'rgba(255, 149, 0, 0.2)', 
+                            color: item.remaining <= 5 ? '#FF4444' : '#FF9500',
+                            animation: item.remaining <= 5 ? 'pulse 2s infinite' : 'none'
+                          }}
+                        >
+                          {item.remaining <= 5 ? 'Critical' : 'Low'}
+                        </Badge>
                       </div>
                     </div>
                   </div>

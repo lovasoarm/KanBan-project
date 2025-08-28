@@ -1,5 +1,7 @@
 import React from 'react';
 import { TopSellingProduct } from '../../types/dashboard.types';
+import { getProductImage, getStockStatus } from '../../utils/productImageUtils';
+import { Badge } from 'react-bootstrap';
 
 interface TopSellingTableProps {
   products: TopSellingProduct[];
@@ -57,31 +59,58 @@ const TopSellingTable: React.FC<TopSellingTableProps> = ({ products }) => {
       <table className="data-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Sold Quantity</th>
-            <th>Remaining Quantity</th>
+            <th>Product</th>
+            <th>Sold</th>
+            <th>Stock</th>
             <th>Price</th>
           </tr>
         </thead>
         <tbody>
-          {displayProducts.map((product) => (
-            <tr key={product.id} className="table-row">
-              <td className="product-name">{product.name}</td>
-              <td>
-                <span className="quantity-sold">
-                  {product.soldQuantity}
-                </span>
-              </td>
-              <td>
-                <span className="quantity-remaining">
-                  {product.remainingQuantity}
-                </span>
-              </td>
-              <td className="price">
-                ${typeof product.price === 'number' ? product.price.toFixed(2) : product.price}
-              </td>
-            </tr>
-          ))}
+          {displayProducts.map((product) => {
+            const stockStatus = getStockStatus(product.remainingQuantity);
+            return (
+              <tr key={product.id} className="table-row">
+                <td className="product-cell">
+                  <div className="product-info">
+                    <img 
+                      src={getProductImage(product.name)} 
+                      alt={product.name} 
+                      className="product-image"
+                      style={{ width: '32px', height: '32px', borderRadius: '4px', objectFit: 'cover' }}
+                    />
+                    <span className="product-name">{product.name}</span>
+                  </div>
+                </td>
+                <td>
+                  <span className="quantity-sold">
+                    {product.soldQuantity}
+                  </span>
+                </td>
+                <td>
+                  <div className="stock-info">
+                    <span className="quantity-remaining">
+                      {product.remainingQuantity}
+                    </span>
+                    {product.remainingQuantity <= 15 && (
+                      <Badge 
+                        style={{ 
+                          backgroundColor: stockStatus.backgroundColor,
+                          color: stockStatus.color,
+                          marginLeft: '8px',
+                          fontSize: '10px'
+                        }}
+                      >
+                        {stockStatus.label}
+                      </Badge>
+                    )}
+                  </div>
+                </td>
+                <td className="price">
+                  ${typeof product.price === 'number' ? product.price.toFixed(2) : product.price}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

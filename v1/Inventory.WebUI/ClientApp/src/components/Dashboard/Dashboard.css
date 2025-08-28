@@ -670,6 +670,41 @@
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
+  border: 2px solid var(--neutral-medium);
+  transition: all 0.2s ease;
+}
+
+.product-thumb:hover {
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Product info container for tables */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--neutral-medium);
+  transition: all 0.2s ease;
+}
+
+.product-image:hover {
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Stock info container */
+.stock-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .item-info {
@@ -694,20 +729,38 @@
   color: var(--text-secondary);
 }
 
-/* Badge Low avec background rouge et opacité 0.2 */
+
 .low-badge,
 .badge.low-badge,
 span.low-badge.badge,
 .low-stock-list .low-badge {
-  background-color: rgba(255, 68, 68, 0.2) !important;
-  background: rgba(255, 68, 68, 0.2) !important;
-  color: #FF4444 !important;
   font-size: 10px !important;
   font-weight: 600 !important;
   padding: 4px 8px !important;
   border-radius: 12px !important;
   border: none !important;
   text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.low-badge.pulse {
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .dashboard-loading {
