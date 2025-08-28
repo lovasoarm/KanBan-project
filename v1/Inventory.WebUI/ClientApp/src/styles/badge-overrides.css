@@ -1,0 +1,46 @@
+/* Badge Color Overrides - Force red color for danger badges */
+
+/* Critical badges - Force rouge avec haute priorité */
+.badge.bg-danger,
+span.badge.bg-danger,
+.table .badge.bg-danger,
+.card .badge.bg-danger,
+div .badge.bg-danger,
+.products-table .badge.bg-danger {
+  background: rgba(220, 53, 69, 0.2) !important;
+  color: #dc3545 !important;
+  border: 1px solid rgba(220, 53, 69, 0.3) !important;
+}
+
+/* Bootstrap override for danger variants */
+.bg-danger {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  color: #dc3545 !important;
+}
+
+/* Text color for danger badges */
+.text-bg-danger {
+  color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+/* Ensure text content is also red */
+.badge.bg-danger,
+.badge.text-bg-danger {
+  color: #dc3545 !important;
+  background-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+/* Override any inline styles */
+.badge[class*="danger"] {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  color: #dc3545 !important;
+  border: 1px solid rgba(220, 53, 69, 0.3) !important;
+}
+
+/* Force pour les badges avec le texte "CRITICAL" */
+.badge:contains("CRITICAL") {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  color: #dc3545 !important;
+  border: 1px solid rgba(220, 53, 69, 0.3) !important;
+}

@@ -47,8 +47,8 @@ export const getStockStatus = (quantity: number) => {
   if (quantity <= 5) {
     return {
       label: 'Critical',
-      backgroundColor: 'rgba(255, 68, 68, 0.2)',
-      color: '#FF4444',
+      backgroundColor: 'rgba(255, 0, 0, 0.2)', 
+      color: '#FF0000',
       animation: 'pulse 2s infinite'
     };
   } else if (quantity <= 15) {

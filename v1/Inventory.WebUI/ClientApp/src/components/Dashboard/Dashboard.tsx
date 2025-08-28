@@ -450,13 +450,9 @@ const Dashboard: React.FC = () => {
                       <span>Remaining quantity: {item.remaining} packets</span>
                       <Badge 
                         className="low-badge pulse" 
-                        style={{ 
-                          backgroundColor: item.remaining <= 5 ? 'rgba(255, 68, 68, 0.2)' : 'rgba(255, 149, 0, 0.2)', 
-                          color: item.remaining <= 5 ? '#FF4444' : '#FF9500',
-                          animation: item.remaining <= 5 ? 'pulse 2s infinite' : 'none'
-                        }}
+                        style={getStockStatus(item.remaining)}
                       >
-                        {item.remaining <= 5 ? 'Critical' : 'Low'}
+                        {getStockStatus(item.remaining).label}
                       </Badge>
                     </div>
                   </div>
@@ -478,13 +474,9 @@ const Dashboard: React.FC = () => {
                         <span>Remaining quantity: {item.remaining} packets</span>
                         <Badge 
                           className="low-badge pulse" 
-                          style={{ 
-                            backgroundColor: item.remaining <= 5 ? 'rgba(255, 68, 68, 0.2)' : 'rgba(255, 149, 0, 0.2)', 
-                            color: item.remaining <= 5 ? '#FF4444' : '#FF9500',
-                            animation: item.remaining <= 5 ? 'pulse 2s infinite' : 'none'
-                          }}
+                          style={getStockStatus(item.remaining)}
                         >
-                          {item.remaining <= 5 ? 'Critical' : 'Low'}
+                          {getStockStatus(item.remaining).label}
                         </Badge>
                       </div>
                     </div>

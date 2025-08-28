@@ -1,0 +1,244 @@
+/* AddProductModal.css */
+.add-product-modal .modal-content {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--box-shadow-lg);
+}
+
+.add-product-modal .modal-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+}
+
+.add-product-modal .modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+.add-product-modal .modal-body {
+  padding: 1.5rem;
+}
+
+.add-product-modal .modal-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+}
+
+/* Image Upload Styles */
+.image-upload-container {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--bg-light);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.image-upload-container:hover, 
+.image-upload-container.drag-active {
+  border-color: var(--primary-color);
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.image-upload-container .upload-icon {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.image-upload-container h5 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.image-upload-container p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.browse-button {
+  background-color: var(--bg-white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: 0.75rem;
+}
+
+.browse-button:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.upload-preview {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.upload-preview img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-right: 1rem;
+}
+
+.upload-preview .file-info {
+  flex: 1;
+}
+
+.upload-preview .file-info .file-name {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.upload-preview .file-info .file-size {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.upload-preview .remove-button {
+  color: var(--danger-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.form-control {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+  background-color: var(--bg-white);
+  font-size: 0.9375rem;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-select {
+  height: 42px;
+  padding: 0.625rem 0.75rem;
+}
+
+/* Button Styles */
+.modal-footer .btn {
+  padding: 0.625rem 1.25rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+}
+
+.btn-discard {
+  background-color: var(--bg-white);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-discard:hover {
+  background-color: var(--bg-light);
+}
+
+.btn-add {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.btn-add:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #004085);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-product-modal .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  .add-product-modal .modal-body {
+    padding: 1rem;
+  }
+  
+  .image-upload-container {
+    padding: 1.5rem;
+  }
+  
+  .form-control {
+    font-size: 1rem;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Focus states for accessibility */
+.image-upload-container:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Validation feedback */
+.form-control.is-invalid {
+  border-color: var(--danger-color);
+}
+
+.form-control.is-valid {
+  border-color: var(--success-color);
+}
+
+/* Custom styles for file preview */
+.upload-preview {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Animation for drag states */
+.image-upload-container {
+  transition: all 0.2s ease;
+}
+
+.image-upload-container.drag-active {
+  transform: scale(1.02);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
+}
