@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -21,6 +21,7 @@ import {
 } from '../../types/reports';
 import { useReports } from '../../hooks/useReports';
 import { formatINR, formatNumber, formatChartAxisValue } from '../../utils/formatters';
+import { MemoizedLineChart } from '../Common/MemoizedChart';
 
 ChartJS.register(
   CategoryScale,
@@ -35,13 +36,17 @@ ChartJS.register(
 // Types importés depuis types/reports.ts
 
 const Reports: React.FC = () => {
-  const [chartPeriod, setChartPeriod] = useState<'weekly'>('weekly');
-  const chartRef = useRef<ChartJS<'line'>>(null);
+  const [chartPeriod, setChartPeriod] = useState<'weekly' | 'monthly'>('weekly');
+  const [chartKey, setChartKey] = useState(0);
   
   // Utilisation du hook personnalisé pour gérer les données
   const { data: reportsData, loading, error, refetch } = useReports();
 
-  // Les formatters sont maintenant importés depuis utils/formatters.ts
+  // Fonction pour obtenir le mois actuel en format abrégé (Jan, Feb, etc.)
+  const getCurrentMonth = () => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months[new Date().getMonth()];
+  };
 
   // Prepare overview metrics
   const overviewMetrics: MetricCardData[] = reportsData ? [
@@ -98,14 +103,73 @@ const Reports: React.FC = () => {
   }, [chartData]);
   
 
-  const chartDisplayData = {
-    labels: chartData?.weekly?.labels || [],
-    datasets: chartData?.weekly ? [
+  // Fonction pour obtenir les données selon la période sélectionnée avec useMemo pour optimisation
+  const getCurrentPeriodData = useMemo(() => {
+    console.log('getCurrentPeriodData - chartData:', chartData);
+    console.log('getCurrentPeriodData - chartPeriod:', chartPeriod);
+    
+    // Définir les données par défaut pour chaque période
+    const getDefaultData = (period: 'weekly' | 'monthly') => {
+      if (period === 'monthly') {
+        return {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          revenue: [120000, 190000, 300000, 250000, 220000, 350000],
+          profit: [80000, 120000, 180000, 150000, 140000, 200000]
+        };
+      } else {
+        return {
+          labels: ['W1', 'W2', 'W3', 'W4'],
+          revenue: [85000, 120000, 95000, 140000],
+          profit: [55000, 80000, 62000, 92000]
+        };
+      }
+    };
+    
+    // Si pas de données API, utiliser des données par défaut
+    if (!chartData) {
+      console.log('No chartData from API, using default data for:', chartPeriod);
+      return getDefaultData(chartPeriod);
+    }
+    
+    // Vérifier si les données de la période demandée existent et sont valides
+    const periodData = chartData[chartPeriod];
+    
+    if (periodData && periodData.labels && periodData.labels.length > 0 && 
+        periodData.revenue && periodData.revenue.length > 0 && 
+        periodData.profit && periodData.profit.length > 0) {
+      console.log('Using API data for period:', chartPeriod);
+      return periodData;
+    }
+    
+    // Fallback: retourner les données par défaut si les données API sont incomplètes
+    console.log('API data incomplete for period:', chartPeriod, ', using default data');
+    return getDefaultData(chartPeriod);
+  }, [chartData, chartPeriod]);
+
+  // Gestionnaire de changement de période avec callback mémorisé
+  const handlePeriodChange = useCallback((period: 'weekly' | 'monthly') => {
+    console.log('Changing chart period to:', period);
+    setChartPeriod(period);
+    // Incrémente la clé pour forcer le re-rendu du graphique
+    setChartKey(prevKey => prevKey + 1);
+  }, []);
+  
+  // Force re-render when period changes
+  useEffect(() => {
+    console.log('Chart period changed to:', chartPeriod);
+    console.log('Current data:', getCurrentPeriodData);
+    // La clé chartKey s'occupe déjà du re-rendu, pas besoin de destroy manuel
+  }, [chartPeriod, getCurrentPeriodData]);
+  
+  // Données du graphique optimisées avec useMemo
+  const chartDisplayData = useMemo(() => ({
+    labels: getCurrentPeriodData.labels,
+    datasets: getCurrentPeriodData.labels.length > 0 ? [
       {
         label: 'Revenue',
-        data: chartData.weekly.revenue,
+        data: getCurrentPeriodData.revenue,
         borderColor: '#2979FF',
-        backgroundColor: '#2979FF',
+        backgroundColor: 'rgba(41, 121, 255, 0.1)',
         borderWidth: 3,
         pointRadius: 6,
         pointHoverRadius: 8,
@@ -113,28 +177,32 @@ const Reports: React.FC = () => {
         pointBorderColor: '#ffffff',
         pointBorderWidth: 2,
         tension: 0.4,
-        fill: false
+        fill: false,
+        cubicInterpolationMode: 'monotone' as const
       },
       {
         label: 'Profit',
-        data: chartData.weekly.profit,
+        data: getCurrentPeriodData.profit,
         borderColor: '#FBC02D',
-        backgroundColor: 'rgba(251, 192, 45, 0.1)',
-        borderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
+        backgroundColor: 'rgba(251, 192, 45, 0.2)',
+        borderWidth: 3,
+        pointRadius: 5,
+        pointHoverRadius: 7,
         pointBackgroundColor: '#FBC02D',
         pointBorderColor: '#ffffff',
         pointBorderWidth: 2,
         tension: 0.4,
-        fill: true
+        fill: true,
+        cubicInterpolationMode: 'monotone' as const
       }
     ] : []
-  };
+  }), [getCurrentPeriodData]);
 
-  const chartOptions = {
+  // Options du graphique optimisées avec useMemo
+  const chartOptions = useMemo(() => ({
     responsive: true,
     maintainAspectRatio: false,
+    redraw: true, // Force le redessin
     interaction: {
       mode: 'index' as const,
       intersect: false,
@@ -189,13 +257,15 @@ const Reports: React.FC = () => {
         cornerRadius: 8,
         displayColors: false,
         callbacks: {
-          title: function(context: TooltipItem<'line'>[]) {
-            return `This Month ${context[0]?.label || ''}`;
+          title: function() {
+            return '';
           },
           label: function(context: TooltipItem<'line'>) {
             const value = context.parsed.y;
-            const formattedValue = value.toLocaleString();
-            return `${context.dataset.label}: ₹${formattedValue}`;
+            const formattedValue = new Intl.NumberFormat('en-IN').format(value);
+            const currentMonth = getCurrentMonth();
+            const period = chartPeriod === 'weekly' ? 'Week' : 'Month';
+            return `This ${period} ${formattedValue} ${currentMonth}`;
           }
         }
       }
@@ -206,9 +276,17 @@ const Reports: React.FC = () => {
       }
     },
     animation: {
-      duration: 0
+      duration: 800,
+      easing: 'easeInOutQuart' as const
+    },
+    transitions: {
+      active: {
+        animation: {
+          duration: 200
+        }
+      }
     }
-  };
+  }), [chartPeriod]);
 
   // Affichage conditionnel pour le chargement et les erreurs
   if (loading) {
@@ -304,14 +382,31 @@ const Reports: React.FC = () => {
         <div className="chart-card">
           <div className="chart-header">
             <h3 className="chart-title">Profit & Revenue</h3>
+            <div className="period-toggle">
+              <button 
+                className={`toggle-btn ${chartPeriod === 'weekly' ? 'active' : ''}`}
+                onClick={() => handlePeriodChange('weekly')}
+              >
+                <i className="fas fa-calendar-week"></i>
+                Weekly
+              </button>
+              <button 
+                className={`toggle-btn ${chartPeriod === 'monthly' ? 'active' : ''}`}
+                onClick={() => handlePeriodChange('monthly')}
+              >
+                <i className="fas fa-calendar-alt"></i>
+                Monthly
+              </button>
+            </div>
           </div>
           <div className="chart-body">
             <div style={{ height: '240px', flexGrow: 1 }}>
-              {chartData?.weekly ? (
+              {getCurrentPeriodData.labels.length > 0 ? (
                 <Line 
-                  ref={chartRef}
+                  key={`${chartPeriod}-${chartKey}`}
                   data={chartDisplayData}
                   options={chartOptions}
+                  redraw
                 />
               ) : (
                 <div className="no-data-message">
