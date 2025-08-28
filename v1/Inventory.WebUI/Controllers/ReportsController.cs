@@ -64,25 +64,40 @@ public class ReportsController : ControllerBase
             .ToList();
 
         // Calculate monthly trend data (simulated based on existing data)
+        var random = new Random();
         var monthlyRevenue = new List<decimal>();
         var monthlyProfit = new List<decimal>();
         
+        var baseRevenue = totalRevenue / 7;
         for (int i = 0; i < 7; i++)
         {
-            var monthRevenue = totalRevenue / 7 + (decimal)(new Random().NextDouble() * 1000);
+            // Add more variation to make it realistic
+            var variation = (decimal)(random.NextDouble() * 0.4 - 0.2); // -20% to +20% variation
+            var monthRevenue = baseRevenue * (1 + variation) + (decimal)(random.NextDouble() * 10000);
             monthlyRevenue.Add(monthRevenue);
-            monthlyProfit.Add(monthRevenue * 0.3m);
+            
+            // Profit margin varies between 15% and 45% instead of fixed 30%
+            var profitMargin = (decimal)(0.15 + random.NextDouble() * 0.3); // 15% to 45%
+            var profit = monthRevenue * profitMargin;
+            monthlyProfit.Add(profit);
         }
 
         // Calculate weekly trend data
         var weeklyRevenue = new List<decimal>();
         var weeklyProfit = new List<decimal>();
         
+        var baseWeeklyRevenue = totalRevenue / 4;
         for (int i = 0; i < 4; i++)
         {
-            var weekRevenue = totalRevenue / 4 + (decimal)(new Random().NextDouble() * 500);
+            // Add variation to weekly data too
+            var variation = (decimal)(random.NextDouble() * 0.3 - 0.15); // -15% to +15% variation
+            var weekRevenue = baseWeeklyRevenue * (1 + variation) + (decimal)(random.NextDouble() * 5000);
             weeklyRevenue.Add(weekRevenue);
-            weeklyProfit.Add(weekRevenue * 0.3m);
+            
+            // Variable profit margin for weekly data too
+            var profitMargin = (decimal)(0.2 + random.NextDouble() * 0.25); // 20% to 45%
+            var profit = weekRevenue * profitMargin;
+            weeklyProfit.Add(profit);
         }
 
         var reportsData = new
@@ -208,7 +223,7 @@ public class ReportsController : ControllerBase
     {
         var products = await _productService.GetAllAsync();
         var totalRevenue = products.Sum(p => p.Price * p.Quantity);
-
+        var random = new Random();
         object chartData;
 
         if (period.ToLower() == "weekly")
@@ -216,11 +231,18 @@ public class ReportsController : ControllerBase
             var weeklyRevenue = new List<decimal>();
             var weeklyProfit = new List<decimal>();
             
+            var baseWeeklyRevenue = totalRevenue / 4;
             for (int i = 0; i < 4; i++)
             {
-                var weekRevenue = totalRevenue / 4 + (decimal)(new Random().NextDouble() * 500);
+                // Add variation to weekly data
+                var variation = (decimal)(random.NextDouble() * 0.3 - 0.15); // -15% to +15% variation
+                var weekRevenue = baseWeeklyRevenue * (1 + variation) + (decimal)(random.NextDouble() * 5000);
                 weeklyRevenue.Add(weekRevenue);
-                weeklyProfit.Add(weekRevenue * 0.3m);
+                
+                // Variable profit margin
+                var profitMargin = (decimal)(0.2 + random.NextDouble() * 0.25); // 20% to 45%
+                var profit = weekRevenue * profitMargin;
+                weeklyProfit.Add(profit);
             }
 
             chartData = new
@@ -235,11 +257,18 @@ public class ReportsController : ControllerBase
             var monthlyRevenue = new List<decimal>();
             var monthlyProfit = new List<decimal>();
             
+            var baseRevenue = totalRevenue / 7;
             for (int i = 0; i < 7; i++)
             {
-                var monthRevenue = totalRevenue / 7 + (decimal)(new Random().NextDouble() * 1000);
+                // Add variation to make it realistic
+                var variation = (decimal)(random.NextDouble() * 0.4 - 0.2); // -20% to +20% variation
+                var monthRevenue = baseRevenue * (1 + variation) + (decimal)(random.NextDouble() * 10000);
                 monthlyRevenue.Add(monthRevenue);
-                monthlyProfit.Add(monthRevenue * 0.3m);
+                
+                // Profit margin varies between 15% and 45%
+                var profitMargin = (decimal)(0.15 + random.NextDouble() * 0.3); // 15% to 45%
+                var profit = monthRevenue * profitMargin;
+                monthlyProfit.Add(profit);
             }
 
             chartData = new

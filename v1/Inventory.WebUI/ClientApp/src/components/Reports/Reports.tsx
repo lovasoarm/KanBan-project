@@ -326,6 +326,12 @@ const Reports: React.FC = () => {
             <h3 className="chart-title">Profit & Revenue</h3>
             <div className="toggle-buttons">
               <button 
+                className={`toggle-btn ${chartPeriod === 'monthly' ? 'active' : ''}`}
+                onClick={() => setChartPeriod('monthly')}
+              >
+                Monthly
+              </button>
+              <button 
                 className={`toggle-btn ${chartPeriod === 'weekly' ? 'active' : ''}`}
                 onClick={() => setChartPeriod('weekly')}
               >

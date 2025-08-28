@@ -21,12 +21,30 @@ export const formatCurrency = (value: number, currency = 'INR'): string => {
 };
 
 /**
- * Format a number as Indian Rupees specifically
+ * Format a number as Indian Rupees with smart formatting
  */
 export const formatINR = (value: number | string): string => {
   const numValue = typeof value === 'string' ? parseFloat(value) : value;
   if (isNaN(numValue)) return '₹0';
   
+  // Format in millions with M suffix for readability
+  if (numValue >= 10000000) { // 10M+
+    return `₹${(numValue / 1000000).toFixed(1)}M`;
+  }
+  // Format in millions with one decimal for 1M-10M
+  else if (numValue >= 1000000) { // 1M+
+    return `₹${(numValue / 1000000).toFixed(2)}M`;
+  }
+  // Format in thousands with K suffix for 100K+
+  else if (numValue >= 100000) { // 100K+
+    return `₹${(numValue / 1000).toFixed(0)}K`;
+  }
+  // Format in thousands with one decimal for 10K-100K
+  else if (numValue >= 10000) { // 10K+
+    return `₹${(numValue / 1000).toFixed(1)}K`;
+  }
+  
+  // For smaller amounts, use normal formatting
   return `₹${numValue.toLocaleString('en-IN', { 
     minimumFractionDigits: 0, 
     maximumFractionDigits: 0 
