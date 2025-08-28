@@ -49,40 +49,28 @@ const Reports: React.FC = () => {
   const chartRef = useRef<ChartJS<'line'>>(null);
 
   const overviewMetrics: MetricCardData[] = [
-    { value: '₹142,231', label: 'Total Profit' },
-    { value: '₹287,453', label: 'Revenue' },
-    { value: '1,247', label: 'Sales' }
+    { value: '₹0', label: 'Total Profit' },
+    { value: '₹0', label: 'Revenue' },
+    { value: '0', label: 'Sales' }
   ];
 
   const secondRowMetrics: MetricCardData[] = [
-    { value: '₹89,450', label: 'Net Purchase Value' },
-    { value: '₹234,670', label: 'Net Sales Value' },
-    { value: '₹12,345', label: 'MoM Profit' },
-    { value: '₹45,678', label: 'YoY Profit' }
+    { value: '₹0', label: 'Net Purchase Value' },
+    { value: '₹0', label: 'Net Sales Value' },
+    { value: '₹0', label: 'MoM Profit' },
+    { value: '₹0', label: 'YoY Profit' }
   ];
 
-  const bestCategories: BestCategoryData[] = [
-    { category: 'Electronics', turnover: '₹125,453', increaseBy: '12.5%' },
-    { category: 'Clothing', turnover: '₹89,234', increaseBy: '8.7%' },
-    { category: 'Home & Garden', turnover: '₹67,890', increaseBy: '15.2%' },
-    { category: 'Books', turnover: '₹45,123', increaseBy: '5.3%' },
-    { category: 'Sports', turnover: '₹34,567', increaseBy: '9.1%' }
-  ];
+  const bestCategories: BestCategoryData[] = [];
 
-  const bestProducts: BestProductData[] = [
-    { product: 'iPhone 15 Pro', productId: '001234', category: 'Electronics', remainingQuantity: '45 kg', turnover: '₹234,567', increaseBy: '18.5%' },
-    { product: 'Samsung Galaxy S24', productId: '001235', category: 'Electronics', remainingQuantity: '32 kg', turnover: '₹189,123', increaseBy: '12.3%' },
-    { product: 'Nike Air Jordan', productId: '001236', category: 'Sports', remainingQuantity: '67 kg', turnover: '₹145,890', increaseBy: '9.7%' },
-    { product: 'MacBook Pro M3', productId: '001237', category: 'Electronics', remainingQuantity: '12 kg', turnover: '₹567,234', increaseBy: '22.1%' },
-    { product: 'Sony WH-1000XM5', productId: '001238', category: 'Electronics', remainingQuantity: '89 kg', turnover: '₹78,456', increaseBy: '14.8%' }
-  ];
+  const bestProducts: BestProductData[] = [];
 
   const monthlyData = {
     labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
     datasets: [
       {
         label: 'Revenue',
-        data: [65000, 72000, 58000, 78000, 85000, 92000, 68000],
+        data: [0, 0, 0, 0, 0, 0, 0],
         borderColor: '#2979FF',
         backgroundColor: '#2979FF',
         borderWidth: 3,
@@ -96,7 +84,7 @@ const Reports: React.FC = () => {
       },
       {
         label: 'Profit',
-        data: [35000, 42000, 28000, 48000, 55000, 62000, 38000],
+        data: [0, 0, 0, 0, 0, 0, 0],
         borderColor: '#FBC02D',
         backgroundColor: 'rgba(251, 192, 45, 0.1)',
         borderWidth: 2,
@@ -116,7 +104,7 @@ const Reports: React.FC = () => {
     datasets: [
       {
         label: 'Revenue',
-        data: [18000, 22000, 15000, 25000],
+        data: [0, 0, 0, 0],
         borderColor: '#2979FF',
         backgroundColor: '#2979FF',
         borderWidth: 3,
@@ -130,7 +118,7 @@ const Reports: React.FC = () => {
       },
       {
         label: 'Profit',
-        data: [8000, 12000, 7000, 15000],
+        data: [0, 0, 0, 0],
         borderColor: '#FBC02D',
         backgroundColor: 'rgba(251, 192, 45, 0.1)',
         borderWidth: 2,
