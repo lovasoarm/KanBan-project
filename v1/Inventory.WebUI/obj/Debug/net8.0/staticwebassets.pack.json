@@ -1,0 +1,109 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\bootstrap-8de4e26e.js",
+      "PackagePath": "staticwebassets\\dist\\assets\\bootstrap-8de4e26e.js"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\charts-32cc1938.js",
+      "PackagePath": "staticwebassets\\dist\\assets\\charts-32cc1938.js"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-808443ae.ttf",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-brands-400-808443ae.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-brands-400-d7236a19.woff2",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-brands-400-d7236a19.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-54cf6086.ttf",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-regular-400-54cf6086.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-regular-400-e3456d12.woff2",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-regular-400-e3456d12.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-aa759986.woff2",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-solid-900-aa759986.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-solid-900-d2f05935.ttf",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-solid-900-d2f05935.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-v4compatibility-0ce9033c.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf",
+      "PackagePath": "staticwebassets\\dist\\assets\\fa-v4compatibility-30f6abf6.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-1a37918a.js",
+      "PackagePath": "staticwebassets\\dist\\assets\\index-1a37918a.js"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\index-7aebb4f9.css",
+      "PackagePath": "staticwebassets\\dist\\assets\\index-7aebb4f9.css"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\assets\\vendor-5f6cd04d.js",
+      "PackagePath": "staticwebassets\\dist\\assets\\vendor-5f6cd04d.js"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\icons\\boy.png",
+      "PackagePath": "staticwebassets\\dist\\icons\\boy.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\dist\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\1.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\2.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\3.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\4.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\images\\products\\5.png",
+      "PackagePath": "staticwebassets\\dist\\images\\products\\5.png"
+    },
+    {
+      "Id": "C:\\Users\\Essai\\Desktop\\KanBan-project\\Inventory.WebUI\\wwwroot\\dist\\index.html",
+      "PackagePath": "staticwebassets\\dist\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Inventory.WebUI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Inventory.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Inventory.WebUI.props",
+      "PackagePath": "build\\Inventory.WebUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Inventory.WebUI.props",
+      "PackagePath": "buildMultiTargeting\\Inventory.WebUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Inventory.WebUI.props",
+      "PackagePath": "buildTransitive\\Inventory.WebUI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
