@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Form, InputGroup } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import { useInventory } from '../hooks/useInventory';
 import OverallInventory from '../components/Inventory/OverallInventory';
 import ProductsTable from '../components/Inventory/ProductsTable';
@@ -16,6 +17,7 @@ interface ProductFilters {
 }
 
 const Inventory: React.FC = () => {
+  const navigate = useNavigate();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
@@ -119,7 +121,7 @@ const Inventory: React.FC = () => {
             <i className="fas fa-boxes"></i>
             {!sidebarCollapsed && <span>Inventory</span>}
           </a>
-          <a href="#" className="nav-item">
+          <a href="/reports" className="nav-item">
             <i className="fas fa-chart-bar"></i>
             {!sidebarCollapsed && <span>Reports</span>}
           </a>
@@ -235,6 +237,7 @@ const Inventory: React.FC = () => {
           filters={filters}
           onFiltersApply={handleFiltersApply}
         />
+
       </div>
     </div>
   );

@@ -20,6 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
 
   const menuItems: MenuItem[] = [
     { path: '/dashboard', icon: 'fas fa-chart-line', label: 'Dashboard' },
+    { path: '/inventory', icon: 'fas fa-boxes', label: 'Inventory' },
     { path: '/reports', icon: 'fas fa-chart-bar', label: 'Reports' },
     { path: '/suppliers', icon: 'fas fa-truck', label: 'Suppliers' },
     { path: '/orders', icon: 'fas fa-shopping-cart', label: 'Orders' },

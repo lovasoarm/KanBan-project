@@ -5,6 +5,7 @@ import { getProductImage, getStockStatus } from '../../utils/productImageUtils';
 import { useOptimizedDashboard } from '../../hooks/useOptimizedDashboard';
 import { MemoizedBarChart, MemoizedLineChart } from '../Common/MemoizedChart';
 import TopSellingTable from './TopSellingTable';
+import Sidebar from './Sidebar';
 import './Dashboard.css';
 
 
@@ -201,7 +202,7 @@ const Dashboard: React.FC = () => {
             <i className="fas fa-boxes"></i>
             {!sidebarCollapsed && <span>Inventory</span>}
           </a>
-          <a href="#" className="nav-item">
+          <a href="/reports" className="nav-item">
             <i className="fas fa-chart-bar"></i>
             {!sidebarCollapsed && <span>Reports</span>}
           </a>
