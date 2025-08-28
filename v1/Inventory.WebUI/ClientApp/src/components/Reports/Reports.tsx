@@ -35,7 +35,7 @@ ChartJS.register(
 // Types importés depuis types/reports.ts
 
 const Reports: React.FC = () => {
-  const [chartPeriod, setChartPeriod] = useState<'weekly' | 'monthly'>('monthly');
+  const [chartPeriod, setChartPeriod] = useState<'weekly'>('weekly');
   const chartRef = useRef<ChartJS<'line'>>(null);
   
   // Utilisation du hook personnalisé pour gérer les données
@@ -84,46 +84,26 @@ const Reports: React.FC = () => {
   // Prepare chart data based on API response
   const chartData = reportsData?.chartData || null;
   
-  const monthlyData = {
-    labels: chartData?.monthly?.labels || ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
-    datasets: [
-      {
-        label: 'Revenue',
-        data: chartData?.monthly?.revenue || [0, 0, 0, 0, 0, 0, 0],
-        borderColor: '#2979FF',
-        backgroundColor: '#2979FF',
-        borderWidth: 3,
-        pointRadius: 6,
-        pointHoverRadius: 8,
-        pointBackgroundColor: '#2979FF',
-        pointBorderColor: '#ffffff',
-        pointBorderWidth: 2,
-        tension: 0.4,
-        fill: false
-      },
-      {
-        label: 'Profit',
-        data: chartData?.monthly?.profit || [0, 0, 0, 0, 0, 0, 0],
-        borderColor: '#FBC02D',
-        backgroundColor: 'rgba(251, 192, 45, 0.1)',
-        borderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        pointBackgroundColor: '#FBC02D',
-        pointBorderColor: '#ffffff',
-        pointBorderWidth: 2,
-        tension: 0.4,
-        fill: true
+  // Debug: Log chart data to see what we're receiving
+  React.useEffect(() => {
+    if (chartData) {
+      console.log('Chart Data received:', chartData);
+      console.log('Weekly data:', chartData.weekly);
+      if (chartData.weekly) {
+        console.log('Weekly labels:', chartData.weekly.labels);
+        console.log('Weekly revenue:', chartData.weekly.revenue);
+        console.log('Weekly profit:', chartData.weekly.profit);
       }
-    ]
-  };
+    }
+  }, [chartData]);
+  
 
-  const weeklyData = {
-    labels: chartData?.weekly?.labels || ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-    datasets: [
+  const chartDisplayData = {
+    labels: chartData?.weekly?.labels || [],
+    datasets: chartData?.weekly ? [
       {
         label: 'Revenue',
-        data: chartData?.weekly?.revenue || [0, 0, 0, 0],
+        data: chartData.weekly.revenue,
         borderColor: '#2979FF',
         backgroundColor: '#2979FF',
         borderWidth: 3,
@@ -137,7 +117,7 @@ const Reports: React.FC = () => {
       },
       {
         label: 'Profit',
-        data: chartData?.weekly?.profit || [0, 0, 0, 0],
+        data: chartData.weekly.profit,
         borderColor: '#FBC02D',
         backgroundColor: 'rgba(251, 192, 45, 0.1)',
         borderWidth: 2,
@@ -149,7 +129,7 @@ const Reports: React.FC = () => {
         tension: 0.4,
         fill: true
       }
-    ]
+    ] : []
   };
 
   const chartOptions = {
@@ -324,28 +304,20 @@ const Reports: React.FC = () => {
         <div className="chart-card">
           <div className="chart-header">
             <h3 className="chart-title">Profit & Revenue</h3>
-            <div className="toggle-buttons">
-              <button 
-                className={`toggle-btn ${chartPeriod === 'monthly' ? 'active' : ''}`}
-                onClick={() => setChartPeriod('monthly')}
-              >
-                Monthly
-              </button>
-              <button 
-                className={`toggle-btn ${chartPeriod === 'weekly' ? 'active' : ''}`}
-                onClick={() => setChartPeriod('weekly')}
-              >
-                Weekly
-              </button>
-            </div>
           </div>
           <div className="chart-body">
             <div style={{ height: '240px', flexGrow: 1 }}>
-              <Line 
-                ref={chartRef}
-                data={chartPeriod === 'monthly' ? monthlyData : weeklyData}
-                options={chartOptions}
-              />
+              {chartData?.weekly ? (
+                <Line 
+                  ref={chartRef}
+                  data={chartDisplayData}
+                  options={chartOptions}
+                />
+              ) : (
+                <div className="no-data-message">
+                  <p>Aucune donnée disponible pour le moment</p>
+                </div>
+              )}
             </div>
             <div className="chart-legend">
               <div className="legend-item">
