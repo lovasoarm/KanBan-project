@@ -13,6 +13,14 @@ import {
 } from 'chart.js';
 import './Reports.css';
 import '../Dashboard/Dashboard.css';
+import { 
+  ReportsResponse, 
+  MetricCardData, 
+  FormattedBestCategory, 
+  FormattedBestProduct
+} from '../../types/reports';
+import { useReports } from '../../hooks/useReports';
+import { formatINR, formatNumber, formatChartAxisValue } from '../../utils/formatters';
 
 ChartJS.register(
   CategoryScale,
@@ -24,53 +32,64 @@ ChartJS.register(
   Legend
 );
 
-interface MetricCardData {
-  value: string;
-  label: string;
-}
-
-interface BestCategoryData {
-  category: string;
-  turnover: string;
-  increaseBy: string;
-}
-
-interface BestProductData {
-  product: string;
-  productId: string;
-  category: string;
-  remainingQuantity: string;
-  turnover: string;
-  increaseBy: string;
-}
+// Types importés depuis types/reports.ts
 
 const Reports: React.FC = () => {
   const [chartPeriod, setChartPeriod] = useState<'weekly' | 'monthly'>('monthly');
   const chartRef = useRef<ChartJS<'line'>>(null);
+  
+  // Utilisation du hook personnalisé pour gérer les données
+  const { data: reportsData, loading, error, refetch } = useReports();
 
-  const overviewMetrics: MetricCardData[] = [
+  // Les formatters sont maintenant importés depuis utils/formatters.ts
+
+  // Prepare overview metrics
+  const overviewMetrics: MetricCardData[] = reportsData ? [
+    { value: formatINR(reportsData.overview.totalProfit), label: 'Total Profit' },
+    { value: formatINR(reportsData.overview.revenue), label: 'Revenue' },
+    { value: formatNumber(reportsData.overview.sales), label: 'Sales' }
+  ] : [
     { value: '₹0', label: 'Total Profit' },
     { value: '₹0', label: 'Revenue' },
     { value: '0', label: 'Sales' }
   ];
 
-  const secondRowMetrics: MetricCardData[] = [
+  const secondRowMetrics: MetricCardData[] = reportsData ? [
+    { value: formatINR(reportsData.overview.netPurchaseValue), label: 'Net Purchase Value' },
+    { value: formatINR(reportsData.overview.netSalesValue), label: 'Net Sales Value' },
+    { value: formatINR(reportsData.overview.momProfit), label: 'MoM Profit' },
+    { value: formatINR(reportsData.overview.yoyProfit), label: 'YoY Profit' }
+  ] : [
     { value: '₹0', label: 'Net Purchase Value' },
     { value: '₹0', label: 'Net Sales Value' },
     { value: '₹0', label: 'MoM Profit' },
     { value: '₹0', label: 'YoY Profit' }
   ];
 
-  const bestCategories: BestCategoryData[] = [];
+  const bestCategories: FormattedBestCategory[] = reportsData?.bestCategories?.map(cat => ({
+    category: cat.category,
+    turnover: formatINR(cat.turnOver),
+    increaseBy: cat.increaseBy
+  })) || [];
 
-  const bestProducts: BestProductData[] = [];
+  const bestProducts: FormattedBestProduct[] = reportsData?.bestProducts?.map(prod => ({
+    product: prod.product,
+    productId: prod.productId,
+    category: prod.category,
+    remainingQuantity: prod.remainingQuantity,
+    turnover: formatINR(prod.turnOver),
+    increaseBy: prod.increaseBy
+  })) || [];
 
+  // Prepare chart data based on API response
+  const chartData = reportsData?.chartData || null;
+  
   const monthlyData = {
-    labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+    labels: chartData?.monthly?.labels || ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
     datasets: [
       {
         label: 'Revenue',
-        data: [0, 0, 0, 0, 0, 0, 0],
+        data: chartData?.monthly?.revenue || [0, 0, 0, 0, 0, 0, 0],
         borderColor: '#2979FF',
         backgroundColor: '#2979FF',
         borderWidth: 3,
@@ -84,7 +103,7 @@ const Reports: React.FC = () => {
       },
       {
         label: 'Profit',
-        data: [0, 0, 0, 0, 0, 0, 0],
+        data: chartData?.monthly?.profit || [0, 0, 0, 0, 0, 0, 0],
         borderColor: '#FBC02D',
         backgroundColor: 'rgba(251, 192, 45, 0.1)',
         borderWidth: 2,
@@ -100,11 +119,11 @@ const Reports: React.FC = () => {
   };
 
   const weeklyData = {
-    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+    labels: chartData?.weekly?.labels || ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
     datasets: [
       {
         label: 'Revenue',
-        data: [0, 0, 0, 0],
+        data: chartData?.weekly?.revenue || [0, 0, 0, 0],
         borderColor: '#2979FF',
         backgroundColor: '#2979FF',
         borderWidth: 3,
@@ -118,7 +137,7 @@ const Reports: React.FC = () => {
       },
       {
         label: 'Profit',
-        data: [0, 0, 0, 0],
+        data: chartData?.weekly?.profit || [0, 0, 0, 0],
         borderColor: '#FBC02D',
         backgroundColor: 'rgba(251, 192, 45, 0.1)',
         borderWidth: 2,
@@ -171,7 +190,7 @@ const Reports: React.FC = () => {
             weight: '500'
           },
           callback: function(value: any) {
-            return '₹' + (value / 1000) + 'K';
+            return formatChartAxisValue(value);
           }
         }
       }
@@ -210,6 +229,32 @@ const Reports: React.FC = () => {
       duration: 0
     }
   };
+
+  // Affichage conditionnel pour le chargement et les erreurs
+  if (loading) {
+    return (
+      <div className="reports-container">
+        <div className="loading-state">
+          <div className="spinner"></div>
+          <p>Chargement des rapports...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="reports-container">
+        <div className="error-state">
+          <h3>Erreur lors du chargement</h3>
+          <p>{error}</p>
+          <button onClick={refetch} className="retry-button">
+            Réessayer
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="reports-container">

@@ -1,4 +1,12 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import { 
+  ReportsResponse, 
+  ApiResponse,
+  ReportsOverview,
+  BestCategory,
+  BestProduct,
+  ChartData 
+} from '../types/reports';
 
 interface ApiError {
   message: string;
@@ -45,12 +53,9 @@ class ApiService {
     }
   }
 
+  // Dashboard endpoints
   async getDashboardMetrics() {
     return this.makeRequest(() => this.client.get('/dashboard/metrics'));
-  }
-
-  async getProducts(filters?: Record<string, unknown>) {
-    return this.makeRequest(() => this.client.get('/products', { params: filters }));
   }
 
   async getCategoryAnalytics() {
@@ -73,29 +78,36 @@ class ApiService {
     return this.makeRequest(() => this.client.get('/dashboard/stats/summary'));
   }
 
+  // Products endpoints
+  async getProducts(filters?: Record<string, unknown>) {
+    return this.makeRequest(() => this.client.get('/products', { params: filters }));
+  }
+
   async createProduct(productData: unknown) {
     return this.makeRequest(() => this.client.post('/products', productData));
   }
 
-  async updateProduct(id: string, productData: unknown) {
-    return this.makeRequest(() => this.client.put(`/products/${id}`, productData));
+  // Reports endpoints - connected to real CSV data
+  async getReportsData(): Promise<ApiResponse<ReportsResponse>> {
+    return this.makeRequest<ApiResponse<ReportsResponse>>(() => this.client.get('/reports'));
   }
 
-  async deleteProduct(id: string) {
-    return this.makeRequest(() => this.client.delete(`/products/${id}`));
+  async getOverviewMetrics(): Promise<ApiResponse<ReportsOverview>> {
+    return this.makeRequest<ApiResponse<ReportsOverview>>(() => this.client.get('/reports/overview'));
+  }
+
+  async getBestSellingCategories(): Promise<ApiResponse<BestCategory[]>> {
+    return this.makeRequest<ApiResponse<BestCategory[]>>(() => this.client.get('/reports/categories/best-selling'));
+  }
+
+  async getBestSellingProducts(): Promise<ApiResponse<BestProduct[]>> {
+    return this.makeRequest<ApiResponse<BestProduct[]>>(() => this.client.get('/reports/products/best-selling'));
+  }
+
+  async getChartData(period: 'weekly' | 'monthly' = 'monthly'): Promise<ApiResponse<ChartData>> {
+    return this.makeRequest<ApiResponse<ChartData>>(() => this.client.get('/reports/chart-data', { params: { period } }));
   }
 }
 
 export const apiService = new ApiService();
-
-// Export dashboardService with real API endpoints
-export const dashboardService = {
-  getDashboardMetrics: () => apiService.getDashboardMetrics(),
-  getProducts: (filters?: Record<string, unknown>) => apiService.getProducts(filters),
-  getCategoryAnalytics: () => apiService.getCategoryAnalytics(),
-  getLocationAnalytics: () => apiService.getLocationAnalytics(),
-  getValueTrend: (days?: number) => apiService.getValueTrend(days),
-  getRestockAlerts: () => apiService.getRestockAlerts(),
-  getSummaryStats: () => apiService.getSummaryStats()
-};
-
+export type { ApiError };

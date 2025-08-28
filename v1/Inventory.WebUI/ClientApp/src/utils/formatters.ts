@@ -1,8 +1,18 @@
 /**
- * Format a number as currency (USD)
+ * Format a number as currency (supports multiple currencies)
  */
-export const formatCurrency = (value: number, currency = 'USD'): string => {
-  return new Intl.NumberFormat('en-US', {
+export const formatCurrency = (value: number, currency = 'INR'): string => {
+  const locale = currency === 'INR' ? 'en-IN' : 'en-US';
+  
+  // Pour les roupies, utiliser le symbole personnalisé
+  if (currency === 'INR') {
+    return `₹${value.toLocaleString('en-IN', { 
+      minimumFractionDigits: 0, 
+      maximumFractionDigits: 0 
+    })}`;
+  }
+  
+  return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency,
     minimumFractionDigits: 0,
@@ -11,10 +21,26 @@ export const formatCurrency = (value: number, currency = 'USD'): string => {
 };
 
 /**
- * Format a number with thousand separators
+ * Format a number as Indian Rupees specifically
  */
-export const formatNumber = (value: number): string => {
-  return new Intl.NumberFormat('en-US').format(value);
+export const formatINR = (value: number | string): string => {
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(numValue)) return '₹0';
+  
+  return `₹${numValue.toLocaleString('en-IN', { 
+    minimumFractionDigits: 0, 
+    maximumFractionDigits: 0 
+  })}`;
+};
+
+/**
+ * Format a number with thousand separators (Indian locale)
+ */
+export const formatNumber = (value: number | string): string => {
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(numValue)) return '0';
+  
+  return numValue.toLocaleString('en-IN');
 };
 
 /**
@@ -61,7 +87,7 @@ export const formatDate = (date: Date | string, format: 'short' | 'long' | 'time
 };
 
 /**
- * Format time ago (e.g., "2 hours ago")
+ * Format time ago in French (e.g., "Il y a 2 heures")
  */
 export const formatTimeAgo = (date: Date | string): string => {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
@@ -72,13 +98,13 @@ export const formatTimeAgo = (date: Date | string): string => {
   const diffInDays = Math.floor(diffInHours / 24);
 
   if (diffInDays > 0) {
-    return diffInDays === 1 ? '1 day ago' : `${diffInDays} days ago`;
+    return `Il y a ${diffInDays} jour${diffInDays > 1 ? 's' : ''}`;
   } else if (diffInHours > 0) {
-    return diffInHours === 1 ? '1 hour ago' : `${diffInHours} hours ago`;
+    return `Il y a ${diffInHours} heure${diffInHours > 1 ? 's' : ''}`;
   } else if (diffInMinutes > 0) {
-    return diffInMinutes === 1 ? '1 minute ago' : `${diffInMinutes} minutes ago`;
+    return `Il y a ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''}`;
   } else {
-    return 'Just now';
+    return 'À l\'instant';
   }
 };
 
@@ -115,6 +141,39 @@ export const toTitleCase = (str: string): string => {
   return str.replace(/\w\S*/g, (txt) => 
     txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
   );
+};
+
+/**
+ * Format chart tooltip value for Indian Rupees
+ */
+export const formatChartTooltipValue = (value: number): string => {
+  return `₹${value.toLocaleString('en-IN')}`;
+};
+
+/**
+ * Format chart axis values (in thousands/millions for Y-axis)
+ */
+export const formatChartAxisValue = (value: number): string => {
+  if (value >= 1000000) {
+    return `₹${(value / 1000000).toFixed(1)}M`;
+  } else if (value >= 1000) {
+    return `₹${(value / 1000).toFixed(0)}K`;
+  }
+  return `₹${value}`;
+};
+
+/**
+ * Format compact number for displaying large values
+ */
+export const formatCompactNumber = (value: number): string => {
+  if (value >= 1000000000) {
+    return `${(value / 1000000000).toFixed(1)}B`;
+  } else if (value >= 1000000) {
+    return `${(value / 1000000).toFixed(1)}M`;
+  } else if (value >= 1000) {
+    return `${(value / 1000).toFixed(1)}K`;
+  }
+  return value.toString();
 };
 
 /**

@@ -19,6 +19,12 @@ builder.Services.AddSingleton<IGenericRepository<Product, int>>(provider =>
 var csvService = new CsvService<Product, int>(p => p.Id, new ProductCsvMap());
 builder.Services.AddSingleton<ICsvService<Product, int>>(provider => csvService);
 builder.Services.AddSingleton<ICsvImportService<Product>>(provider => csvService);
+
+// Register inventory collection first
+builder.Services.AddSingleton<InventoryCollection<Product>>(provider => 
+    new InventoryCollection<Product>());
+
+// Register product service
 builder.Services.AddSingleton<IProductService, ProductService>();
 
 // Register import services
@@ -27,9 +33,7 @@ builder.Services.AddSingleton<IImportService, ImportService>();
 // Register initialization service
 builder.Services.AddSingleton<IDataInitializationService, DataInitializationService>();
 
-// Register dashboard services
-builder.Services.AddSingleton<InventoryCollection<Product>>(provider => 
-    new InventoryCollection<Product>());
+// Register dashboard services (after product service)
 builder.Services.AddSingleton<IDashboardService, DashboardService>();
 
 // Add CORS

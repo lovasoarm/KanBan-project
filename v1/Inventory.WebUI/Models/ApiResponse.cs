@@ -18,18 +18,17 @@ public class ApiResponse<TData>
 
     public IReadOnlyDictionary<string, object> Metadata => _metadata;
 
-    public ApiResponse(TData? data, string message = "Operation completed successfully")
+    public ApiResponse(TData? data, string message = "Operation completed successfully", bool success = true)
     {
-        Success = true;
+        Success = success;
         Message = message;
         Data = data;
         Timestamp = DateTime.UtcNow;
     }
 
-
     public static ApiResponse<TData> Error(string message, TData? data = default)
     {
-        return new ApiResponse<TData>(data, message) { Success = false };
+        return new ApiResponse<TData>(data, message, false);
     }
 
 
