@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+﻿import React, { useState, useMemo, useCallback } from 'react';
 import { Badge } from 'react-bootstrap';
 import { setupChartDefaults, barChartOptions, lineChartOptions } from '../../utils/chartConfig';
 import { getProductImage, getStockStatus } from '../../utils/productImageUtils';
@@ -8,17 +8,13 @@ import TopSellingTable from './TopSellingTable';
 import Sidebar from './Sidebar';
 import './Dashboard.css';
 
-
 setupChartDefaults();
 
 const Dashboard: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState('weekly');
   
-  // Utiliser le hook optimisé pour les données du dashboard
   const { data: dashboardData, isLoading, error } = useOptimizedDashboard();
-
-  // Callbacks mémorisés pour éviter les re-créations
   const toggleSidebar = useCallback(() => {
     setSidebarCollapsed(prev => !prev);
   }, []);
@@ -27,7 +23,6 @@ const Dashboard: React.FC = () => {
     setSelectedPeriod(period);
   }, []);
 
-  // Utiliser les données avec fallback intégré dans le hook
   const salesStats = dashboardData?.stats || {};
   const purchaseStats = dashboardData?.purchase || {};
   const inventoryData = dashboardData?.summary || {};
@@ -76,7 +71,7 @@ const Dashboard: React.FC = () => {
     };
     
     return { weeklyData, monthlyData };
-  }, []); // Pas de dépendances - données statiques
+  }, []);
 
  
   const realChartData = useMemo(() => {
@@ -105,22 +100,20 @@ const Dashboard: React.FC = () => {
     return null;
   }, [JSON.stringify(dashboardData?.charts?.salesAndPurchase)]); 
 
-  // Données finales du graphique - uniquement weekly
   const salesChartData = useMemo(() => {
     if (realChartData) {
       return realChartData;
     }
-    return staticChartData.weeklyData; // Toujours weekly
+    return staticChartData.weeklyData;
   }, [realChartData, staticChartData]);
 
-  // Données statiques pour le graphique des commandes
   const staticOrderData = useMemo(() => ({
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
       {
         label: 'Ordered',
         data: [450, 380, 520, 460, 580, 490],
-        borderColor: '#FF9500', // Orange
+        borderColor: '#FF9500',
         backgroundColor: 'rgba(255, 149, 0, 0.1)',
         tension: 0.4,
         fill: true
@@ -128,33 +121,32 @@ const Dashboard: React.FC = () => {
       {
         label: 'Delivered',
         data: [420, 360, 480, 440, 540, 470],
-        borderColor: '#34C759', // Bleu clair
+        borderColor: '#34C759',
         backgroundColor: 'rgba(52, 199, 89, 0.1)',
         tension: 0.4,
         fill: true
       }
     ]
-  }), []); // Pas de dépendances - données statiques
+  }), []);
 
   const orderChartData = useMemo(() => {
-    // Si on a des données réelles, les utiliser
     if (dashboardData?.charts?.orderSummary) {
       const chartData = dashboardData.charts.orderSummary;
       return {
-        labels: [...chartData.labels], // Clone
+        labels: [...chartData.labels],
         datasets: [
           {
             label: 'Ordered',
-            data: [...chartData.orderedData], // Clone
-            borderColor: '#FF9500', // Orange
+            data: [...chartData.orderedData],
+            borderColor: '#FF9500',
             backgroundColor: 'rgba(255, 149, 0, 0.1)',
             tension: 0.4,
             fill: true
           },
           {
             label: 'Delivered',
-            data: [...chartData.deliveredData], // Clone
-            borderColor: '#34C759', // Bleu clair
+            data: [...chartData.deliveredData],
+            borderColor: '#34C759',
             backgroundColor: 'rgba(52, 199, 89, 0.1)',
             tension: 0.4,
             fill: true
@@ -163,11 +155,9 @@ const Dashboard: React.FC = () => {
       };
     }
 
-    // Utiliser les données statiques par défaut
     return staticOrderData;
   }, [JSON.stringify(dashboardData?.charts?.orderSummary), staticOrderData]);
 
-  // Indicateur de chargement
   if (isLoading) {
     return (
       <div className="dashboard-loading">
@@ -178,7 +168,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="modern-dashboard">
-      {/* Sidebar */}
       <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
@@ -229,9 +218,7 @@ const Dashboard: React.FC = () => {
         </nav>
       </div>
 
-      {/* Main Content */}
       <div className={`main-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-        {/* Topbar */}
         <div className="topbar">
           <div className="search-container">
             <i className="fas fa-search"></i>
@@ -252,9 +239,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Dashboard Grid - 2 colonnes x 4 lignes */}
         <div className="dashboard-grid">
-          {/* Sales Overview - 4 éléments : Sales, Revenue, Profit, Cost */}
           <div className="card-group sales-overview">
             <h3 className="section-title">Sales Overview</h3>
             <div className="stats-cards">
@@ -297,7 +282,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Purchase Overview - 4 éléments : Purchase, Cost, Cancel, Return */}
           <div className="card-group purchase-overview">
             <h3 className="section-title">Purchase Overview</h3>
             <div className="stats-cards">
@@ -340,7 +324,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Sales & Purchase Graph - Vue uniquement en weekly */}
           <div className="card chart-card sales-chart">
             <div className="card-header">
               <h4 className="card-title">Sales & Purchase</h4>
@@ -363,7 +346,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Order Summary - Ordered (orange), Delivered (bleu clair) */}
           <div className="card chart-card order-chart">
             <div className="card-header">
               <h4 className="card-title">Order Summary</h4>
@@ -386,7 +368,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Top Selling Stock */}
           <div className="card table-card top-selling">
             <div className="card-header">
               <h4 className="card-title">Top Selling Stock</h4>
@@ -395,7 +376,6 @@ const Dashboard: React.FC = () => {
             <TopSellingTable products={topProducts} />
           </div>
 
-          {/* Inventory Summary - 2 éléments : Quantity in hand, To be received */}
           <div className="card summary-card inventory-summary">
             <div className="card-header">
               <h4 className="card-title">
@@ -415,7 +395,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Product Summary - 2 éléments : Number of suppliers, Number of categories */}
           <div className="card summary-card product-summary">
             <div className="card-header">
               <h4 className="card-title">
@@ -435,7 +414,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Low Quantity Stock avec bouton See all */}
           <div className="card low-stock-card">
             <div className="card-header">
               <h4 className="card-title">Low Quantity Stock</h4>

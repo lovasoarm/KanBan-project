@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+﻿import React, { useState, useRef, useCallback } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { apiService } from '../../services/api';
 import './AddProductModal.css';
@@ -47,7 +47,6 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Categories predefined
   const categories = [
     'Electronics',
     'Clothing',
@@ -174,7 +173,6 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
         isActive: true
       };
 
-      // TODO: Handle image upload to server when API is ready
       await apiService.createProduct(productData);
       
       onProductAdded();
@@ -219,7 +217,7 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
             </Alert>
           )}
 
-          {/* Image Upload Section */}
+          {}
           <div 
             className={`image-upload-container ${dragActive ? 'drag-active' : ''}`}
             onDragEnter={handleDragIn}
@@ -263,11 +261,10 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
             ref={fileInputRef}
             type="file"
             accept="image/*"
-            onChange={handleFileSelect}
             style={{ display: 'none' }}
+            onChange={handleFileSelect}
           />
 
-          {/* Product Form - Vertical Layout */}
           <Form.Group className="mb-3">
             <Form.Label>Product Name</Form.Label>
             <Form.Control
@@ -428,3 +425,4 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
 };
 
 export default AddProductModal;
+

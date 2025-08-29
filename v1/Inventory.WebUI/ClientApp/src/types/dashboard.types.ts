@@ -1,4 +1,4 @@
-export interface DashboardStats {
+﻿export interface DashboardStats {
   sales: StatValue;
   revenue: StatValue;
   profit: StatValue;
@@ -75,7 +75,6 @@ export interface DashboardData {
   summary: ProductSummary;
 }
 
-// API Response Types
 export interface ApiResponse<T> {
   data: T;
   message: string;
@@ -124,7 +123,6 @@ export enum ProductStatus {
   Discontinued = 'Discontinued'
 }
 
-// Dashboard Service Types
 export interface DashboardMetrics {
   totalProducts: number;
   totalValue: number;
@@ -156,3 +154,4 @@ export interface LocationAnalytics {
   capacity: number;
   utilizationRate: number;
 }
+

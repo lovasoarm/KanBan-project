@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useInventory } from '../hooks/useInventory';
@@ -40,7 +40,6 @@ const Inventory: React.FC = () => {
     search: searchTerm
   });
 
-  // Callbacks mémorisés pour éviter les re-créations
   const toggleSidebar = useCallback(() => {
     setSidebarCollapsed(prev => !prev);
   }, []);
@@ -51,12 +50,11 @@ const Inventory: React.FC = () => {
 
   const handleFiltersApply = (newFilters: ProductFilters) => {
     setFilters(newFilters);
-    setCurrentPage(1); // Reset to first page when filters change
+    setCurrentPage(1); 
     setShowFiltersModal(false);
   };
 
   const handleDownloadAll = () => {
-    // TODO: Implement download functionality
     console.log('Download all products');
   };
 
@@ -97,7 +95,7 @@ const Inventory: React.FC = () => {
 
   return (
     <div className="modern-dashboard">
-      {/* Sidebar */}
+      {}
       <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
@@ -148,9 +146,9 @@ const Inventory: React.FC = () => {
         </nav>
       </div>
 
-      {/* Main Content */}
+      {}
       <div className={`main-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-        {/* Topbar */}
+        {}
         <div className="topbar">
           <div className="search-container">
             <i className="fas fa-search"></i>
@@ -173,15 +171,15 @@ const Inventory: React.FC = () => {
           </div>
         </div>
 
-        {/* Inventory Content */}
+        {}
         <div className="inventory-content">
-          {/* Overall Inventory Section */}
+          {}
           <div className="inventory-metrics mb-4">
             <h2 className="section-title mb-3">Overall Inventory</h2>
             <OverallInventory metrics={inventoryMetrics} loading={loading} />
           </div>
 
-          {/* Products Section */}
+          {}
           <div className="products-section">
             <div className="section-header mb-3">
               <h2 className="section-title">Products</h2>
@@ -213,7 +211,7 @@ const Inventory: React.FC = () => {
               </div>
             </div>
 
-            {/* Products Table */}
+            {}
             <ProductsTable
               products={products}
               loading={loading}
@@ -224,7 +222,7 @@ const Inventory: React.FC = () => {
           </div>
         </div>
 
-        {/* Modals */}
+        {}
         <AddProductModal
           show={showAddModal}
           onHide={() => setShowAddModal(false)}
@@ -244,3 +242,4 @@ const Inventory: React.FC = () => {
 };
 
 export default Inventory;
+

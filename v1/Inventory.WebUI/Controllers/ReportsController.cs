@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Inventory.Core.Contracts;
 using Inventory.Core.Entities;
 using Inventory.Core.Services;
@@ -19,19 +19,16 @@ public class ReportsController : ControllerBase
         _dashboardService = dashboardService ?? throw new ArgumentNullException(nameof(dashboardService));
     }
 
-    // Get complete reports data
     [HttpGet]
     public async Task<ActionResult<ApiResponse<object>>> GetReports()
     {
         var products = await _productService.GetAllAsync();
         var metrics = await _dashboardService.GetDashboardMetricsAsync();
 
-        // Calculate overview metrics
         var totalRevenue = products.Sum(p => p.Price * p.Quantity);
         var totalSales = products.Count(p => p.Quantity > 0);
-        var totalProfit = totalRevenue * 0.3m; // Assuming 30% profit margin
+        var totalProfit = totalRevenue * 0.3m; 
 
-        // Calculate best selling categories
         var categoryAnalytics = products
             .GroupBy(p => p.Category)
             .Select(g => new
@@ -48,7 +45,6 @@ public class ReportsController : ControllerBase
             .Take(5)
             .ToList();
 
-        // Calculate best selling products
         var bestProducts = products
             .OrderByDescending(p => p.Price * p.Quantity)
             .Take(10)
@@ -63,53 +59,45 @@ public class ReportsController : ControllerBase
             })
             .ToList();
 
-        // Calculate monthly trend data with more realistic variations
         var random = new Random();
         var monthlyRevenue = new List<decimal>();
         var monthlyProfit = new List<decimal>();
         
-        // Create more varied base values with seasonal patterns
         var seasonalMultipliers = new decimal[] { 0.85m, 0.92m, 1.15m, 1.35m, 1.20m, 0.95m, 0.88m };
         var baseRevenue = totalRevenue / 7;
         
         for (int i = 0; i < 7; i++)
         {
-            // Apply seasonal variation + random variation
             var seasonalFactor = seasonalMultipliers[i];
-            var randomVariation = (decimal)(random.NextDouble() * 0.6 - 0.3); // -30% to +30% variation
-            var trendFactor = 1 + (decimal)(i * 0.05 * random.NextDouble()); // Growth trend with randomness
+            var randomVariation = (decimal)(random.NextDouble() * 0.6 - 0.3); 
+            var trendFactor = 1 + (decimal)(i * 0.05 * random.NextDouble()); 
             
             var monthRevenue = baseRevenue * seasonalFactor * (1 + randomVariation) * trendFactor;
             monthlyRevenue.Add(Math.Round(monthRevenue, 2));
             
-            // Profit varies independently with different patterns
-            var profitBase = monthRevenue * (decimal)(0.18 + random.NextDouble() * 0.27); // 18% to 45%
-            var profitVariation = (decimal)(random.NextDouble() * 0.4 - 0.2); // Additional profit variation
+            var profitBase = monthRevenue * (decimal)(0.18 + random.NextDouble() * 0.27); 
+            var profitVariation = (decimal)(random.NextDouble() * 0.4 - 0.2); 
             var profit = profitBase * (1 + profitVariation);
             monthlyProfit.Add(Math.Round(profit, 2));
         }
 
-        // Calculate weekly trend data with realistic business patterns
         var weeklyRevenue = new List<decimal>();
         var weeklyProfit = new List<decimal>();
         
-        // Weekly patterns: different performance each week
         var weeklyMultipliers = new decimal[] { 0.8m, 1.1m, 1.3m, 0.95m };
         var baseWeeklyRevenue = totalRevenue / 4;
         
         for (int i = 0; i < 4; i++)
         {
-            // Apply weekly pattern + significant random variation
             var weeklyFactor = weeklyMultipliers[i];
-            var randomVariation = (decimal)(random.NextDouble() * 0.5 - 0.25); // -25% to +25% variation
-            var performanceFactor = (decimal)(0.7 + random.NextDouble() * 0.6); // 70% to 130% performance
+            var randomVariation = (decimal)(random.NextDouble() * 0.5 - 0.25); 
+            var performanceFactor = (decimal)(0.7 + random.NextDouble() * 0.6); 
             
             var weekRevenue = baseWeeklyRevenue * weeklyFactor * (1 + randomVariation) * performanceFactor;
             weeklyRevenue.Add(Math.Round(weekRevenue, 2));
             
-            // Profit margin varies more dramatically week by week
-            var baseProfitMargin = (decimal)(0.15 + random.NextDouble() * 0.35); // 15% to 50%
-            var profitEfficiency = (decimal)(0.8 + random.NextDouble() * 0.4); // Efficiency factor
+            var baseProfitMargin = (decimal)(0.15 + random.NextDouble() * 0.35); 
+            var profitEfficiency = (decimal)(0.8 + random.NextDouble() * 0.4); 
             var profit = weekRevenue * baseProfitMargin * profitEfficiency;
             weeklyProfit.Add(Math.Round(profit, 2));
         }
@@ -153,7 +141,6 @@ public class ReportsController : ControllerBase
         return Ok(new ApiResponse<object>(reportsData, "Reports data retrieved successfully"));
     }
 
-    // Get overview metrics only
     [HttpGet("overview")]
     public async Task<ActionResult<ApiResponse<object>>> GetOverviewMetrics()
     {
@@ -161,7 +148,7 @@ public class ReportsController : ControllerBase
         
         var totalRevenue = products.Sum(p => p.Price * p.Quantity);
         var totalSales = products.Count(p => p.Quantity > 0);
-        var totalProfit = totalRevenue * 0.3m; // Assuming 30% profit margin
+        var totalProfit = totalRevenue * 0.3m; 
 
         var overview = new
         {
@@ -177,7 +164,6 @@ public class ReportsController : ControllerBase
         return Ok(new ApiResponse<object>(overview, "Overview metrics retrieved successfully"));
     }
 
-    // Get best selling categories
     [HttpGet("categories/best-selling")]
     public async Task<ActionResult<ApiResponse<object>>> GetBestSellingCategories()
     {
@@ -208,7 +194,6 @@ public class ReportsController : ControllerBase
         return Ok(new ApiResponse<object>(categoryAnalytics, "Best selling categories retrieved successfully"));
     }
 
-    // Get best selling products
     [HttpGet("products/best-selling")]
     public async Task<ActionResult<ApiResponse<object>>> GetBestSellingProducts()
     {
@@ -231,7 +216,6 @@ public class ReportsController : ControllerBase
         return Ok(new ApiResponse<object>(bestProducts, "Best selling products retrieved successfully"));
     }
 
-    // Get chart data for profit and revenue
     [HttpGet("chart-data")]
     public async Task<ActionResult<ApiResponse<object>>> GetChartData([FromQuery] string period = "monthly")
     {
@@ -245,23 +229,20 @@ public class ReportsController : ControllerBase
             var weeklyRevenue = new List<decimal>();
             var weeklyProfit = new List<decimal>();
             
-            // Weekly patterns: realistic business variations
             var weeklyMultipliers = new decimal[] { 0.8m, 1.1m, 1.3m, 0.95m };
             var baseWeeklyRevenue = totalRevenue / 4;
             
             for (int i = 0; i < 4; i++)
             {
-                // Apply weekly pattern + significant random variation
                 var weeklyFactor = weeklyMultipliers[i];
-                var randomVariation = (decimal)(random.NextDouble() * 0.5 - 0.25); // -25% to +25% variation
-                var performanceFactor = (decimal)(0.7 + random.NextDouble() * 0.6); // 70% to 130% performance
+                var randomVariation = (decimal)(random.NextDouble() * 0.5 - 0.25); 
+                var performanceFactor = (decimal)(0.7 + random.NextDouble() * 0.6); 
                 
                 var weekRevenue = baseWeeklyRevenue * weeklyFactor * (1 + randomVariation) * performanceFactor;
                 weeklyRevenue.Add(Math.Round(weekRevenue, 2));
                 
-                // Profit margin varies more dramatically week by week
-                var baseProfitMargin = (decimal)(0.15 + random.NextDouble() * 0.35); // 15% to 50%
-                var profitEfficiency = (decimal)(0.8 + random.NextDouble() * 0.4); // Efficiency factor
+                var baseProfitMargin = (decimal)(0.15 + random.NextDouble() * 0.35); 
+                var profitEfficiency = (decimal)(0.8 + random.NextDouble() * 0.4); 
                 var profit = weekRevenue * baseProfitMargin * profitEfficiency;
                 weeklyProfit.Add(Math.Round(profit, 2));
             }
@@ -278,23 +259,20 @@ public class ReportsController : ControllerBase
             var monthlyRevenue = new List<decimal>();
             var monthlyProfit = new List<decimal>();
             
-            // Create more varied base values with seasonal patterns
             var seasonalMultipliers = new decimal[] { 0.85m, 0.92m, 1.15m, 1.35m, 1.20m, 0.95m, 0.88m };
             var baseRevenue = totalRevenue / 7;
             
             for (int i = 0; i < 7; i++)
             {
-                // Apply seasonal variation + random variation
                 var seasonalFactor = seasonalMultipliers[i];
-                var randomVariation = (decimal)(random.NextDouble() * 0.6 - 0.3); // -30% to +30% variation
-                var trendFactor = 1 + (decimal)(i * 0.05 * random.NextDouble()); // Growth trend with randomness
+                var randomVariation = (decimal)(random.NextDouble() * 0.6 - 0.3); 
+                var trendFactor = 1 + (decimal)(i * 0.05 * random.NextDouble()); 
                 
                 var monthRevenue = baseRevenue * seasonalFactor * (1 + randomVariation) * trendFactor;
                 monthlyRevenue.Add(Math.Round(monthRevenue, 2));
                 
-                // Profit varies independently with different patterns
-                var profitBase = monthRevenue * (decimal)(0.18 + random.NextDouble() * 0.27); // 18% to 45%
-                var profitVariation = (decimal)(random.NextDouble() * 0.4 - 0.2); // Additional profit variation
+                var profitBase = monthRevenue * (decimal)(0.18 + random.NextDouble() * 0.27); 
+                var profitVariation = (decimal)(random.NextDouble() * 0.4 - 0.2); 
                 var profit = profitBase * (1 + profitVariation);
                 monthlyProfit.Add(Math.Round(profit, 2));
             }
@@ -310,3 +288,4 @@ public class ReportsController : ControllerBase
         return Ok(new ApiResponse<object>(chartData, $"{period} chart data retrieved successfully"));
     }
 }
+

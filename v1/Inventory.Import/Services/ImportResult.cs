@@ -12,8 +12,7 @@ public class ImportResult<TEntity> where TEntity : class
     public int ErrorCount { get; init; }
     public TimeSpan Duration { get; init; }
     public bool IsSuccess => ErrorCount == 0;
-    
-    // Indexer for metadata access
+ 
     public object? this[string key]
     {
         get => _metadata.TryGetValue(key, out var value) ? value : null;
@@ -23,14 +22,14 @@ public class ImportResult<TEntity> where TEntity : class
     public IReadOnlyList<string> Errors => _errors.AsReadOnly();
     public IReadOnlyList<string> Warnings => _warnings.AsReadOnly();
 
-    // Add error with fluent API
+   
     public ImportResult<TEntity> AddError(string error)
     {
         _errors.Add(error);
         return this;
     }
 
-    // Add warning with fluent API
+ 
     public ImportResult<TEntity> AddWarning(string warning)
     {
         _warnings.Add(warning);
@@ -45,14 +44,14 @@ public class ValidationResult
     public bool IsValid => !_issues.Any();
     public IReadOnlyList<string> Issues => _issues.AsReadOnly();
 
-    // Add validation issue
+
     public ValidationResult AddIssue(string issue)
     {
         _issues.Add(issue);
         return this;
     }
 
-    // Static factory methods
+
     public static ValidationResult Valid() => new();
     public static ValidationResult Invalid(string issue) => new ValidationResult().AddIssue(issue);
 }

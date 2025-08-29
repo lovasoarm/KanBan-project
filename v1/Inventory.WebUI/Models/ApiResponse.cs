@@ -1,4 +1,4 @@
-namespace Inventory.WebUI.Models;
+﻿namespace Inventory.WebUI.Models;
 
 public class ApiResponse<TData>
 {
@@ -9,7 +9,6 @@ public class ApiResponse<TData>
     public TData? Data { get; init; }
     public DateTime Timestamp { get; init; }
 
-    // Indexer for dynamic metadata
     public object? this[string key]
     {
         get => _metadata.TryGetValue(key, out var value) ? value : null;
@@ -31,9 +30,9 @@ public class ApiResponse<TData>
         return new ApiResponse<TData>(data, message, false);
     }
 
-
     public static ApiResponse<TData> Ok(TData data, string message = "Success")
     {
         return new ApiResponse<TData>(data, message);
     }
 }
+

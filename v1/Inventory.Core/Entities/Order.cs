@@ -53,7 +53,7 @@ public class Order : IInventoryItem<int>, IStatusProvider<OrderStatus>
         set => _category = value;
     }
 
-    // IValuable properties
+    
     private decimal _price;
     private int _quantity;
     
@@ -70,10 +70,9 @@ public class Order : IInventoryItem<int>, IStatusProvider<OrderStatus>
     }
     public decimal TotalValue => TotalAmount;
 
-    // Navigation properties
+ 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-    // Propriétés calculées
     public decimal SubTotal => TotalAmount - TaxAmount - ShippingCost + DiscountAmount;
     public decimal FinalAmount => TotalAmount;
     public int TotalItems => OrderItems?.Sum(oi => oi.Quantity) ?? 0;
@@ -86,7 +85,7 @@ public class Order : IInventoryItem<int>, IStatusProvider<OrderStatus>
                                      (Status == OrderStatus.Pending && DaysSinceOrder > 3) ||
                                      (Status == OrderStatus.Processing && DaysSinceOrder > 7);
 
-    // Méthodes
+
     public void UpdateStatus(OrderStatus newStatus)
     {
         Status = newStatus;
@@ -130,25 +129,21 @@ public class Order : IInventoryItem<int>, IStatusProvider<OrderStatus>
         UpdatedAt = DateTime.UtcNow;
     }
 
-    // IStockManagement methods
+
     public void UpdateQuantity(int newQuantity)
     {
-        // For orders, this doesn't really apply, but we implement it for interface compliance
         UpdatedAt = DateTime.UtcNow;
     }
 
     public void AdjustStock(int adjustment)
     {
-        // For orders, this doesn't really apply, but we implement it for interface compliance
         UpdatedAt = DateTime.UtcNow;
     }
 
     public bool NeedsRestock()
     {
-        // Orders don't need restocking, but we implement it for interface compliance
         return false;
     }
-
 }
 
 public class OrderItem
@@ -163,11 +158,11 @@ public class OrderItem
     public decimal DiscountAmount { get; set; }
     public string Notes { get; set; } = string.Empty;
 
-    // Navigation properties
+
     public virtual Order Order { get; set; } = null!;
     public virtual Product Product { get; set; } = null!;
 
-    // Propriétés calculées
+
     public decimal LineTotal => (UnitPrice * Quantity) - DiscountAmount;
     public decimal LineTotalWithoutDiscount => UnitPrice * Quantity;
     public decimal DiscountPercentage => LineTotalWithoutDiscount > 0 
@@ -175,36 +170,4 @@ public class OrderItem
         : 0;
 }
 
-// Données de résumé pour le dashboard
-public record OrderSummaryData(
-    int TotalOrders,
-    int PendingOrders,
-    int ProcessingOrders,
-    int DeliveredOrders,
-    int CancelledOrders,
-    decimal TotalRevenue,
-    decimal AverageOrderValue,
-    double AverageDeliveryTime,
-    List<Order> RecentOrders,
-    Dictionary<DateTime, int> OrdersByDate,
-    Dictionary<DateTime, decimal> RevenueByDate,
-    Dictionary<OrderStatus, int> OrdersByStatus,
-    List<OrderTrendData> MonthlyTrends
-);
 
-public record OrderTrendData(
-    string Period,
-    int OrderedCount,
-    int DeliveredCount,
-    decimal Revenue,
-    double DeliveryRate
-);
-
-public record OrderAnalytics(
-    string Period,
-    int TotalOrders,
-    int DeliveredOrders,
-    decimal Revenue,
-    double ConversionRate,
-    double AverageOrderValue
-);

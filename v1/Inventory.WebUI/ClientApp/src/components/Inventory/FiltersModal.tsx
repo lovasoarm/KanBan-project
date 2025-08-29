@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 
 interface ProductFilters {
@@ -33,7 +33,6 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
     const { name, value } = e.target;
 
     if (name.includes('.')) {
-      // Handle nested properties like priceRange.min
       const [parent, child] = name.split('.');
       setLocalFilters(prev => ({
         ...prev,
@@ -51,7 +50,6 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
   };
 
   const handleApplyFilters = () => {
-    // Clean up empty filters
     const cleanedFilters: ProductFilters = {};
     
     if (localFilters.category) {
@@ -234,3 +232,4 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
 };
 
 export default FiltersModal;
+

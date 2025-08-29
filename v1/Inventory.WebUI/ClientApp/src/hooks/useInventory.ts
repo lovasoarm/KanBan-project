@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+﻿import { useState, useEffect, useCallback } from 'react';
 import { apiService } from '../services/api';
 
 export interface Product {
@@ -108,7 +108,6 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
       setLoading(true);
       setError(null);
 
-      // Construct query parameters
       const queryParams: Record<string, any> = {
         page,
         size,
@@ -119,20 +118,17 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
         queryParams.search = search;
       }
 
-      // Fetch products and metrics in parallel
       const [productsResult, metricsResult, categoriesResult] = await Promise.all([
         apiService.getProducts(queryParams).catch(() => null),
         apiService.getDashboardMetrics().catch(() => null),
         apiService.getCategoryAnalytics().catch(() => null)
       ]);
 
-      // Process products data
       let processedProducts: Product[] = [];
       let totalPagesCount = 1;
       let totalItemsCount = 0;
 
       if (productsResult) {
-        // The API returns an ApiResponse<T> with shape: { success, message, data, metadata }
         const api = productsResult as any;
         const list: any[] = Array.isArray(api?.data) ? api.data : [];
 
@@ -157,7 +153,6 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
         totalItemsCount = totalCount;
       }
 
-      // Process metrics data
       const metrics = metricsResult?.data;
       const categories = categoriesResult?.data || [];
 
@@ -195,7 +190,6 @@ export const useInventory = (params: UseInventoryParams = {}): UseInventoryResul
       const errorMessage = err instanceof Error ? err.message : 'Failed to load inventory data';
       setError(errorMessage);
       
-      // Set fallback data on error
       setInventoryMetrics(defaultMetrics);
       setProducts([]);
       
@@ -225,3 +219,4 @@ function getAvailabilityStatus(quantity: number, minQuantity: number, isActive: 
   if (quantity <= minQuantity) return 'Low Stock';
   return 'In Stock';
 }
+

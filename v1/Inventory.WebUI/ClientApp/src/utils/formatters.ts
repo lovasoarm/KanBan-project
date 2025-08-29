@@ -1,10 +1,7 @@
-/**
- * Format a number as currency (supports multiple currencies)
- */
+﻿
 export const formatCurrency = (value: number, currency = 'INR'): string => {
   const locale = currency === 'INR' ? 'en-IN' : 'en-US';
   
-  // Pour les roupies, utiliser le symbole personnalisé
   if (currency === 'INR') {
     return `₹${value.toLocaleString('en-IN', { 
       minimumFractionDigits: 0, 
@@ -20,40 +17,29 @@ export const formatCurrency = (value: number, currency = 'INR'): string => {
   }).format(value);
 };
 
-/**
- * Format a number as Indian Rupees with smart formatting
- */
 export const formatINR = (value: number | string): string => {
   const numValue = typeof value === 'string' ? parseFloat(value) : value;
   if (isNaN(numValue)) return '₹0';
   
-  // Format in millions with M suffix for readability
-  if (numValue >= 10000000) { // 10M+
+  if (numValue >= 10000000) { 
     return `₹${(numValue / 1000000).toFixed(1)}M`;
   }
-  // Format in millions with one decimal for 1M-10M
-  else if (numValue >= 1000000) { // 1M+
+  else if (numValue >= 1000000) { 
     return `₹${(numValue / 1000000).toFixed(2)}M`;
   }
-  // Format in thousands with K suffix for 100K+
-  else if (numValue >= 100000) { // 100K+
+  else if (numValue >= 100000) { 
     return `₹${(numValue / 1000).toFixed(0)}K`;
   }
-  // Format in thousands with one decimal for 10K-100K
-  else if (numValue >= 10000) { // 10K+
+  else if (numValue >= 10000) { 
     return `₹${(numValue / 1000).toFixed(1)}K`;
   }
   
-  // For smaller amounts, use normal formatting
   return `₹${numValue.toLocaleString('en-IN', { 
     minimumFractionDigits: 0, 
     maximumFractionDigits: 0 
   })}`;
 };
 
-/**
- * Format a number with thousand separators (Indian locale)
- */
 export const formatNumber = (value: number | string): string => {
   const numValue = typeof value === 'string' ? parseFloat(value) : value;
   if (isNaN(numValue)) return '0';
@@ -61,9 +47,6 @@ export const formatNumber = (value: number | string): string => {
   return numValue.toLocaleString('en-IN');
 };
 
-/**
- * Format a decimal number with specified precision
- */
 export const formatDecimal = (value: number, decimals = 2): string => {
   return new Intl.NumberFormat('en-US', {
     minimumFractionDigits: decimals,
@@ -71,16 +54,10 @@ export const formatDecimal = (value: number, decimals = 2): string => {
   }).format(value);
 };
 
-/**
- * Format a percentage
- */
 export const formatPercentage = (value: number, decimals = 1): string => {
   return `${formatDecimal(value, decimals)}%`;
 };
 
-/**
- * Format a date to string
- */
 export const formatDate = (date: Date | string, format: 'short' | 'long' | 'time' = 'short'): string => {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   
@@ -104,9 +81,6 @@ export const formatDate = (date: Date | string, format: 'short' | 'long' | 'time
   }
 };
 
-/**
- * Format time ago in French (e.g., "Il y a 2 heures")
- */
 export const formatTimeAgo = (date: Date | string): string => {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   const now = new Date();
@@ -126,9 +100,6 @@ export const formatTimeAgo = (date: Date | string): string => {
   }
 };
 
-/**
- * Truncate text to specified length
- */
 export const truncateText = (text: string, maxLength: number, suffix = '...'): string => {
   if (text.length <= maxLength) {
     return text;
@@ -136,9 +107,6 @@ export const truncateText = (text: string, maxLength: number, suffix = '...'): s
   return text.substring(0, maxLength - suffix.length) + suffix;
 };
 
-/**
- * Format file size
- */
 export const formatFileSize = (bytes: number): string => {
   const units = ['B', 'KB', 'MB', 'GB'];
   let size = bytes;
@@ -152,25 +120,16 @@ export const formatFileSize = (bytes: number): string => {
   return `${formatDecimal(size, unitIndex === 0 ? 0 : 1)} ${units[unitIndex]}`;
 };
 
-/**
- * Convert to title case
- */
 export const toTitleCase = (str: string): string => {
   return str.replace(/\w\S*/g, (txt) => 
     txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
   );
 };
 
-/**
- * Format chart tooltip value for Indian Rupees
- */
 export const formatChartTooltipValue = (value: number): string => {
   return `₹${value.toLocaleString('en-IN')}`;
 };
 
-/**
- * Format chart axis values (in thousands/millions for Y-axis)
- */
 export const formatChartAxisValue = (value: number): string => {
   if (value >= 1000000) {
     return `₹${(value / 1000000).toFixed(1)}M`;
@@ -180,9 +139,6 @@ export const formatChartAxisValue = (value: number): string => {
   return `₹${value}`;
 };
 
-/**
- * Format compact number for displaying large values
- */
 export const formatCompactNumber = (value: number): string => {
   if (value >= 1000000000) {
     return `${(value / 1000000000).toFixed(1)}B`;
@@ -194,9 +150,6 @@ export const formatCompactNumber = (value: number): string => {
   return value.toString();
 };
 
-/**
- * Format duration in seconds to readable format
- */
 export const formatDuration = (seconds: number): string => {
   const hrs = Math.floor(seconds / 3600);
   const mins = Math.floor((seconds % 3600) / 60);
@@ -210,3 +163,4 @@ export const formatDuration = (seconds: number): string => {
     return `${secs}s`;
   }
 };
+

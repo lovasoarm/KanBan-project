@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
+﻿import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -33,22 +33,17 @@ ChartJS.register(
   Legend
 );
 
-// Types importés depuis types/reports.ts
-
 const Reports: React.FC = () => {
   const [chartPeriod, setChartPeriod] = useState<'weekly' | 'monthly'>('weekly');
   const [chartKey, setChartKey] = useState(0);
   
-  // Utilisation du hook personnalisé pour gérer les données
   const { data: reportsData, loading, error, refetch } = useReports();
 
-  // Fonction pour obtenir le mois actuel en format abrégé (Jan, Feb, etc.)
   const getCurrentMonth = () => {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return months[new Date().getMonth()];
   };
 
-  // Prepare overview metrics
   const overviewMetrics: MetricCardData[] = reportsData ? [
     { value: formatINR(reportsData.overview.totalProfit), label: 'Total Profit' },
     { value: formatINR(reportsData.overview.revenue), label: 'Revenue' },
@@ -86,10 +81,8 @@ const Reports: React.FC = () => {
     increaseBy: prod.increaseBy
   })) || [];
 
-  // Prepare chart data based on API response
   const chartData = reportsData?.chartData || null;
   
-  // Debug: Log chart data to see what we're receiving
   React.useEffect(() => {
     if (chartData) {
       console.log('Chart Data received:', chartData);
@@ -103,12 +96,10 @@ const Reports: React.FC = () => {
   }, [chartData]);
   
 
-  // Fonction pour obtenir les données selon la période sélectionnée avec useMemo pour optimisation
   const getCurrentPeriodData = useMemo(() => {
     console.log('getCurrentPeriodData - chartData:', chartData);
     console.log('getCurrentPeriodData - chartPeriod:', chartPeriod);
     
-    // Définir les données par défaut pour chaque période
     const getDefaultData = (period: 'weekly' | 'monthly') => {
       if (period === 'monthly') {
         return {
@@ -125,13 +116,11 @@ const Reports: React.FC = () => {
       }
     };
     
-    // Si pas de données API, utiliser des données par défaut
     if (!chartData) {
       console.log('No chartData from API, using default data for:', chartPeriod);
       return getDefaultData(chartPeriod);
     }
     
-    // Vérifier si les données de la période demandée existent et sont valides
     const periodData = chartData[chartPeriod];
     
     if (periodData && periodData.labels && periodData.labels.length > 0 && 
@@ -141,27 +130,21 @@ const Reports: React.FC = () => {
       return periodData;
     }
     
-    // Fallback: retourner les données par défaut si les données API sont incomplètes
     console.log('API data incomplete for period:', chartPeriod, ', using default data');
     return getDefaultData(chartPeriod);
   }, [chartData, chartPeriod]);
 
-  // Gestionnaire de changement de période avec callback mémorisé
   const handlePeriodChange = useCallback((period: 'weekly' | 'monthly') => {
     console.log('Changing chart period to:', period);
     setChartPeriod(period);
-    // Incrémente la clé pour forcer le re-rendu du graphique
     setChartKey(prevKey => prevKey + 1);
   }, []);
   
-  // Force re-render when period changes
   useEffect(() => {
     console.log('Chart period changed to:', chartPeriod);
     console.log('Current data:', getCurrentPeriodData);
-    // La clé chartKey s'occupe déjà du re-rendu, pas besoin de destroy manuel
   }, [chartPeriod, getCurrentPeriodData]);
   
-  // Données du graphique optimisées avec useMemo
   const chartDisplayData = useMemo(() => ({
     labels: getCurrentPeriodData.labels,
     datasets: getCurrentPeriodData.labels.length > 0 ? [
@@ -198,11 +181,10 @@ const Reports: React.FC = () => {
     ] : []
   }), [getCurrentPeriodData]);
 
-  // Options du graphique optimisées avec useMemo
   const chartOptions = useMemo(() => ({
     responsive: true,
     maintainAspectRatio: false,
-    redraw: true, // Force le redessin
+    redraw: true, 
     interaction: {
       mode: 'index' as const,
       intersect: false,
@@ -288,7 +270,6 @@ const Reports: React.FC = () => {
     }
   }), [chartPeriod]);
 
-  // Affichage conditionnel pour le chargement et les erreurs
   if (loading) {
     return (
       <div className="reports-container">
@@ -317,13 +298,13 @@ const Reports: React.FC = () => {
   return (
     <div className="reports-container">
 
-      {/* Top Row - Overview and Best Selling Category side by side */}
+      {}
       <div className="reports-top-row">
-        {/* Overview Section */}
+        {}
         <div className="overview-section">
           <h2 className="section-title mb-3">Overview</h2>
           
-          {/* First Row - 3 columns */}
+          {}
           <div className="overview-cards">
             {overviewMetrics.map((metric, index) => (
               <div key={index} className="metric-card">
@@ -333,7 +314,7 @@ const Reports: React.FC = () => {
             ))}
           </div>
 
-          {/* Second Row - 4 columns */}
+          {}
           <div className="overview-metrics">
             {secondRowMetrics.map((metric, index) => (
               <div key={index} className="metric-card">
@@ -344,7 +325,7 @@ const Reports: React.FC = () => {
           </div>
         </div>
 
-        {/* Best Selling Category */}
+        {}
         <div className="best-selling-section">
           <div className="table-card">
             <div className="table-header">
@@ -377,7 +358,7 @@ const Reports: React.FC = () => {
         </div>
       </div>
 
-      {/* Profit & Revenue Chart */}
+      {}
       <div className="reports-section">
         <div className="chart-card">
           <div className="chart-header">
@@ -389,13 +370,6 @@ const Reports: React.FC = () => {
               >
                 <i className="fas fa-calendar-week"></i>
                 Weekly
-              </button>
-              <button 
-                className={`toggle-btn ${chartPeriod === 'monthly' ? 'active' : ''}`}
-                onClick={() => handlePeriodChange('monthly')}
-              >
-                <i className="fas fa-calendar-alt"></i>
-                Monthly
               </button>
             </div>
           </div>
@@ -428,7 +402,7 @@ const Reports: React.FC = () => {
         </div>
       </div>
 
-      {/* Best Selling Product */}
+      {}
       <div className="reports-section">
         <div className="table-card">
           <div className="table-header">
@@ -472,3 +446,4 @@ const Reports: React.FC = () => {
 };
 
 export default Reports;
+

@@ -23,26 +23,26 @@ public class InventoryCollection<T> : IEnumerable<T> where T : Product
         _itemsByStatus = new ConcurrentDictionary<ProductStatus, List<T>>();
     }
 
-    // Index par ID
+ 
     public T? this[int id] => _itemsById.TryGetValue(id, out var item) ? item : null;
 
-    // Index par SKU
+ 
     public IEnumerable<T> this[string sku] => 
         _itemsBySku.TryGetValue(sku, out var items) ? items.AsEnumerable() : Enumerable.Empty<T>();
 
-    // Index par Category
+  
     public IEnumerable<T> this[string category, bool isCategory] => 
         isCategory && _itemsByCategory.TryGetValue(category, out var items) ? items.AsEnumerable() : Enumerable.Empty<T>();
 
-    // Index par Location
+   
     public IEnumerable<T> this[string location, string locationType] => 
         locationType == "location" && _itemsByLocation.TryGetValue(location, out var items) ? items.AsEnumerable() : Enumerable.Empty<T>();
 
-    // Index par Status
+   
     public IEnumerable<T> this[ProductStatus status] => 
         _itemsByStatus.TryGetValue(status, out var items) ? items.AsEnumerable() : Enumerable.Empty<T>();
 
-    // Index par rang
+
     public T? this[Index index]
     {
         get
@@ -53,7 +53,7 @@ public class InventoryCollection<T> : IEnumerable<T> where T : Product
         }
     }
 
-    // Index par Range
+
     public IEnumerable<T> this[Range range]
     {
         get

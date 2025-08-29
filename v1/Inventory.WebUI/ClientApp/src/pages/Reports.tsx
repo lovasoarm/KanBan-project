@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+﻿import React, { useState, useCallback } from 'react';
 import { Reports as ReportsComponent } from '../components/Reports';
 import Sidebar from '../components/Dashboard/Sidebar';
 
@@ -11,7 +11,7 @@ const Reports: React.FC = () => {
 
   return (
     <div className="modern-dashboard">
-      {/* Sidebar */}
+      {}
       <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
@@ -62,9 +62,9 @@ const Reports: React.FC = () => {
         </nav>
       </div>
 
-      {/* Main Content */}
+      {}
       <div className={`main-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-        {/* Topbar */}
+        {}
         <div className="topbar">
           <div className="search-container">
             <i className="fas fa-search"></i>

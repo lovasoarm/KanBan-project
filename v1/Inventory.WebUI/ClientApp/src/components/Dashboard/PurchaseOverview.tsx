@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Card } from 'react-bootstrap';
 import { PurchaseOverview as PurchaseOverviewType } from '../../types/dashboard.types';
 
@@ -38,7 +38,7 @@ const PurchaseOverview: React.FC<PurchaseOverviewProps> = ({ data }) => {
         </Card.Title>
       </Card.Header>
       <Card.Body>
-        {/* Purchase */}
+        {}
         <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
           <div>
             <div className="text-muted small">Achats</div>
@@ -52,7 +52,7 @@ const PurchaseOverview: React.FC<PurchaseOverviewProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Cancel */}
+        {}
         <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
           <div>
             <div className="text-muted small">Annulations</div>
@@ -66,7 +66,7 @@ const PurchaseOverview: React.FC<PurchaseOverviewProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Return */}
+        {}
         <div className="d-flex justify-content-between align-items-center">
           <div>
             <div className="text-muted small">Retours</div>
@@ -80,7 +80,7 @@ const PurchaseOverview: React.FC<PurchaseOverviewProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Summary */}
+        {}
         <div className="mt-4 pt-3 border-top">
           <div className="text-center">
             <div className="small text-muted">Achats Nets</div>
@@ -90,7 +90,7 @@ const PurchaseOverview: React.FC<PurchaseOverviewProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Quick Actions */}
+        {}
         <div className="mt-3 d-grid gap-2">
           <button className="btn btn-outline-primary btn-sm">
             <i className="fas fa-plus me-1"></i>

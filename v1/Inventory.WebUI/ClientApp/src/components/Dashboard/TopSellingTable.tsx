@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { TopSellingProduct } from '../../types/dashboard.types';
 import { getProductImage, getStockStatus } from '../../utils/productImageUtils';
 import { Badge } from 'react-bootstrap';
@@ -8,7 +8,6 @@ interface TopSellingTableProps {
 }
 
 const TopSellingTable: React.FC<TopSellingTableProps> = ({ products }) => {
-  // Données de fallback avec vrais produits
   const fallbackProducts = [
     {
       id: 1,
@@ -118,3 +117,4 @@ const TopSellingTable: React.FC<TopSellingTableProps> = ({ products }) => {
 };
 
 export default TopSellingTable;
+

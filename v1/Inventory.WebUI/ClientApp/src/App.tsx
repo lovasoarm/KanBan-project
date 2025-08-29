@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { InventoryProvider } from "./contexts/InventoryContext";
 import Dashboard from "./components/Dashboard/Dashboard";

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+﻿import { useState, useEffect, useMemo, useCallback } from 'react';
 import { apiService } from '../services/api';
 
 interface DashboardState {
@@ -12,7 +12,6 @@ interface UseOptimizedDashboardReturn extends DashboardState {
   clearCache: () => void;
 }
 
-
 const FALLBACK_DATA = {
   stats: {
     salesOverview: { value: 45231, change: 12.5 },
@@ -21,7 +20,6 @@ const FALLBACK_DATA = {
     cost: { value: 92550, change: -2.1 },
     quantityInHand: { value: 2456, change: 5.7 },
     toBeReceived: { value: 156, change: 23.4 },
-    // Compatibilité avec l'ancien format
     totalSales: 45231,
     totalOrders: 1563,
     avgOrderValue: 289,
@@ -31,7 +29,6 @@ const FALLBACK_DATA = {
     purchase: { value: 32450, change: 7.8 },
     cancel: { value: 245, change: -12.3 },
     return: { value: 89, change: 4.5 },
-    // Compatibilité avec l'ancien format
     totalPurchase: 32450,
     totalSuppliers: 45,
     pendingOrders: 23,
@@ -43,7 +40,6 @@ const FALLBACK_DATA = {
     totalProducts: 2456,
     activeProducts: 2344,
     averagePrice: 1250,
-    // Compatibilité avec l'ancien format
     lowStock: 45,
     outOfStock: 12,
     categories: 24
@@ -57,7 +53,6 @@ const FALLBACK_DATA = {
         remainingQuantity: 156, 
         price: 999,
         category: 'Electronics',
-        // Compatibilité avec l'ancien format
         sold: 245, 
         remaining: 156, 
         priceFormatted: '$999' 
@@ -69,7 +64,6 @@ const FALLBACK_DATA = {
         remainingQuantity: 203, 
         price: 899,
         category: 'Electronics',
-        // Compatibilité avec l'ancien format
         sold: 189, 
         remaining: 203, 
         priceFormatted: '$899' 
@@ -81,7 +75,6 @@ const FALLBACK_DATA = {
         remainingQuantity: 89, 
         price: 1299,
         category: 'Computers',
-        // Compatibilité avec l'ancien format
         sold: 156, 
         remaining: 89, 
         priceFormatted: '$1299' 
@@ -93,7 +86,6 @@ const FALLBACK_DATA = {
         remainingQuantity: 67, 
         price: 799,
         category: 'Tablets',
-        // Compatibilité avec l'ancien format
         sold: 134, 
         remaining: 67, 
         priceFormatted: '$799' 
@@ -105,7 +97,6 @@ const FALLBACK_DATA = {
         remainingQuantity: 445, 
         price: 249,
         category: 'Audio',
-        // Compatibilité avec l'ancien format
         sold: 298, 
         remaining: 445, 
         priceFormatted: '$249' 
@@ -120,7 +111,6 @@ const FALLBACK_DATA = {
         supplier: 'Apple Inc',
         lastRestock: new Date('2024-01-15'),
         urgency: 'critical' as const,
-        // Compatibilité avec l'ancien format
         remaining: 5, 
         image: '/images/products/1.png' 
       },
@@ -132,7 +122,6 @@ const FALLBACK_DATA = {
         supplier: 'Samsung Electronics',
         lastRestock: new Date('2024-01-10'),
         urgency: 'critical' as const,
-        // Compatibilité avec l'ancien format
         remaining: 3, 
         image: '/images/products/2.png' 
       },
@@ -144,7 +133,6 @@ const FALLBACK_DATA = {
         supplier: 'Dell Technologies',
         lastRestock: new Date('2024-01-20'),
         urgency: 'warning' as const,
-        // Compatibilité avec l'ancien format
         remaining: 8, 
         image: '/images/products/3.png' 
       },
@@ -156,7 +144,6 @@ const FALLBACK_DATA = {
         supplier: 'Sony Corporation',
         lastRestock: new Date('2024-01-08'),
         urgency: 'critical' as const,
-        // Compatibilité avec l'ancien format
         remaining: 2, 
         image: '/images/products/4.png' 
       },
@@ -168,7 +155,6 @@ const FALLBACK_DATA = {
         supplier: 'Gaming Corp',
         lastRestock: new Date('2024-01-05'),
         urgency: 'critical' as const,
-        // Compatibilité avec l'ancien format
         remaining: 1, 
         image: '/images/products/5.png' 
       }
@@ -199,7 +185,6 @@ export const useOptimizedDashboard = (): UseOptimizedDashboardReturn => {
     setState(prev => ({ ...prev, isLoading: true, error: null }));
     
     try {
-      // Fetch data from real API endpoints
       const [metricsResponse, productsResponse, categoryAnalyticsResponse] = await Promise.all([
         fetch('/api/dashboard/metrics').then(res => res.ok ? res.json() : null),
         fetch('/api/products?size=1000').then(res => res.ok ? res.json() : null),
@@ -210,7 +195,6 @@ export const useOptimizedDashboard = (): UseOptimizedDashboardReturn => {
       const products = productsResponse?.data || [];
       const categoryAnalytics = categoryAnalyticsResponse?.data || [];
 
-      // Transform real API data to dashboard format
       const dashboardData = {
         stats: {
           sales: { value: metrics?.TotalValue * 0.85 || 125000, change: 12.5 },
@@ -300,16 +284,13 @@ export const useOptimizedDashboard = (): UseOptimizedDashboardReturn => {
   }, []);
 
   const clearCache = useCallback(() => {
-    // Clear any cached data if needed
     console.log('Cache cleared');
   }, []);
 
-  // Chargement initial des données
   useEffect(() => {
     fetchDashboardData();
   }, [fetchDashboardData]);
 
-  // Mémoriser les valeurs pour éviter les re-rendus inutiles
   const memoizedReturn = useMemo<UseOptimizedDashboardReturn>(() => ({
     ...state,
     refetch: fetchDashboardData,
@@ -318,3 +299,4 @@ export const useOptimizedDashboard = (): UseOptimizedDashboardReturn => {
 
   return memoizedReturn;
 };
+

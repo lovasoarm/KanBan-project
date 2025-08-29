@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
@@ -33,13 +33,12 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
   };
 
   const handleLogout = () => {
-    // Implémentation logout
     console.log('Logout clicked');
   };
 
   return (
     <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-      {/* Logo & Brand */}
+      {}
       <div className="sidebar-header">
         <div className="sidebar-brand">
           <i className="fas fa-boxes brand-icon"></i>
@@ -54,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
         </button>
       </div>
 
-      {/* Navigation Menu */}
+      {}
       <Nav className="sidebar-nav flex-column">
         {menuItems.map((item, index) => (
           <Nav.Link
@@ -71,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
         ))}
       </Nav>
 
-      {/* User Section */}
+      {}
       <div className="sidebar-footer">
         <div className="user-section">
           <div className="user-avatar">
@@ -99,3 +98,4 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
 };
 
 export default Sidebar;
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import {
@@ -14,7 +14,6 @@ import {
   ChartOptions
 } from 'chart.js';
 import { useOptimizedDashboard } from '../../hooks/useOptimizedDashboard';
-
 
 ChartJS.register(
   CategoryScale,
@@ -35,7 +34,6 @@ const OrderSummaryChart: React.FC<OrderSummaryChartProps> = ({ className = '' })
   
   const { data: dashboardData, isLoading } = useOptimizedDashboard();
 
-
   const orderData = dashboardData?.charts?.orderSummary;
   
   const data = {
@@ -44,11 +42,11 @@ const OrderSummaryChart: React.FC<OrderSummaryChartProps> = ({ className = '' })
       {
         label: 'Ordered',
         data: orderData?.orderedData || [3200, 2800, 3500, 3100, 3400],
-        borderColor: '#FF8C00', // Orange
+        borderColor: '#FF8C00', 
         backgroundColor: 'rgba(255, 140, 0, 0.1)', 
         borderWidth: 3,
-        fill: true, // Remplissage activé
-        tension: 0.4, // Courbe lissée
+        fill: true, 
+        tension: 0.4, 
         pointBackgroundColor: '#FF8C00',
         pointBorderColor: '#FF8C00',
         pointRadius: 6,
@@ -57,11 +55,11 @@ const OrderSummaryChart: React.FC<OrderSummaryChartProps> = ({ className = '' })
       {
         label: 'Delivered',
         data: orderData?.deliveredData || [2900, 2500, 3200, 2800, 3100],
-        borderColor: '#87CEEB', // Bleu clair
+        borderColor: '#87CEEB', 
         backgroundColor: 'transparent', 
         borderWidth: 3,
-        fill: false, // Pas de remplissage
-        tension: 0.4, // Courbe lissée
+        fill: false, 
+        tension: 0.4, 
         pointBackgroundColor: '#87CEEB',
         pointBorderColor: '#87CEEB',
         pointRadius: 6,
@@ -168,7 +166,6 @@ const OrderSummaryChart: React.FC<OrderSummaryChartProps> = ({ className = '' })
     },
   };
 
-  // État de chargement
   if (isLoading) {
     return (
       <Card className={`h-100 shadow-sm border-0 ${className}`}>
@@ -219,3 +216,4 @@ const OrderSummaryChart: React.FC<OrderSummaryChartProps> = ({ className = '' })
 };
 
 export default OrderSummaryChart;
+

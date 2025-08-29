@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Inventory.Core.Contracts;
 using Inventory.Core.Entities;
 using Inventory.Core.Services;
@@ -20,7 +20,6 @@ public class ProductsController : ControllerBase
         _importService = importService ?? throw new ArgumentNullException(nameof(importService));
     }
 
-    // Get all products with pagination
     [HttpGet]
     public async Task<ActionResult<ApiResponse<IEnumerable<Product>>>> GetProducts(
         [FromQuery] int page = 1, 
@@ -39,7 +38,6 @@ public class ProductsController : ControllerBase
         return Ok(response);
     }
 
-    // Get product by ID
     [HttpGet("{id}")]
     public async Task<ActionResult<ApiResponse<Product>>> GetProduct(int id)
     {
@@ -50,7 +48,6 @@ public class ProductsController : ControllerBase
         return Ok(new ApiResponse<Product>(product));
     }
 
-    // Create new product
     [HttpPost]
     public async Task<ActionResult<ApiResponse<Product>>> CreateProduct(Product product)
     {
@@ -63,7 +60,6 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, response);
     }
 
-    // Update existing product
     [HttpPut("{id}")]
     public async Task<ActionResult<ApiResponse<Product>>> UpdateProduct(int id, Product product)
     {
@@ -74,7 +70,6 @@ public class ProductsController : ControllerBase
         return Ok(new ApiResponse<Product>(updatedProduct, "Product updated successfully"));
     }
 
-    // Delete product
     [HttpDelete("{id}")]
     public async Task<ActionResult<ApiResponse<object>>> DeleteProduct(int id)
     {
@@ -82,7 +77,6 @@ public class ProductsController : ControllerBase
         return Ok(new ApiResponse<object>(null, "Product deleted successfully"));
     }
 
-    // Import products from CSV file
     [HttpPost("import")]
     public async Task<ActionResult<ApiResponse<ImportResult<Product>>>> ImportProducts(IFormFile file)
     {
@@ -108,3 +102,4 @@ public class ProductsController : ControllerBase
         }
     }
 }
+

@@ -88,20 +88,18 @@ public class CsvService<T, TKey> : ICsvService<T, TKey>, ICsvImportService<T>
 
     async Task<IGenericCollection<T, TGenKey>> ICsvImportService<T>.ImportFromCsvContentAsync<TGenKey>(string csvContent)
     {
-        // Si TGenKey est compatible avec TKey, utiliser la méthode existante
+      
         if (typeof(TGenKey) == typeof(TKey))
         {
             var result = await ImportFromCsvContentAsync(csvContent);
             return (IGenericCollection<T, TGenKey>)(object)result;
         }
-        
-        // Sinon, nous devons créer un nouveau sélecteur de clé
+           
         throw new NotSupportedException($"Key type {typeof(TGenKey)} is not supported by this CSV service configured for {typeof(TKey)}");
     }
 
     async Task ICsvImportService<T>.ExportToCsvAsync<TGenKey>(IGenericCollection<T, TGenKey> data, string filePath)
     {
-        // Si TGenKey est compatible avec TKey, utiliser la méthode existante
         if (typeof(TGenKey) == typeof(TKey))
         {
             await ExportToCsvAsync((IGenericCollection<T, TKey>)(object)data, filePath);
@@ -187,22 +185,18 @@ public class CsvService<T, TKey> : ICsvService<T, TKey>, ICsvImportService<T>
 public class ValidationSummary
 {
     public bool IsValid { get; set; } = true;
-    public List<ValidationMessage> Messages { get; } = new();
+    public List<string> Errors { get; } = new();
+    public List<string> Warnings { get; } = new();
+    public List<string> Info { get; } = new();
 
-    public void AddError(string message) => 
-        Messages.Add(new ValidationMessage(ValidationLevel.Error, message));
+    public void AddError(string message)
+    {
+        Errors.Add(message);
+        IsValid = false;
+    }
         
-    public void AddWarning(string message) => 
-        Messages.Add(new ValidationMessage(ValidationLevel.Warning, message));
+    public void AddWarning(string message) => Warnings.Add(message);
         
-    public void AddInfo(string message) => 
-        Messages.Add(new ValidationMessage(ValidationLevel.Info, message));
-
-    public IEnumerable<string> Errors => 
-        Messages.Where(m => m.Level == ValidationLevel.Error).Select(m => m.Message);
-        
-    public IEnumerable<string> Warnings => 
-        Messages.Where(m => m.Level == ValidationLevel.Warning).Select(m => m.Message);
+    public void AddInfo(string message) => Info.Add(message);
 }
 
-public record ValidationMessage(ValidationLevel Level, string Message);

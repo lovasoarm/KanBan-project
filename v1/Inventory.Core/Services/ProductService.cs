@@ -135,30 +135,5 @@ public class ProductService : IProductService
         return _csvService.ExportToCsvAsync(products, filePath);
     }
 
-    // Méthodes additionnelles pour l'API
-    public async Task<IEnumerable<Product>> GetByCategoryAsync(string category)
-    {
-        var categoryProducts = await GetProductsByCategoryAsync(category);
-        return categoryProducts.AsEnumerable();
-    }
 
-    public async Task<IEnumerable<Product>> GetLowStockAsync()
-    {
-        var lowStockProducts = await GetLowStockProductsAsync();
-        return lowStockProducts.AsEnumerable();
-    }
-
-    public async Task<IEnumerable<Product>> SearchAsync(string query)
-    {
-        var allProducts = await _repository.GetAllAsync();
-        var searchResults = allProducts.Where(p => 
-            p.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-            p.SKU.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-            p.Description.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-            p.Category.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-            p.Brand.Contains(query, StringComparison.OrdinalIgnoreCase)
-        );
-        
-        return searchResults;
-    }
 }

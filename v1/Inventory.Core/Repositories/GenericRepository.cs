@@ -3,7 +3,7 @@ using Inventory.Core.Contracts;
 
 namespace Inventory.Core.Repositories;
 
-public interface IGenericRepository<T, TKey> : IQueryable<T, TKey>
+public interface IGenericRepository<T, TKey>
     where T : class
     where TKey : notnull
 {

@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+﻿import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import { 
   ReportsResponse, 
   ApiResponse,
@@ -53,7 +53,6 @@ class ApiService {
     }
   }
 
-  // Dashboard endpoints
   async getDashboardMetrics() {
     return this.makeRequest(() => this.client.get('/dashboard/metrics'));
   }
@@ -78,7 +77,6 @@ class ApiService {
     return this.makeRequest(() => this.client.get('/dashboard/stats/summary'));
   }
 
-  // Products endpoints
   async getProducts(filters?: Record<string, unknown>) {
     return this.makeRequest(() => this.client.get('/products', { params: filters }));
   }
@@ -87,7 +85,6 @@ class ApiService {
     return this.makeRequest(() => this.client.post('/products', productData));
   }
 
-  // Reports endpoints - connected to real CSV data
   async getReportsData(): Promise<ApiResponse<ReportsResponse>> {
     return this.makeRequest<ApiResponse<ReportsResponse>>(() => this.client.get('/reports'));
   }
@@ -111,3 +108,4 @@ class ApiService {
 
 export const apiService = new ApiService();
 export type { ApiError };
+

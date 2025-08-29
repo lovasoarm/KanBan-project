@@ -1,8 +1,6 @@
-// Function to get appropriate product image based on product name
-export const getProductImage = (productName: string): string => {
+﻿export const getProductImage = (productName: string): string => {
   const name = productName.toLowerCase();
   
-  // Check for specific product types and map to appropriate images
   if (name.includes('headphone') || name.includes('écouteur') || name.includes('casque') || name.includes('audio')) {
     return '/images/products/headphones.png';
   }
@@ -16,24 +14,22 @@ export const getProductImage = (productName: string): string => {
     return '/images/products/smartphone.png';
   }
   
-  // Add more specific mappings for common electronics
   if (name.includes('watch') || name.includes('montre')) {
-    return '/images/products/smartphone.png'; // Use smartphone as fallback for smartwatch
+    return '/images/products/smartphone.png'; 
   }
   if (name.includes('speaker') || name.includes('haut-parleur') || name.includes('sound')) {
-    return '/images/products/headphones.png'; // Use headphones for audio devices
+    return '/images/products/headphones.png'; 
   }
   if (name.includes('cable') || name.includes('câble') || name.includes('cord')) {
-    return '/images/products/1.png'; // Use generic image for cables
+    return '/images/products/1.png'; 
   }
   if (name.includes('stand') || name.includes('support')) {
-    return '/images/products/2.png'; // Use generic image for stands
+    return '/images/products/2.png'; 
   }
   if (name.includes('mouse') || name.includes('souris') || name.includes('keyboard') || name.includes('clavier')) {
-    return '/images/products/3.png'; // Use generic image for peripherals
+    return '/images/products/3.png'; 
   }
   
-  // Default fallback to numbered images based on name hash
   const hash = name.split('').reduce((a, b) => {
     a = ((a << 5) - a) + b.charCodeAt(0);
     return a & a;
@@ -42,7 +38,6 @@ export const getProductImage = (productName: string): string => {
   return `/images/products/${imageNumber}.png`;
 };
 
-// Function to determine stock status color and label
 export const getStockStatus = (quantity: number) => {
   if (quantity <= 5) {
     return {
@@ -67,3 +62,4 @@ export const getStockStatus = (quantity: number) => {
     };
   }
 };
+

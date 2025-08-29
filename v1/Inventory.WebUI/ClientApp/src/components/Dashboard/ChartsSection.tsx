@@ -1,6 +1,6 @@
-import React from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
-import { Line, Bar, Doughnut } from 'react-chartjs-2';
+﻿import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
+import { Line, Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,8 +12,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { ChartData } from '../../types/dashboard.types';
+} from "chart.js";
+import { ChartData } from "../../types/dashboard.types";
 
 ChartJS.register(
   CategoryScale,
@@ -49,15 +49,15 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
   const salesPurchaseOptions = {
     responsive: true,
     animation: {
-      duration: 0
+      duration: 0,
     },
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'Ventes vs Achats',
+        text: "Ventes vs Achats",
       },
     },
     scales: {
@@ -71,16 +71,16 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
     labels: data.salesAndPurchase.labels,
     datasets: [
       {
-        label: 'Ventes',
+        label: "Ventes",
         data: data.salesAndPurchase.salesData,
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
       {
-        label: 'Achats',
+        label: "Achats",
         data: data.salesAndPurchase.purchaseData,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
     ],
   };
@@ -88,15 +88,15 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
   const orderSummaryOptions = {
     responsive: true,
     animation: {
-      duration: 0
+      duration: 0,
     },
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: true,
-        text: 'Résumé des Commandes',
+        text: "Résumé des Commandes",
       },
     },
     scales: {
@@ -110,29 +110,28 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
     labels: data.orderSummary.labels,
     datasets: [
       {
-        label: 'Commandé',
+        label: "Commandé",
         data: data.orderSummary.orderedData,
-        backgroundColor: 'rgba(255, 206, 86, 0.8)',
+        backgroundColor: "rgba(255, 206, 86, 0.8)",
       },
       {
-        label: 'Livré',
+        label: "Livré",
         data: data.orderSummary.deliveredData,
-        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+        backgroundColor: "rgba(75, 192, 192, 0.8)",
       },
     ],
   };
 
-  // Données pour le graphique en secteurs (exemple)
   const categoryData = {
-    labels: ['Électronique', 'Vêtements', 'Maison', 'Autres'],
+    labels: ["Électronique", "Vêtements", "Maison", "Autres"],
     datasets: [
       {
         data: [30, 25, 20, 25],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 205, 86, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
+          "rgba(255, 99, 132, 0.8)",
+          "rgba(54, 162, 235, 0.8)",
+          "rgba(255, 205, 86, 0.8)",
+          "rgba(75, 192, 192, 0.8)",
         ],
       },
     ],
@@ -141,15 +140,15 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
   const categoryOptions = {
     responsive: true,
     animation: {
-      duration: 0, // Désactiver les animations pour éviter les boucles
+      duration: 0,
     },
     plugins: {
       legend: {
-        position: 'right' as const,
+        position: "right" as const,
       },
       title: {
         display: true,
-        text: 'Répartition par Catégorie',
+        text: "Répartition par Catégorie",
       },
     },
   };
@@ -163,7 +162,7 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
           </Card.Body>
         </Card>
       </Col>
-      
+
       <Col lg={6} className="mb-3">
         <Card>
           <Card.Body>
@@ -171,7 +170,7 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
           </Card.Body>
         </Card>
       </Col>
-      
+
       <Col lg={6} className="mb-3">
         <Card>
           <Card.Body>
@@ -179,7 +178,7 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
           </Card.Body>
         </Card>
       </Col>
-      
+
       <Col lg={6} className="mb-3">
         <Card>
           <Card.Header>
@@ -188,19 +187,33 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
           <Card.Body>
             <div className="row text-center">
               <div className="col-6 mb-3">
-                <div className="h4 mb-0 text-primary">€{data.salesAndPurchase.salesData.reduce((a, b) => a + b, 0).toLocaleString()}</div>
+                <div className="h4 mb-0 text-primary">
+                  €
+                  {data.salesAndPurchase.salesData
+                    .reduce((a, b) => a + b, 0)
+                    .toLocaleString()}
+                </div>
                 <small className="text-muted">Ventes Totales</small>
               </div>
               <div className="col-6 mb-3">
-                <div className="h4 mb-0 text-success">€{data.salesAndPurchase.purchaseData.reduce((a, b) => a + b, 0).toLocaleString()}</div>
+                <div className="h4 mb-0 text-success">
+                  €
+                  {data.salesAndPurchase.purchaseData
+                    .reduce((a, b) => a + b, 0)
+                    .toLocaleString()}
+                </div>
                 <small className="text-muted">Achats Totaux</small>
               </div>
               <div className="col-6">
-                <div className="h4 mb-0 text-info">{data.orderSummary.orderedData.reduce((a, b) => a + b, 0)}</div>
+                <div className="h4 mb-0 text-info">
+                  {data.orderSummary.orderedData.reduce((a, b) => a + b, 0)}
+                </div>
                 <small className="text-muted">Commandes</small>
               </div>
               <div className="col-6">
-                <div className="h4 mb-0 text-warning">{data.orderSummary.deliveredData.reduce((a, b) => a + b, 0)}</div>
+                <div className="h4 mb-0 text-warning">
+                  {data.orderSummary.deliveredData.reduce((a, b) => a + b, 0)}
+                </div>
                 <small className="text-muted">Livrées</small>
               </div>
             </div>
@@ -212,3 +225,4 @@ const ChartsSection: React.FC<ChartsSectionProps> = ({ data }) => {
 };
 
 export default ChartsSection;
+

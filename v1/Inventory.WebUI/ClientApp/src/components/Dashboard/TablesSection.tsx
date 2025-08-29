@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Row, Col, Card, Table, Badge } from 'react-bootstrap';
 import { TableData } from '../../types/dashboard.types';
 
@@ -32,7 +32,7 @@ const TablesSection: React.FC<TablesSectionProps> = ({ data }) => {
 
   return (
     <Row>
-      {/* Top Selling Stock */}
+      {}
       <Col xs={12} className="mb-4">
         <Card>
           <Card.Header>
@@ -95,7 +95,7 @@ const TablesSection: React.FC<TablesSectionProps> = ({ data }) => {
         </Card>
       </Col>
 
-      {/* Low Quantity Stock */}
+      {}
       <Col xs={12}>
         <Card>
           <Card.Header>

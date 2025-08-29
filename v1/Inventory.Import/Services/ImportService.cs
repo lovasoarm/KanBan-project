@@ -24,7 +24,7 @@ public class ImportService : IImportService
         _productService = productService ?? throw new ArgumentNullException(nameof(productService));
     }
 
-    // Import products from file with performance tracking
+
     public async Task<ImportResult<Product>> ImportFromFileAsync(string filePath, CancellationToken cancellationToken = default)
     {
         var stopwatch = Stopwatch.StartNew();
@@ -56,7 +56,7 @@ public class ImportService : IImportService
         return result;
     }
 
-    // Import products from stream with batch processing
+  
     public async Task<ImportResult<Product>> ImportFromStreamAsync(Stream stream, CancellationToken cancellationToken = default)
     {
         var stopwatch = Stopwatch.StartNew();
@@ -109,7 +109,7 @@ public class ImportService : IImportService
         return result;
     }
 
-    // Validate file before processing
+   
     public async Task<ValidationResult> ValidateFileAsync(string filePath)
     {
         if (string.IsNullOrWhiteSpace(filePath))
@@ -126,7 +126,7 @@ public class ImportService : IImportService
         if (fileInfo.Length == 0)
             return ValidationResult.Invalid("File is empty");
 
-        if (fileInfo.Length > 100 * 1024 * 1024) // 100MB limit
+        if (fileInfo.Length > 100 * 1024 * 1024) 
             return ValidationResult.Invalid("File too large (max 100MB)");
 
         return await Task.FromResult(ValidationResult.Valid());

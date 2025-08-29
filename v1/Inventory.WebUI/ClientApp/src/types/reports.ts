@@ -1,5 +1,4 @@
-// Types pour les données de rapports basées sur les données CSV du backend
-
+﻿
 export interface ReportsOverview {
   totalProfit: number;
   revenue: number;
@@ -52,7 +51,6 @@ export interface ApiResponse<T> {
   [key: string]: any;
 }
 
-// Types pour les produits CSV
 export interface ProductCsvData {
   productId: string;
   productName: string;
@@ -70,7 +68,6 @@ export interface ProductCsvData {
   productRatings: number;
 }
 
-// Types pour le formatage des données
 export interface MetricCardData {
   value: string;
   label: string;
@@ -91,7 +88,6 @@ export interface FormattedBestProduct {
   increaseBy: string;
 }
 
-// Types pour la gestion d'état
 export interface ReportsState {
   data: ReportsResponse | null;
   loading: boolean;
@@ -99,14 +95,12 @@ export interface ReportsState {
   lastUpdated: Date | null;
 }
 
-// Types pour les erreurs API
 export interface ApiError {
   message: string;
   status: number;
   details?: string;
 }
 
-// Types pour les filtres et paramètres
 export interface ReportsFilters {
   period?: 'weekly' | 'monthly' | 'yearly';
   category?: string;
@@ -116,7 +110,6 @@ export interface ReportsFilters {
   };
 }
 
-// Type pour les hooks de données
 export interface UseReportsResult {
   data: ReportsResponse | null;
   loading: boolean;
@@ -124,3 +117,4 @@ export interface UseReportsResult {
   refetch: () => Promise<void>;
   lastUpdated: Date | null;
 }
+

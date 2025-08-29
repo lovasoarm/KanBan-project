@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { 
   Card, 
   Row, 
@@ -213,7 +213,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
   return (
     <Card className="mb-4">
       <Card.Body>
-        {/* Search Bar and Quick Actions */}
+        {}
         <Row className="mb-3">
           <Col lg={8}>
             <InputGroup>
@@ -269,7 +269,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           </Col>
         </Row>
 
-        {/* Results Count */}
+        {}
         {showResultCount && (
           <Row className="mb-2">
             <Col>
@@ -295,7 +295,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
           </Row>
         )}
 
-        {/* Advanced Filters */}
+        {}
         <Collapse in={showAdvancedFilters}>
           <div>
             <hr className="my-3" />
@@ -312,7 +312,7 @@ const AdvancedFilters: React.FC<AdvancedFiltersProps> = ({
               ))}
             </Row>
             
-            {/* Active Filters Display */}
+            {}
             {activeFiltersCount > 0 && (
               <Row className="mt-3">
                 <Col>

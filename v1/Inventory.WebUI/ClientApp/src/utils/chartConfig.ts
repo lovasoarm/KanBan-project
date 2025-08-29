@@ -1,4 +1,4 @@
-import {
+﻿import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -11,9 +11,7 @@ import {
   ArcElement,
 } from 'chart.js';
 
-// Configuration globale pour optimiser les performances
 export const setupChartDefaults = (): void => {
-  // Activer des animations simples
   ChartJS.defaults.animation = {
     duration: 800,
     easing: 'easeInOutQuart'
@@ -21,7 +19,6 @@ export const setupChartDefaults = (): void => {
   ChartJS.defaults.responsive = true;
   ChartJS.defaults.maintainAspectRatio = false;
   
-  // Configuration des plugins par défaut
   ChartJS.defaults.plugins.legend = {
     ...ChartJS.defaults.plugins.legend,
     labels: {
@@ -41,7 +38,6 @@ export const setupChartDefaults = (): void => {
     animation: false
   };
 
-  // Configuration des échelles par défaut
   ChartJS.defaults.scales = {
     ...ChartJS.defaults.scales,
     x: {
@@ -55,7 +51,6 @@ export const setupChartDefaults = (): void => {
   };
 };
 
-// Options de base réutilisables pour tous les graphiques
 export const baseChartOptions = {
   responsive: true,
   maintainAspectRatio: false,
@@ -100,7 +95,6 @@ export const baseChartOptions = {
   }
 };
 
-// Options spécifiques pour les graphiques en barres
 export const barChartOptions = {
   ...baseChartOptions,
   plugins: {
@@ -121,7 +115,6 @@ export const barChartOptions = {
   }
 };
 
-// Options spécifiques pour les graphiques en lignes
 export const lineChartOptions = {
   ...baseChartOptions,
   elements: {
@@ -146,7 +139,6 @@ export const lineChartOptions = {
   }
 };
 
-// Enregistrer les composants Chart.js nécessaires
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -158,3 +150,4 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+

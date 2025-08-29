@@ -26,17 +26,17 @@ class Program
         Console.ReadKey();
     }
 
-    // Validate command line arguments
+
     static bool ValidateArguments(string[] args) => args.Length > 0 && !string.IsNullOrWhiteSpace(args[0]);
 
-    // Display usage information
+ 
     static void DisplayUsage()
     {
         Console.WriteLine("Usage: Inventory.Import <csv-file-path>");
         Console.WriteLine("Example: Inventory.Import products.csv");
     }
 
-    // Process the import operation
+   
     static async Task ProcessImportAsync(IHost host, string filePath)
     {
         try
@@ -52,7 +52,7 @@ class Program
         }
     }
 
-    // Display import results with statistics
+   
     static void DisplayImportResults(ImportResult<Core.Entities.Product> result)
     {
         Console.WriteLine($"\n=== Import Results ===");
@@ -76,12 +76,11 @@ class Program
         }
     }
 
-    // Configure dependency injection
     static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureServices(RegisterServices);
 
-    // Register all services
+   
     static void RegisterServices(HostBuilderContext context, IServiceCollection services)
     {
         var csvService = new CsvService<Core.Entities.Product, int>(p => p.Id, new Core.Entities.ProductCsvMap());

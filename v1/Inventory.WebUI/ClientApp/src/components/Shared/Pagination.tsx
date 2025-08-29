@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Pagination as BSPagination, FormControl, InputGroup, Button, Dropdown } from 'react-bootstrap';
 
 interface PaginationProps {
@@ -45,7 +45,6 @@ const Pagination: React.FC<PaginationProps> = ({
     const maxVisiblePages = 5;
     
     if (totalPages <= maxVisiblePages) {
-      // Show all pages if total pages is small
       for (let i = 1; i <= totalPages; i++) {
         items.push(
           <BSPagination.Item
@@ -59,7 +58,6 @@ const Pagination: React.FC<PaginationProps> = ({
         );
       }
     } else {
-      // Show first page
       items.push(
         <BSPagination.Item
           key={1}
@@ -71,12 +69,10 @@ const Pagination: React.FC<PaginationProps> = ({
         </BSPagination.Item>
       );
 
-      // Show ellipsis if needed
       if (currentPage > 3) {
         items.push(<BSPagination.Ellipsis key="start-ellipsis" disabled={disabled} />);
       }
 
-      // Show pages around current page
       const start = Math.max(2, currentPage - 1);
       const end = Math.min(totalPages - 1, currentPage + 1);
 
@@ -93,12 +89,10 @@ const Pagination: React.FC<PaginationProps> = ({
         );
       }
 
-      // Show ellipsis if needed
       if (currentPage < totalPages - 2) {
         items.push(<BSPagination.Ellipsis key="end-ellipsis" disabled={disabled} />);
       }
 
-      // Show last page
       if (totalPages > 1) {
         items.push(
           <BSPagination.Item
@@ -121,7 +115,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-3">
-      {/* Items info and per page selector */}
+      {}
       <div className="d-flex flex-column flex-sm-row align-items-center gap-3">
         <div className="pagination-info text-muted">
           Showing {totalItems > 0 ? startItem : 0} to {endItem} of {totalItems.toLocaleString()} entries
@@ -152,7 +146,7 @@ const Pagination: React.FC<PaginationProps> = ({
         )}
       </div>
 
-      {/* Pagination controls */}
+      {}
       <div className="d-flex flex-column flex-sm-row align-items-center gap-3">
         {showQuickJump && totalPages > 10 && (
           <InputGroup size="sm" style={{ width: '150px' }}>
@@ -203,3 +197,4 @@ const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
+

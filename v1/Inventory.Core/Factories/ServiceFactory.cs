@@ -5,41 +5,11 @@ using Inventory.Core.Services;
 
 namespace Inventory.Core.Factories;
 
-public interface IServiceFactory<T, TKey>
-    where T : class, new()
-    where TKey : notnull, IComparable<TKey>
-{
-    IGenericRepository<T, TKey> CreateRepository(Func<T, TKey> keySelector);
-    CsvService<T, TKey> CreateCsvService(Func<T, TKey> keySelector);
-    IGenericCollection<T, TKey> CreateCollection(Func<T, TKey> keySelector);
-}
-
-public class ServiceFactory<T, TKey> : IServiceFactory<T, TKey>
-    where T : class, new()
-    where TKey : notnull, IComparable<TKey>
-{
-    public IGenericRepository<T, TKey> CreateRepository(Func<T, TKey> keySelector)
-    {
-        return new InMemoryRepository<T, TKey>(keySelector);
-    }
-
-    public CsvService<T, TKey> CreateCsvService(Func<T, TKey> keySelector)
-    {
-        return new CsvService<T, TKey>(keySelector);
-    }
-
-    public IGenericCollection<T, TKey> CreateCollection(Func<T, TKey> keySelector)
-    {
-        return new GenericCollection<T, TKey>(keySelector);
-    }
-}
-
 public static class ProductServiceFactory
 {
     public static IProductService CreateProductService()
     {
-        var factory = new ServiceFactory<Product, int>();
-        var repository = factory.CreateRepository(p => p.Id);
+        var repository = CreateProductRepository();
         var csvService = CreateProductCsvService();
         return new ProductService(repository, csvService);
     }

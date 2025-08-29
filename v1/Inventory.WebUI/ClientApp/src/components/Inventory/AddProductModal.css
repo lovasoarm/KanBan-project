@@ -1,4 +1,4 @@
-/* AddProductModal.css */
+﻿
 .add-product-modal .modal-content {
   border-radius: var(--border-radius-lg);
   border: none;
@@ -27,7 +27,6 @@
   padding: 1.25rem 1.5rem;
 }
 
-/* Image Upload Styles */
 .image-upload-container {
   border: 2px dashed var(--border-color);
   border-radius: var(--border-radius);
@@ -113,7 +112,6 @@
   font-size: 1rem;
 }
 
-/* Form Styles */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -147,7 +145,6 @@
   padding: 0.625rem 0.75rem;
 }
 
-/* Button Styles */
 .modal-footer .btn {
   padding: 0.625rem 1.25rem;
   font-weight: 500;
@@ -179,7 +176,6 @@
   transform: translateY(-1px);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .add-product-modal .modal-dialog {
     margin: 0.5rem;
@@ -209,13 +205,11 @@
   }
 }
 
-/* Focus states for accessibility */
 .image-upload-container:focus {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
 
-/* Validation feedback */
 .form-control.is-invalid {
   border-color: var(--danger-color);
 }
@@ -224,7 +218,6 @@
   border-color: var(--success-color);
 }
 
-/* Custom styles for file preview */
 .upload-preview {
   background-color: var(--bg-white);
   border-radius: var(--border-radius);
@@ -232,7 +225,6 @@
   border: 1px solid var(--border-color);
 }
 
-/* Animation for drag states */
 .image-upload-container {
   transition: all 0.2s ease;
 }

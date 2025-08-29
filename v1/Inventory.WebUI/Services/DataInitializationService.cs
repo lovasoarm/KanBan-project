@@ -1,4 +1,4 @@
-using Inventory.Core.Contracts;
+﻿using Inventory.Core.Contracts;
 using Inventory.Core.Entities;
 using Inventory.Core.Services;
 using Inventory.Import.Services;
@@ -30,7 +30,6 @@ public class DataInitializationService : IDataInitializationService
     {
         try
         {
-            // Vérifier si des produits existent déjà
             var existingProducts = await _productService.GetAllAsync();
             if (existingProducts.Any())
             {
@@ -40,7 +39,6 @@ public class DataInitializationService : IDataInitializationService
 
             _logger.LogInformation("Initializing database with sample data...");
 
-            // Chemin vers le fichier CSV de données de test
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "import", "products.csv");
             
             if (!File.Exists(csvFilePath))
@@ -50,7 +48,6 @@ public class DataInitializationService : IDataInitializationService
                 return;
             }
 
-            // Importer les données depuis le fichier CSV
             using var stream = File.OpenRead(csvFilePath);
             var result = await _importService.ImportFromStreamAsync(stream);
             
@@ -66,7 +63,6 @@ public class DataInitializationService : IDataInitializationService
         {
             _logger.LogError(ex, "Error during data initialization");
             
-            // En cas d'erreur, créer quelques produits manuellement
             try
             {
                 await CreateSampleProductsAsync();
@@ -198,3 +194,4 @@ public class DataInitializationService : IDataInitializationService
         _logger.LogInformation("Successfully created {Count} sample products", sampleProducts.Length);
     }
 }
+

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Row, Col, Card, Alert, Button, Badge, Table } from 'react-bootstrap';
 import {
   Chart as ChartJS,
@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Header Section */}
+      {}
       <div className="dashboard-header mb-4">
         <div className="d-flex justify-content-between align-items-center">
           <div>
@@ -92,12 +92,12 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Statistics Cards - Section Inventory prioritaire */}
+      {}
       <div className="stats-section mb-4">
         <StatsCards data={data} />
       </div>
 
-      {/* Quick Actions */}
+      {}
       <Row className="mb-4">
         <Col lg={12}>
           <Card className="border-0 shadow-sm">
@@ -127,7 +127,7 @@ const Dashboard: React.FC = () => {
         </Col>
       </Row>
 
-      {/* Charts */}
+      {}
       <Row className="mb-4">
         <Col lg={8} className="mb-3">
           <Card className="chart-card">

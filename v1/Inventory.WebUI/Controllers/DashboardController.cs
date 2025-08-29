@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Inventory.Core.Services;
 using Inventory.Core.Entities;
 using Inventory.WebUI.Models;
@@ -16,7 +16,6 @@ public class DashboardController : ControllerBase
         _dashboardService = dashboardService ?? throw new ArgumentNullException(nameof(dashboardService));
     }
 
-    // Route par défaut - Données complètes du dashboard
     [HttpGet]
     public async Task<ActionResult<ApiResponse<object>>> GetDashboard()
     {
@@ -73,7 +72,6 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<Dictionary<DateTime, decimal>>(trend, $"Value trend for {days} days retrieved"));
     }
 
-
     [HttpGet("alerts/restock")]
     public async Task<ActionResult<ApiResponse<IEnumerable<Product>>>> GetRestockAlerts()
     {
@@ -107,7 +105,6 @@ public class DashboardController : ControllerBase
         return Ok(new ApiResponse<object>(summary, "Summary statistics retrieved"));
     }
 
-    // Santé
     private double CalculateHealthScore(DashboardMetrics metrics)
     {
         if (metrics.TotalProducts == 0) return 0;
@@ -118,3 +115,4 @@ public class DashboardController : ControllerBase
         return Math.Round(healthPercentage, 1);
     }
 }
+

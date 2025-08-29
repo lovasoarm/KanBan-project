@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { ProductSummary as ProductSummaryType } from '../../types/dashboard.types';
 
@@ -65,13 +65,13 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ data }) => {
           </Col>
         </Row>
 
-        {/* Prix moyen */}
+        {}
         <div className="mt-4 pt-3 border-top text-center">
           <div className="small text-muted">Prix Moyen</div>
           <div className="h4 text-primary mb-0">€{data.averagePrice.toFixed(2)}</div>
         </div>
 
-        {/* Statistiques supplémentaires */}
+        {}
         <div className="mt-4 pt-3 border-top">
           <div className="row text-center small">
             <div className="col-4">
@@ -89,7 +89,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Actions rapides */}
+        {}
         <div className="mt-3 d-grid gap-2">
           <button className="btn btn-outline-success btn-sm">
             <i className="fas fa-plus me-1"></i>

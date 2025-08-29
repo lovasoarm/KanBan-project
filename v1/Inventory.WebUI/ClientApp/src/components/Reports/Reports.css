@@ -1,4 +1,4 @@
-.reports-container {
+﻿.reports-container {
   padding: var(--page-padding);
 }
 
@@ -59,7 +59,6 @@
   margin-bottom: var(--gap);
 }
 
-/* Overview Cards */
 .overview-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -117,7 +116,6 @@
   text-align: center;
 }
 
-/* Tables */
 .table-card {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -177,7 +175,6 @@
   background: rgba(47, 128, 237, 0.05);
 }
 
-/* Chart Card */
 .chart-card {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -204,13 +201,12 @@
 
 .chart-body {
   padding: 1.5rem;
-  height: calc(100% - 70px); /* 70px is header height */
+  height: calc(100% - 70px); 
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-/* Animations pour le graphique */
 .chart-container {
   position: relative;
   width: 100%;
@@ -248,7 +244,6 @@
   }
 }
 
-/* Effet de pulsation lors du chargement */
 .chart-loading {
   background: linear-gradient(90deg, 
     rgba(243, 244, 246, 0.8) 25%, 
@@ -266,7 +261,6 @@
   100% { background-position: 200% 0; }
 }
 
-/* Message de mise à jour */
 .chart-update-message {
   position: absolute;
   top: 50%;
@@ -294,7 +288,6 @@
   }
 }
 
-/* Period Toggle Buttons */
 .period-toggle {
   display: flex;
   gap: 0.5rem;
@@ -391,7 +384,6 @@
   background: #FBC02D;
 }
 
-/* See All button */
 .see-all {
   color: var(--primary-color);
   text-decoration: none;
@@ -405,19 +397,16 @@
   text-decoration: none;
 }
 
-/* Product name styling */
 .product-name {
   font-weight: 500;
   color: var(--text-primary);
 }
 
-/* Price styling */
 .price {
   font-weight: 600;
   color: var(--text-primary);
 }
 
-/* Quantity remaining styling */
 .quantity-remaining {
   background: rgba(47, 128, 237, 0.1);
   color: var(--primary-color);
@@ -427,7 +416,6 @@
   font-weight: 600;
 }
 
-/* Increase By Badge */
 .increase-badge {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -438,7 +426,6 @@
   font-weight: 600;
 }
 
-/* États de chargement et d'erreur */
 .loading-state, .error-state {
   display: flex;
   flex-direction: column;
@@ -496,7 +483,6 @@
   font-style: italic;
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .reports-top-row {
     grid-template-columns: 1fr;

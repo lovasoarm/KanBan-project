@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+﻿import { useState, useEffect, useCallback } from 'react';
 import { dashboardService } from '../services/api';
 
 export interface CategoryData {
@@ -51,7 +51,6 @@ export const useDashboard = (): UseDashboardResult => {
       const metrics = metricsResult?.data;
       const categories = categoryResult?.data || [];
       
-      // Transform API data to expected format
       const dashboardData: DashboardData = {
         totalProducts: metrics?.TotalProducts || 1247,
         lowStockItems: metrics?.LowStockCount || 23,

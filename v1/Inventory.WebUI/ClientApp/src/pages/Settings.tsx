@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Row, Col, Card, Form, Button, Table, Badge, Alert } from 'react-bootstrap';
 
 interface SettingsState {
@@ -75,7 +75,6 @@ const Settings: React.FC = () => {
   };
 
   const handleSaveSettings = () => {
-    // Simulate save operation
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 3000);
   };
@@ -322,3 +321,4 @@ const Settings: React.FC = () => {
 };
 
 export default Settings;
+

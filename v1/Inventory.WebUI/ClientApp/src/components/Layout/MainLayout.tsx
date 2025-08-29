@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Package, FileText, Truck, ShoppingCart, 
@@ -27,7 +27,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   ];
 
   const handleLogout = () => {
-    // Implement logout logic
     console.log('Logout clicked');
   };
 
@@ -37,7 +36,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className="main-layout">
-      {/* Sidebar */}
+      {}
       <aside className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
@@ -78,9 +77,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </nav>
       </aside>
 
-      {/* Main Content Area */}
+      {}
       <div className="main-content">
-        {/* Topbar */}
+        {}
         <header className="topbar">
           <div className="topbar-left">
             <div className="search-container">
@@ -107,7 +106,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           </div>
         </header>
 
-        {/* Content */}
+        {}
         <main className="content">
           {children}
         </main>
@@ -117,3 +116,4 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 };
 
 export default MainLayout;
+

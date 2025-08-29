@@ -69,7 +69,7 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
         return ProductStatus.Available;
     }
 
-    // Mise à jour quantité
+    // Mise à jour du quantité
     public void UpdateQuantity(int newQuantity)
     {
         var previousQuantity = Quantity;
@@ -101,14 +101,14 @@ public class Product : IInventoryItem<int>, IStatusProvider<ProductStatus>, ISku
     public bool NeedsAttention() => NeedsRestock() || IsOverstocked || !IsActive;
 }
 
-// Mapping pour Global Product Inventory Dataset 2025
+// Pour Global Product Inventory Dataset 2025
 public class ProductCsvMap : ClassMap<Product>
 {
     private static int _idCounter = 0;
     
     public ProductCsvMap()
     {
-        // Mapping basé sur le fichier CSV réel
+        // Mapping basé sur le CSV réel
         Map(m => m.SKU).Name("Product ID");
         Map(m => m.Name).Name("Product Name");
         Map(m => m.Category).Name("Product Category");
@@ -123,35 +123,34 @@ public class ProductCsvMap : ClassMap<Product>
         Map(m => m.SubCategory).Name("Product Tags");
         Map(m => m.Model).Name("Color/Size Variations");
         
-        // Générer un ID unique pour chaque produit
+  
         Map(m => m.Id).Convert(args => System.Threading.Interlocked.Increment(ref _idCounter));
         
-        // Ratings comme proxy pour qualité
+     
         Map(m => m.SustainabilityScore).Name("Product Ratings");
-        
-        // Valeurs par défaut calculées
+    
         Map(m => m.Cost).Convert(args => 
         {
             if (decimal.TryParse(args.Row.GetField("Price"), out var price))
-                return price * 0.7m; // Coût estimé à 70% du prix
+                return price * 0.7m; 
             return 0m;
         });
         
         Map(m => m.MinQuantity).Convert(args => 
         {
             if (int.TryParse(args.Row.GetField("Stock Quantity"), out var qty))
-                return Math.Max(1, qty / 5); // Stock minimum = 20% du stock actuel
+                return Math.Max(1, qty / 5); 
             return 1;
         });
         
         Map(m => m.MaxQuantity).Convert(args => 
         {
             if (int.TryParse(args.Row.GetField("Stock Quantity"), out var qty))
-                return qty * 3; // Stock maximum = 3x le stock actuel
+                return qty * 3;
             return 100;
         });
         
-        // Géolocalisation basée sur catégorie
+
         Map(m => m.Location).Convert(args => 
         {
             var category = args.Row.GetField("Product Category");
@@ -176,8 +175,8 @@ public class ProductCsvMap : ClassMap<Product>
             };
         });
         
-        // Toujours actif par défaut
+     
         Map(m => m.IsActive).Convert(args => true);
-        Map(m => m.TaxRate).Convert(args => 0.20m); // 20% TVA par défaut
+        Map(m => m.TaxRate).Convert(args => 0.20m); 
     }
 }

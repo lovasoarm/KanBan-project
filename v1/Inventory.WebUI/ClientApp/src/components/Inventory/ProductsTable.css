@@ -1,12 +1,11 @@
-/* ProductsTable utilise les styles du Dashboard */
+﻿
 .products-table-container {
-  /* Styles héritent du products-section dans Inventory.css */
+  
 }
 
-/* Override Bootstrap table styles with dashboard data-table styles */
 .products-table-container .table-container {
   overflow-x: auto;
-  max-height: none; /* Pas de limite pour l'inventaire */
+  max-height: none; 
 }
 
 .products-table-container .data-table {
@@ -81,7 +80,6 @@
   font-weight: 500;
 }
 
-/* Badge Improvements */
 .badge {
   font-size: 0.75rem;
   padding: 0.375rem 0.75rem;
@@ -106,7 +104,6 @@
   border: 1px solid rgba(220, 53, 69, 0.3) !important;
 }
 
-/* Spécifiquement pour les badges Critical */
 .badge.bg-danger,
 span.badge.bg-danger,
 .badge[style*="danger"],
@@ -116,7 +113,6 @@ span.badge.bg-danger,
   border: 1px solid rgba(220, 53, 69, 0.3) !important;
 }
 
-/* Loading Skeleton */
 .loading-skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -135,7 +131,6 @@ span.badge.bg-danger,
   }
 }
 
-/* Empty State */
 .empty-state {
   padding: 3rem 2rem;
   text-align: center;
@@ -156,7 +151,6 @@ span.badge.bg-danger,
   margin-bottom: 0;
 }
 
-/* Pagination */
 .page-info {
   display: flex;
   align-items: center;
@@ -169,7 +163,6 @@ span.badge.bg-danger,
   font-size: 0.875rem;
 }
 
-/* Pagination Buttons */
 .btn-outline-secondary {
   border-color: #dee2e6;
   color: #6c757d;
@@ -189,7 +182,6 @@ span.badge.bg-danger,
   transform: none;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .products-table thead th {
     padding: 0.75rem;
@@ -219,7 +211,7 @@ span.badge.bg-danger,
     padding: 0.25rem 0.5rem;
   }
   
-  /* Stack pagination on mobile */
+  
   .d-flex.justify-content-between {
     flex-direction: column;
     gap: 1rem;
@@ -233,7 +225,7 @@ span.badge.bg-danger,
 
 @media (max-width: 576px) {
   .products-table {
-    min-width: 600px; /* Reduced minimum width for very small screens */
+    min-width: 600px; 
   }
   
   .empty-state {
@@ -249,7 +241,6 @@ span.badge.bg-danger,
   }
 }
 
-/* Horizontal Scroll Indicator */
 .table-responsive::-webkit-scrollbar {
   height: 8px;
 }
@@ -268,7 +259,6 @@ span.badge.bg-danger,
   background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
 }
 
-/* Table Animation */
 .products-table tbody tr {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -284,7 +274,6 @@ span.badge.bg-danger,
   }
 }
 
-/* Loading Row Animation */
 .loading-skeleton {
   animation: loading 1.5s infinite, fadeIn 0.3s ease-in-out;
 }

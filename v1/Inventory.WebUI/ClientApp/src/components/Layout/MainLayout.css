@@ -1,4 +1,4 @@
-/* Main Layout Styles */
+﻿
 .main-layout {
   display: flex;
   height: 100vh;
@@ -6,7 +6,6 @@
   font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Sidebar */
 .sidebar {
   width: 260px;
   background: #FFFFFF;
@@ -134,7 +133,6 @@
   color: #DC2626;
 }
 
-/* Main Content */
 .main-content {
   flex: 1;
   margin-left: 260px;
@@ -148,7 +146,6 @@
   margin-left: 72px;
 }
 
-/* Topbar */
 .topbar {
   background: #FFFFFF;
   border-bottom: 1px solid #E9EEF2;
@@ -257,14 +254,12 @@
   box-shadow: 0 4px 12px rgba(47, 128, 237, 0.3);
 }
 
-/* Content */
 .content {
   flex: 1;
   padding: 28px;
   overflow-y: auto;
 }
 
-/* Animations */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -274,7 +269,6 @@
   }
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .sidebar {
     width: 260px;

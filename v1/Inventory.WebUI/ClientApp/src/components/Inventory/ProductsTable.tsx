@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Table, Badge, Button, Pagination } from 'react-bootstrap';
 import { Product } from '../../hooks/useInventory';
 import './ProductsTable.css';
@@ -75,7 +75,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
 
-    // Previous button
     items.push(
       <Pagination.Prev
         key="prev"
@@ -84,7 +83,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       />
     );
 
-    // First page
     if (startPage > 1) {
       items.push(
         <Pagination.Item key={1} onClick={() => onPageChange(1)}>
@@ -96,7 +94,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       }
     }
 
-    // Page numbers
     for (let page = startPage; page <= endPage; page++) {
       items.push(
         <Pagination.Item
@@ -109,7 +106,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       );
     }
 
-    // Last page
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         items.push(<Pagination.Ellipsis key="end-ellipsis" />);
@@ -121,7 +117,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       );
     }
 
-    // Next button
     items.push(
       <Pagination.Next
         key="next"
@@ -163,7 +158,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
 
   return (
     <div className="products-table-container">
-      {/* Table using dashboard style */}
+      {}
       <div className="table-container">
         <table className="data-table">
           <thead>
@@ -178,7 +173,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
           </thead>
           <tbody>
             {loading ? (
-              // Show loading skeletons
               Array.from({ length: 5 }, (_, index) => (
                 <tr key={index}>
                   <td><div className="loading-skeleton"></div></td>
@@ -200,7 +194,6 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
                 </td>
               </tr>
             ) : (
-              // Show actual products
               products.map((product) => (
                 <tr key={product.id} className="table-row">
                   <td>
@@ -239,10 +232,11 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
         </table>
       </div>
 
-      {/* Pagination Footer */}
+      {}
       {!loading && products.length > 0 && renderPagination()}
     </div>
   );
 };
 
 export default ProductsTable;
+

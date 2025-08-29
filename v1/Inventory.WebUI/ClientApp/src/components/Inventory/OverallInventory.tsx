@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { InventoryMetrics } from '../../hooks/useInventory';
 import './OverallInventory.css';
@@ -111,7 +111,7 @@ const OverallInventory: React.FC<OverallInventoryProps> = ({ metrics, loading })
 
   return (
     <Row className="overall-inventory">
-      {/* Categories */}
+      {}
       <Col xl={3} lg={6} md={6} sm={12} className="mb-4">
         <MetricCard
           title="Categories"
@@ -123,7 +123,7 @@ const OverallInventory: React.FC<OverallInventoryProps> = ({ metrics, loading })
         />
       </Col>
 
-      {/* Total Products */}
+      {}
       <Col xl={3} lg={6} md={6} sm={12} className="mb-4">
         <MetricCard
           title="Total Products"
@@ -138,7 +138,7 @@ const OverallInventory: React.FC<OverallInventoryProps> = ({ metrics, loading })
         />
       </Col>
 
-      {/* Top Selling */}
+      {}
       <Col xl={3} lg={6} md={6} sm={12} className="mb-4">
         <MetricCard
           title="Top Selling"
@@ -153,7 +153,7 @@ const OverallInventory: React.FC<OverallInventoryProps> = ({ metrics, loading })
         />
       </Col>
 
-      {/* Low Stock */}
+      {}
       <Col xl={3} lg={6} md={6} sm={12} className="mb-4">
         <MetricCard
           title="Low Stock"

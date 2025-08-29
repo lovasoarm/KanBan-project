@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { formatCurrency, formatNumber } from '../../utils/formatters';
 
@@ -88,7 +88,6 @@ const StatCard: React.FC<StatCardProps> = ({
 };
 
 const StatsCards: React.FC<StatsCardsProps> = ({ data }) => {
-  // Default data si pas de données disponibles
   const defaultData: StatsData = {
     salesOverview: { value: 125000, change: 12.5 },
     revenue: { value: 89500, change: 8.3 },
@@ -159,3 +158,4 @@ const StatsCards: React.FC<StatsCardsProps> = ({ data }) => {
 };
 
 export default StatsCards;
+

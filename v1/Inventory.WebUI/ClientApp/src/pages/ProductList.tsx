@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Row, Col, Card, Table, Badge, Form, InputGroup, Button } from 'react-bootstrap';
 
 const ProductList: React.FC = () => {
